@@ -1,0 +1,31 @@
+{
+ "name": "Bedside Ref: Orientation to CCRN",
+ "short_name": "Bedside Ref",
+ "description": "Orientation to CCRN: An ICU Nurse's Bedside Reference (General edition). Offline reader with search, highlights and notes.",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "any",
+ "background_color": "#8c2f3f",
+ "theme_color": "#8c2f3f",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}
