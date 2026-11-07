@@ -18,8 +18,7 @@ These steps are easiest on a computer.
 1. Sign in at github.com, or create a free account.
 2. Top right: **+** → **New repository**. Name it `bedside-ref`, set it to **Public**, and click **Create repository**.
    - Public means anyone with the address can open the book. It holds no personal data; your notes stay on your devices.
-3. On the next page, click **uploading an existing file**. Drag in **everything inside this folder**, including the `fonts` and `img` folders, but not the folder itself. Click **Commit changes**.
-   - If the `fonts` or `img` folders don't upload by dragging, open each one and drag in its files. GitHub keeps the folder name when you drag the folder itself.
+3. On the next page, click **uploading an existing file**. Open this folder, select all the files inside it (Command-A), and drag them in. There are no subfolders. Click **Commit changes**.
 4. Go to **Settings** → **Pages**. Under "Build and deployment", set Source to **Deploy from a branch**, Branch to **main**, and the folder to **/ (root)**. Click **Save**.
 5. Wait 1–2 minutes. The address appears at the top of the Pages screen: `https://YOUR-USERNAME.github.io/bedside-ref/`
 
@@ -38,5 +37,5 @@ Upload the new files to the same repository; they replace the old ones. Each bui
 - `index.html`: the app and the whole book
 - `sw.js`: offline support
 - `manifest.webmanifest` and the `*.png` icons: the app name and icon
-- `img/`: the book's photographs and illustrations
-- `fonts/`: Nunito, Fredoka and Caveat, under the SIL Open Font License (see the `OFL-*.txt` files)
+- `*.jpg`: the book's photographs and illustrations
+- `*.woff2`: the fonts Nunito, Fredoka and Caveat, under the SIL Open Font License (see the `OFL-*.txt` files)
