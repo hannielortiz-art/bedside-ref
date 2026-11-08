@@ -78,8 +78,9 @@
 }
 
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-body { margin: 0; background: var(--bg); color: var(--fg); font-family: Nunito, system-ui, sans-serif; font-size: 16px; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--chrome); overscroll-behavior-y: none; }
+/* html is burgundy so the area behind the iPhone/iPad status bar is never the light page color */
+body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--fg); font-family: Nunito, system-ui, sans-serif; font-size: 16px; overscroll-behavior-y: none; }
 button { font: inherit; color: inherit; }
 [hidden] { display: none !important; }
 
@@ -191,7 +192,10 @@ button { font: inherit; color: inherit; }
   #drawer { transform: none; top: calc(52px + env(safe-area-inset-top)); box-shadow: none; border-right: 1px solid var(--line); z-index: 20; }
   #drawer .dhead { display: none; }
   body.pinned #wrap { margin-left: 360px; margin-right: auto; max-width: calc(var(--maxw) + 2 * var(--pad)); }
-  body.pinned #menuBtn { display: none !important; }
+  #drawer { transition: transform .22s ease; }
+  #wrap { transition: margin .22s ease; }
+  body.pinned.collapsed #drawer { transform: translateX(-105%); }
+  body.pinned.collapsed #wrap { margin-left: auto; margin-right: auto; max-width: calc(var(--maxw) + 300px + 2 * var(--pad)); }
   @media (min-width: 1500px) { body.pinned #wrap { margin-left: max(360px, calc(50vw - var(--maxw) / 2)); } }
 }
 
@@ -362,7 +366,7 @@ mark.flash { animation: flash 1.6s ease 2; }
   <div class="setrow"><span>Margins</span><span class="seg" data-key="mg"><button data-v="narrow">Narrow</button><button data-v="normal">Normal</button><button data-v="wide">Wide</button></span></div>
   <div class="setrow"><span>Theme</span><span class="seg" data-key="theme"><button data-v="auto">Auto</button><button data-v="light">Light</button><button data-v="sepia">Sepia</button><button data-v="dark">Dark</button></span></div>
   <div class="btnrow"><button class="btn alt" id="setReset">Reset to defaults</button></div>
-  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Settings are saved on this device.<br>General edition, November 7, 2026, adapted from the second edition (October 31, 2026; revised November 7, 2026). App build 2026-11-07.1931.</p>
+  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Settings are saved on this device.<br>General edition, November 7, 2026, adapted from the second edition (October 31, 2026; revised November 7, 2026). App build 2026-11-07.2108.</p>
 </section>
 
 <div id="selbar" class="panel" hidden>
@@ -17615,8 +17619,13 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
     const row = $('#toclist .tocrow[data-i="' + i + '"]');
     if (row) { toggleSubs(row, true); if (pinned()) row.scrollIntoView({ block: 'nearest' }); }
   }
+  function setCollapsed(on) {
+    document.body.classList.toggle('collapsed', on);
+    store.set('bref.sidebar', on ? 'hidden' : 'shown');
+    $('#menuBtn').setAttribute('aria-label', pinned() ? (on ? 'Show contents' : 'Hide contents') : 'Contents');
+  }
   function openDrawer() {
-    if (pinned()) return;
+    if (pinned()) { setCollapsed(!document.body.classList.contains('collapsed')); return; }
     drawer.classList.add('open'); scrim.hidden = false;
     const row = $('#toclist .tocrow.cur'); if (row) row.scrollIntoView({ block: 'center' });
   }
@@ -17629,7 +17638,11 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
   scrim.addEventListener('click', closeAll);
   $('#menuBtn').addEventListener('click', openDrawer);
   $('#bartitle').addEventListener('click', () => (pinned() ? window.scrollTo({ top: 0, behavior: 'smooth' }) : openDrawer()));
-  function syncPinned() { document.body.classList.toggle('pinned', pinned()); if (pinned()) drawer.classList.add('open'); else if (scrim.hidden) drawer.classList.remove('open'); }
+  function syncPinned() {
+    document.body.classList.toggle('pinned', pinned());
+    if (pinned()) drawer.classList.add('open'); else if (scrim.hidden) drawer.classList.remove('open');
+    setCollapsed(pinned() && store.get('bref.sidebar', 'shown') === 'hidden');
+  }
   window.matchMedia('(min-width: 1100px)').addEventListener('change', syncPinned);
 
   // ---------- reading position and progress ----------
