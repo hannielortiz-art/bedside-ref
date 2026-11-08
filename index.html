@@ -41,17 +41,17 @@
    text-size setting scales everything. Themes: light (default), sepia, dark, or auto (follows the device). */
 :root {
   --fs: 17px; --lh: 1.55; --ps: 0.7em; --pad: 18px; --maxw: 760px;
-  --bg: #fbf7f2; --paper: #ffffff; --fg: #2b2f33; --muted: #6b7b84; --line: #eadfe1; --chrome: #8c2f3f; --chrome-fg: #fff;
+  --bg: #fbf7f2; --paper: #ffffff; --fg: #2b2f33; --muted: #56646c; --line: #eadfe1; --chrome: #8c2f3f; --chrome-fg: #fff;
   --navy: #234a63; --burg: #8c2f3f; --burg-d: #6b1f2c; --gold: #b8892b; --gold-l: #f6c453; --violet: #8e7cc3;
   --strong: #1f3d52; --em: #3a4a55; --link: #6b1f2c; --link-ul: #dcb3ba;
-  --box: #f7ecee; --warn: #fdeae6; --warn-fg: #d24534; --row: #fbf4f5; --tborder: #e4c0c7; --tline: #f3e6e8;
+  --box: #f7ecee; --warn: #fdeae6; --warn-fg: #b5301e; --row: #fbf4f5; --tborder: #e4c0c7; --tline: #f3e6e8;
   --tipmem: #fff8e4; --tipsurv: #eef9f2; --tipwarn: #fde7e3; --tipnurse: #f3f0fb; --grp: #fde7e3;
   --part: #f5e9eb; --card: #ffffff; --shadow: 0 1px 3px rgba(60,20,30,.12);
   --hl-y: #ffe58a; --hl-g: #bdf0c4; --hl-b: #c3e2ff; --hl-p: #ffc9d8; --hit: #f6c453;
   color-scheme: light;
 }
 :root[data-theme="sepia"] {
-  --bg: #f3ead9; --paper: #f8f1e3; --fg: #3b3127; --muted: #7a6d5e; --line: #e2d4bd; --card: #fbf5ea;
+  --bg: #f3ead9; --paper: #f8f1e3; --fg: #3b3127; --muted: #665a4c; --warn-fg: #a42a1a; --line: #e2d4bd; --card: #fbf5ea;
   --row: #f2e8d6; --box: #f1e1d6; --warn: #f6dccf; --tline: #eadcc5; --part: #efe0d2;
 }
 :root[data-theme="dark"] {
@@ -221,7 +221,7 @@ button { font: inherit; color: inherit; }
 #content h4 { font-family: Fredoka, sans-serif; font-weight: 600; color: var(--navy); font-size: 1.02em; margin: 1.1em 0 .35em; }
 :root[data-theme="dark"] #content h4:not(.pill) { color: #9cc3df; }
 #content h4.pill { display: table; color: #fff; border-radius: 11px; padding: 4px 12px 2px; font-size: .95em; margin: 1em 0 .35em; }
-#content h4.c0 { background: #8c2f3f; } #content h4.c1 { background: #b8892b; } #content h4.c2 { background: #8e7cc3; } #content h4.c3 { background: #234a63; } #content h4.c4 { background: #f6c453; color: #3a2d05; }
+#content h4.c0 { background: #8c2f3f; } #content h4.c1 { background: #8a6416; } #content h4.c2 { background: #6b58a6; } #content h4.c3 { background: #234a63; } #content h4.c4 { background: #f6c453; color: #3a2d05; }
 #content h4.revdate { color: var(--gold); font-size: 1.05em; }
 #content h5 { font-family: Fredoka, sans-serif; font-weight: 600; color: var(--gold); font-size: 1em; margin: .9em 0 .25em; }
 #content h1 { font-family: Fredoka, sans-serif; }
@@ -362,7 +362,7 @@ mark.flash { animation: flash 1.6s ease 2; }
   <div class="setrow"><span>Margins</span><span class="seg" data-key="mg"><button data-v="narrow">Narrow</button><button data-v="normal">Normal</button><button data-v="wide">Wide</button></span></div>
   <div class="setrow"><span>Theme</span><span class="seg" data-key="theme"><button data-v="auto">Auto</button><button data-v="light">Light</button><button data-v="sepia">Sepia</button><button data-v="dark">Dark</button></span></div>
   <div class="btnrow"><button class="btn alt" id="setReset">Reset to defaults</button></div>
-  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Settings are saved on this device.<br>General edition, November 7, 2026, adapted from the second edition (October 31, 2026; revised November 7, 2026). App build 2026-11-07.1916.</p>
+  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Settings are saved on this device.<br>General edition, November 7, 2026, adapted from the second edition (October 31, 2026; revised November 7, 2026). App build 2026-11-07.1931.</p>
 </section>
 
 <div id="selbar" class="panel" hidden>
@@ -17686,9 +17686,14 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
     const MAXPER = 25, MAXALL = 400; let body = '';
     for (let i = 0; i < CH.length && total < MAXALL; i++) {
       const T = chText(i), L = LOW[i]; let idx = L.indexOf(q), n = 0, part = '';
+      const whole = q.length <= 3;   // short terms (pH, K, MAP) match whole words only, so "ph" doesn't hit "phosphate"
+      const isW = (c) => !!c && /[a-z0-9]/i.test(c);
       while (idx >= 0 && total < MAXALL) {
-        if (n < MAXPER) part += '<button class="res" data-ch="' + i + '" data-s="' + idx + '" data-e="' + (idx + q.length) + '">' + snippet(T, idx, idx + q.length) + '</button>';
-        n++; total++; idx = L.indexOf(q, idx + q.length);
+        if (!whole || (!isW(L[idx - 1]) && !isW(L[idx + q.length]))) {
+          if (n < MAXPER) part += '<button class="res" data-ch="' + i + '" data-s="' + idx + '" data-e="' + (idx + q.length) + '">' + snippet(T, idx, idx + q.length) + '</button>';
+          n++; total++;
+        }
+        idx = L.indexOf(q, idx + q.length);
       }
       if (n) body += '<div class="rgrp">' + esc(label(CH[i])) + ' <small>(' + n + (n > MAXPER ? ', first ' + MAXPER + ' shown' : '') + ')</small></div>' + part;
     }
