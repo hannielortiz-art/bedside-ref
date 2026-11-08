@@ -1,5 +1,5 @@
 // Bedside Ref offline support. Changing VERSION is what tells installed copies to fetch the new book.
-const VERSION = '2026-11-07.1907';
+const VERSION = '2026-11-07.1916';
 const CACHE = 'bedside-ref-' + VERSION;
 const FILES = [
  "./",
@@ -64,8 +64,18 @@ self.addEventListener('message', (e) => { if (e.data === 'skip') self.skipWaitin
 self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET' || new URL(req.url).origin !== location.origin) return;
-  if (req.mode === 'navigate') {
-    e.respondWith(caches.match('./index.html', { cacheName: CACHE }).then((r) => r || fetch(req)));
+  // The page itself: newest copy when online (so updates show on the next open), saved copy when offline.
+  if (req.mode === 'navigate' || /\/index\.html$/.test(new URL(req.url).pathname)) {
+    e.respondWith((async () => {
+      try {
+        const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 4000);
+        const net = await fetch(req.url.split('#')[0], { cache: 'no-cache', signal: ctl.signal }); clearTimeout(t);
+        if (net.ok) { const c = await caches.open(CACHE); c.put('./index.html', net.clone()); return net; }
+        throw new Error('status ' + net.status);
+      } catch (err) {
+        return (await caches.match('./index.html', { cacheName: CACHE })) || fetch(req);
+      }
+    })());
     return;
   }
   e.respondWith(caches.match(req, { cacheName: CACHE, ignoreSearch: true }).then((r) => r || fetch(req)));
