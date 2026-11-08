@@ -187,6 +187,7 @@ button { font: inherit; color: inherit; }
 .home .acts { display: grid; gap: 10px; margin: 18px 0; }
 .home .acts .btn { padding: 14px; font-size: 16px; text-align: left; border-radius: 14px; }
 .home .acts .btn small { display: block; font-weight: 400; opacity: .85; font-size: 13px; margin-top: 2px; }
+.copy { text-align: center; color: var(--muted); font-size: 12px; margin: 18px 0 0; }
 .home .tip { font-size: 13px; color: var(--muted); line-height: 1.5; text-align: center; margin: 14px 4px; }
 
 @media (min-width: 1100px) {
@@ -367,7 +368,7 @@ mark.flash { animation: flash 1.6s ease 2; }
   <div class="setrow"><span>Margins</span><span class="seg" data-key="mg"><button data-v="narrow">Narrow</button><button data-v="normal">Normal</button><button data-v="wide">Wide</button></span></div>
   <div class="setrow"><span>Theme</span><span class="seg" data-key="theme"><button data-v="auto">Auto</button><button data-v="light">Light</button><button data-v="sepia">Sepia</button><button data-v="dark">Dark</button></span></div>
   <div class="btnrow"><button class="btn alt" id="setReset">Reset to defaults</button></div>
-  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Settings are saved on this device.<br>General edition, November 7, 2026, adapted from the second edition (October 31, 2026; revised November 7, 2026). App build 2026-11-07.2132.</p>
+  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Settings are saved on this device.<br>General edition, November 7, 2026, adapted from the second edition (October 31, 2026; revised November 7, 2026). App build 2026-11-08.1337.<br>&copy; 2026 Hanniel G. Ortiz. All rights reserved.</p>
 </section>
 
 <div id="selbar" class="panel" hidden>
@@ -17350,6 +17351,7 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
   const BYID = {}; CH.forEach((c, i) => { BYID[c.id] = i; });
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+  const COPY = '&copy; 2026 Hanniel G. Ortiz. All rights reserved.';
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
   // ---------- storage (wrapped: private mode or blocked storage must not break reading) ----------
@@ -17476,6 +17478,8 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
     tip.innerHTML = standalone ? 'Works offline. Highlights and notes are saved on this device; use Notes &rarr; Back up to keep a copy.'
       : 'Tip: add this page to your home screen (Share &rarr; Add to Home Screen) to open it like an app, offline.';
     page.querySelector('.home').appendChild(tip);
+    const cr = document.createElement('p'); cr.className = 'tip copy'; cr.innerHTML = COPY + '<br>Photographs and illustrations are AI-generated; facts, doses and guideline values belong to their published sources.';
+    page.querySelector('.home').appendChild(cr);
     setBar(-1); markToc(-1); $('#prog i').style.width = '0';
     window.scrollTo(0, 0);
   }
@@ -17494,6 +17498,7 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
     nav.innerHTML = (p ? '<button data-go="' + p.id + '"><small>&larr; Previous</small><b>' + esc(label(p)) + '</b></button>' : '<button data-act="home"><small>&larr; Back to</small><b>Home</b></button>') +
       (n ? '<button class="nx" data-go="' + n.id + '"><small>Next &rarr;</small><b>' + esc(label(n)) + '</b></button>' : '');
     page.appendChild(nav);
+    const cr = document.createElement('p'); cr.className = 'copy ui'; cr.innerHTML = COPY; page.appendChild(cr);
     setBar(i); markToc(i);
   }
 
