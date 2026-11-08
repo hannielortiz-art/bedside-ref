@@ -6,6 +6,7 @@
 <title>Bedside Ref</title>
 <meta name="description" content="Orientation to CCRN: An ICU Nurse's Bedside Reference (General edition), as an offline reader with search, highlights and notes.">
 <meta name="theme-color" content="#8c2f3f">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#5a1d28">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -85,17 +86,17 @@ button { font: inherit; color: inherit; }
 [hidden] { display: none !important; }
 
 /* ---------- app chrome ---------- */
-#bar { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 2px; height: calc(52px + env(safe-area-inset-top));
+#bar { position: fixed; top: 0; left: 0; right: 0; z-index: 30; display: flex; align-items: center; gap: 2px; height: calc(52px + env(safe-area-inset-top));
   padding: env(safe-area-inset-top) 6px 0 6px; background: var(--chrome); color: var(--chrome-fg); box-shadow: 0 1px 4px rgba(0,0,0,.2); }
 #bar .ib { flex: 0 0 auto; width: 44px; height: 44px; border: 0; background: transparent; border-radius: 10px; display: grid; place-items: center; cursor: pointer; color: inherit; }
 #bar .ib:active, #bar .ib:hover { background: rgba(255,255,255,.14); }
 #bar svg { width: 24px; height: 24px; }
 #bartitle { flex: 1 1 auto; min-width: 0; font-family: Fredoka, Nunito, sans-serif; font-weight: 600; font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 4px; cursor: pointer; }
 #bartitle .n { display: inline-block; min-width: 1.6em; padding: 0 .35em; margin-right: .35em; border-radius: 9px; background: var(--gold); color: #fff; text-align: center; font-size: 14px; line-height: 1.5; }
-#prog { position: sticky; top: calc(52px + env(safe-area-inset-top)); z-index: 29; height: 3px; background: transparent; }
+#prog { position: fixed; left: 0; right: 0; top: calc(52px + env(safe-area-inset-top)); z-index: 29; height: 3px; background: transparent; }
 #prog i { display: block; height: 100%; width: 0; background: var(--gold-l); }
 
-#wrap { max-width: calc(var(--maxw) + 2 * var(--pad)); margin: 0 auto; padding: 14px var(--pad) calc(90px + env(safe-area-inset-bottom)); }
+#wrap { max-width: calc(var(--maxw) + 2 * var(--pad)); margin: 0 auto; padding: calc(66px + env(safe-area-inset-top)) var(--pad) calc(90px + env(safe-area-inset-bottom)); }
 
 .scrim { position: fixed; inset: 0; z-index: 40; background: rgba(0,0,0,.35); }
 .panel { position: fixed; z-index: 50; background: var(--paper); color: var(--fg); box-shadow: 0 4px 24px rgba(0,0,0,.3); }
@@ -366,7 +367,7 @@ mark.flash { animation: flash 1.6s ease 2; }
   <div class="setrow"><span>Margins</span><span class="seg" data-key="mg"><button data-v="narrow">Narrow</button><button data-v="normal">Normal</button><button data-v="wide">Wide</button></span></div>
   <div class="setrow"><span>Theme</span><span class="seg" data-key="theme"><button data-v="auto">Auto</button><button data-v="light">Light</button><button data-v="sepia">Sepia</button><button data-v="dark">Dark</button></span></div>
   <div class="btnrow"><button class="btn alt" id="setReset">Reset to defaults</button></div>
-  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Settings are saved on this device.<br>General edition, November 7, 2026, adapted from the second edition (October 31, 2026; revised November 7, 2026). App build 2026-11-07.2108.</p>
+  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Settings are saved on this device.<br>General edition, November 7, 2026, adapted from the second edition (October 31, 2026; revised November 7, 2026). App build 2026-11-07.2132.</p>
 </section>
 
 <div id="selbar" class="panel" hidden>
@@ -17377,7 +17378,7 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
     if (settings.theme === 'auto') document.documentElement.removeAttribute('data-theme');
     else document.documentElement.setAttribute('data-theme', settings.theme);
     const dark = settings.theme === 'dark' || (settings.theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    $('meta[name="theme-color"]').setAttribute('content', dark ? '#5a1d28' : '#8c2f3f');
+    $$('meta[name="theme-color"]').forEach((m) => m.setAttribute('content', dark ? '#5a1d28' : '#8c2f3f'));
     store.set(K_SET, settings);
     syncSettingsUI();
   }
