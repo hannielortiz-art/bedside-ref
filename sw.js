@@ -1,5 +1,5 @@
 // Bedside Ref offline support. Changing VERSION is what tells installed copies to fetch the new book.
-const VERSION = '2026-11-09.1523';
+const VERSION = '2026-11-09.1539';
 const CACHE = 'bedside-ref-' + VERSION;
 const FILES = [
  "./",
