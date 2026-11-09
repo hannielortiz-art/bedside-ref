@@ -1,5 +1,5 @@
 // Bedside Ref offline support. Changing VERSION is what tells installed copies to fetch the new book.
-const VERSION = '2026-11-09.1213';
+const VERSION = '2026-11-09.1454';
 const CACHE = 'bedside-ref-' + VERSION;
 const FILES = [
  "./",
@@ -9,6 +9,10 @@ const FILES = [
  "icon-512.png",
  "apple-touch-icon.png",
  "favicon-32.png",
+ "atkinson-hyperlegible-latin-400-italic.woff2",
+ "atkinson-hyperlegible-latin-400-normal.woff2",
+ "atkinson-hyperlegible-latin-700-italic.woff2",
+ "atkinson-hyperlegible-latin-700-normal.woff2",
  "caveat-latin-600-normal.woff2",
  "caveat-latin-700-normal.woff2",
  "caveat-latin-ext-600-normal.woff2",
@@ -19,6 +23,10 @@ const FILES = [
  "fredoka-latin-ext-500-normal.woff2",
  "fredoka-latin-ext-600-normal.woff2",
  "fredoka-latin-ext-700-normal.woff2",
+ "literata-latin-400-italic.woff2",
+ "literata-latin-400-normal.woff2",
+ "literata-latin-700-italic.woff2",
+ "literata-latin-700-normal.woff2",
  "nunito-latin-400-italic.woff2",
  "nunito-latin-400-normal.woff2",
  "nunito-latin-700-italic.woff2",
@@ -31,6 +39,10 @@ const FILES = [
  "nunito-latin-ext-700-normal.woff2",
  "nunito-latin-ext-800-italic.woff2",
  "nunito-latin-ext-800-normal.woff2",
+ "opendyslexic-latin-400-italic.woff2",
+ "opendyslexic-latin-400-normal.woff2",
+ "opendyslexic-latin-700-italic.woff2",
+ "opendyslexic-latin-700-normal.woff2",
  "aorta.jpg",
  "ards.jpg",
  "armarteries.jpg",

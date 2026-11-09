@@ -6,7 +6,7 @@
 - **Links:** every section number in the text, tables and Index is a link. After following one, a **Back to…** button returns you to where you were.
 - **Search:** the magnifier searches the whole book, section titles, and your own highlights and notes.
 - **Highlights and notes:** select text, then tap a color. Tap **Note** to write a note. Tap any highlight to change its color, edit the note, or delete it. The bookmark button lists them all.
-- **Reading settings (Aa):** text size, line spacing, paragraph spacing, margins, and theme (auto, light, sepia, dark).
+- **Reading settings (Aa):** text size, font (Nunito, Atkinson Hyperlegible, Literata, OpenDyslexic, or your device's own), alignment (left or justified), line spacing, paragraph spacing, margins, chapters (one at a time, or continuous scrolling that adds the next chapter as you read), and theme (auto, light, sepia, dark, or low vision: white and yellow on black at high contrast).
 - **Resumes** where you left off.
 
 Your highlights, notes and settings stay in this device's storage. Nothing is sent anywhere. To move them to another device or keep a copy, use **Notes → Back up**, then **Restore from backup** on the other device. Never put patient-identifying information in a note.
@@ -38,4 +38,4 @@ Upload the new files to the same repository; they replace the old ones. Each bui
 - `sw.js`: offline support
 - `manifest.webmanifest` and the `*.png` icons: the app name and icon
 - `*.jpg`: the book's photographs and illustrations
-- `*.woff2`: the fonts Nunito, Fredoka and Caveat, under the SIL Open Font License (see the `OFL-*.txt` files)
+- `*.woff2`: the fonts Nunito, Fredoka and Caveat, plus the optional reading fonts Atkinson Hyperlegible, Literata and OpenDyslexic, all under the SIL Open Font License (see the `OFL-*.txt` files)
