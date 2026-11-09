@@ -461,6 +461,10 @@ section.chap > .copy { margin-top: 1.6em; }
 #prevtop:empty { display: none; }
 .seg[data-key="theme"] { flex-wrap: wrap; max-width: 100%; }
 
+/* font picker: long names wrap instead of spilling out of their box */
+.fontpick button { min-width: 0; overflow: hidden; overflow-wrap: anywhere; }
+.fontpick button[data-v="dyslexic"] { font-size: 13px; }
+
 </style>
 </head>
 <body>
@@ -508,7 +512,7 @@ section.chap > .copy { margin-top: 1.6em; }
     <button data-v="default">Nunito<small>Default</small></button>
     <button data-v="legible">Atkinson Hyperlegible<small>Easy to tell letters apart</small></button>
     <button data-v="serif">Literata<small>Book-style serif</small></button>
-    <button data-v="dyslexic">OpenDyslexic<small>Weighted letters</small></button>
+    <button data-v="dyslexic">Open<wbr>Dyslexic<small>Weighted letters</small></button>
     <button data-v="system">System<small>Your device&rsquo;s font</small></button>
   </div></div>
   <div class="setrow"><span>Alignment</span><span class="seg" data-key="align"><button data-v="left">Left</button><button data-v="justify">Justified</button></span></div>
@@ -518,7 +522,7 @@ section.chap > .copy { margin-top: 1.6em; }
   <div class="setrow"><span>Chapters</span><span class="seg" data-key="flow"><button data-v="paged">One at a time</button><button data-v="scroll">Continuous</button></span></div>
   <div class="setrow"><span>Theme</span><span class="seg" data-key="theme"><button data-v="auto">Auto</button><button data-v="light">Light</button><button data-v="sepia">Sepia</button><button data-v="dark">Dark</button><button data-v="lowvision">Low vision</button></span></div>
   <div class="btnrow"><button class="btn alt" id="setReset">Reset to defaults</button></div>
-  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Low vision uses white and yellow on black at high contrast. Continuous adds the next chapter as you scroll. Settings are saved on this device.<br>General edition, November 7, 2026 (revised November 9, 2026), adapted from the second edition (October 31, 2026). App build 2026-11-09.1454.<br><a href="#/terms" data-go="terms" style="color:var(--link)">Disclaimer and terms of use</a><br>&copy; 2026 Hanniel G. Ortiz. All rights reserved.</p>
+  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Low vision uses white and yellow on black at high contrast. Continuous adds the next chapter as you scroll. Settings are saved on this device.<br>General edition, November 7, 2026 (revised November 9, 2026), adapted from the second edition (October 31, 2026). App build 2026-11-09.1505.<br><a href="#/terms" data-go="terms" style="color:var(--link)">Disclaimer and terms of use</a><br>&copy; 2026 Hanniel G. Ortiz. All rights reserved.</p>
 </section>
 
 <div id="selbar" class="panel" hidden>
