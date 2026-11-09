@@ -187,6 +187,12 @@ button { font: inherit; color: inherit; }
 .home .acts { display: grid; gap: 10px; margin: 18px 0; }
 .home .acts .btn { padding: 14px; font-size: 16px; text-align: left; border-radius: 14px; }
 .home .acts .btn small { display: block; font-weight: 400; opacity: .85; font-size: 13px; margin-top: 2px; }
+.disc { background: var(--warn) var(--ico-warn) no-repeat 12px 13px / 26px 26px; border-radius: 14px; padding: .8em 1em .8em 48px; line-height: 1.5; font-size: 15px; color: var(--fg); margin: 0 0 14px; }
+.disc strong { color: var(--warn-fg); }
+#discModal { z-index: 71; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(92vw, 520px); max-height: 86vh; overflow-y: auto; border-radius: 18px; padding: 18px 18px 16px; }
+#discModal h2 { font-family: Fredoka, sans-serif; font-weight: 600; font-size: 20px; margin: 0 0 12px; color: var(--fg); }
+#discModal .disc { margin-bottom: 16px; }
+#discModal .btn { width: 100%; padding: 13px; font-size: 16px; }
 .copy { text-align: center; color: var(--muted); font-size: 12px; margin: 18px 0 0; }
 .home .tip { font-size: 13px; color: var(--muted); line-height: 1.5; text-align: center; margin: 14px 4px; }
 
@@ -368,7 +374,7 @@ mark.flash { animation: flash 1.6s ease 2; }
   <div class="setrow"><span>Margins</span><span class="seg" data-key="mg"><button data-v="narrow">Narrow</button><button data-v="normal">Normal</button><button data-v="wide">Wide</button></span></div>
   <div class="setrow"><span>Theme</span><span class="seg" data-key="theme"><button data-v="auto">Auto</button><button data-v="light">Light</button><button data-v="sepia">Sepia</button><button data-v="dark">Dark</button></span></div>
   <div class="btnrow"><button class="btn alt" id="setReset">Reset to defaults</button></div>
-  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Settings are saved on this device.<br>General edition, November 7, 2026, adapted from the second edition (October 31, 2026; revised November 7, 2026). App build 2026-11-08.1337.<br>&copy; 2026 Hanniel G. Ortiz. All rights reserved.</p>
+  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Settings are saved on this device.<br>General edition, November 7, 2026, adapted from the second edition (October 31, 2026; revised November 7, 2026). App build 2026-11-09.0949.<br>&copy; 2026 Hanniel G. Ortiz. All rights reserved.</p>
 </section>
 
 <div id="selbar" class="panel" hidden>
@@ -385,6 +391,12 @@ mark.flash { animation: flash 1.6s ease 2; }
   <div class="btnrow"><button class="btn" id="hlDone2" onclick="document.getElementById('hlDone').click()">Done</button><button class="btn alt" id="hlDel">Delete highlight</button></div>
 </section>
 
+<div id="discScrim" class="scrim" style="z-index:70" hidden></div>
+<section id="discModal" class="panel" role="dialog" aria-modal="true" aria-labelledby="discH" hidden>
+  <h2 id="discH">Before you start</h2>
+  <div id="discText" class="disc"></div>
+  <button class="btn" id="discOk">I understand</button>
+</section>
 <button id="backchip" hidden></button>
 <div id="toast" hidden></div>
 
@@ -17351,6 +17363,8 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
   const BYID = {}; CH.forEach((c, i) => { BYID[c.id] = i; });
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+  const DISC = '<strong>Not an official resource.</strong> Bedside Ref is a personal study project. It has not been reviewed or approved by any hospital, health system or educator. It is general critical care education, not an order, protocol or policy. Never act on anything here without an order. Your facility&rsquo;s policies, order sets, pharmacy and preceptors always come first.';
+  const DISC_VER = '2026-11-09';   // change this when the wording changes, so everyone sees the pop-up once more
   const COPY = '&copy; 2026 Hanniel G. Ortiz. All rights reserved.';
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
@@ -17465,7 +17479,7 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
     cur = -1; curText = '';
     const pos = store.get(K_POS, null);
     const ci = pos && BYID[pos.ch] != null ? BYID[pos.ch] : -1;
-    page.innerHTML = '<div class="home">' + document.getElementById('cover').innerHTML + '</div>';
+    page.innerHTML = '<div class="home"><div class="disc" role="note">' + DISC + '</div>' + document.getElementById('cover').innerHTML + '</div>';
     const acts = document.createElement('div'); acts.className = 'acts';
     const first = BYID['sFWD'] != null ? BYID['sFWD'] : 0;
     acts.innerHTML = (ci >= 0 ? '<button class="btn" data-act="resume">Continue reading<small>' + esc(label(CH[ci])) + '</small></button>' : '') +
@@ -17933,8 +17947,17 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
     navigator.serviceWorker.addEventListener('controllerchange', () => { if (!reloaded) { reloaded = true; location.reload(); } });
   }
 
+  // ---------- first-run disclaimer ----------
+  function showDisclaimer() {
+    if (store.get('bref.disclaimer', '') === DISC_VER) return;
+    const m = $('#discModal'); $('#discText').innerHTML = DISC; m.hidden = false; $('#discScrim').hidden = false;
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => $('#discOk').focus(), 50);
+    $('#discOk').onclick = () => { store.set('bref.disclaimer', DISC_VER); m.hidden = true; $('#discScrim').hidden = true; document.body.style.overflow = ''; };
+  }
+
   // ---------- start ----------
-  applySettings(); buildToc(); syncPinned();
+  applySettings(); buildToc(); syncPinned(); showDisclaimer();
   if (!location.hash) {
     const pos = store.get(K_POS, null);
     if (pos && BYID[pos.ch] != null && window.matchMedia('(display-mode: standalone)').matches) {
