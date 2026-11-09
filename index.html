@@ -224,6 +224,9 @@ button { font: inherit; color: inherit; }
 #fbModal { z-index: 71; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(92vw, 420px); max-height: 86vh; overflow-y: auto; border-radius: 18px; padding: 18px 18px 16px; }
 #fbModal h2 { font-family: Fredoka, sans-serif; font-weight: 600; font-size: 20px; margin: 0 0 10px; color: var(--fg); }
 #fbModal .fbtxt { margin: 0 0 14px; font-size: 15px; line-height: 1.45; color: var(--fg); }
+#fbModal h2:focus { outline: none; }
+#fbModal .fbhint { margin: 12px 0 2px; padding: 8px 12px; border-radius: 0; background: transparent; border-left: 4px solid var(--burg); color: var(--fg); font-size: 14.5px; line-height: 1.4; }
+:root[data-theme="lowvision"] #fbModal .fbhint { background: #000; border: 2px solid #ffd400; color: #fff; }
 #fbModal .btn { display: block; box-sizing: border-box; width: 100%; padding: 13px; font-size: 16px; text-align: center; text-decoration: none; margin-top: 8px; }
 .discline { text-align: center; color: var(--muted); font-size: 13.5px; line-height: 1.5; margin: 14px 8px 4px; }
 .discline a, .copy a { color: var(--link); font-weight: 700; text-decoration: none; }
@@ -508,7 +511,7 @@ section.chap > .copy { margin-top: 1.6em; }
 
 </style>
 </head>
-<body data-build="2026-11-09.1539">
+<body data-build="2026-11-09.1549">
 <header id="bar">
   <button class="ib" id="menuBtn" aria-label="Contents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
   <div id="bartitle" role="button" tabindex="0">Bedside Ref</div>
@@ -572,7 +575,7 @@ section.chap > .copy { margin-top: 1.6em; }
   <div class="setrow"><span>Chapters</span><span class="seg" data-key="flow"><button data-v="paged">One at a time</button><button data-v="scroll">Continuous</button></span></div>
   <div class="setrow"><span>Theme</span><span class="seg" data-key="theme"><button data-v="auto">Auto</button><button data-v="light">Light</button><button data-v="sepia">Sepia</button><button data-v="dark">Dark</button><button data-v="lowvision">Low vision</button></span></div>
   <div class="btnrow"><button class="btn alt" id="setReset">Reset to defaults</button></div>
-  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Low vision uses white and yellow on black at high contrast. Continuous adds the next chapter as you scroll. Settings are saved on this device.<br>General edition, November 7, 2026 (revised November 9, 2026), adapted from the second edition (October 31, 2026). App build 2026-11-09.1539.<br><a href="#/about" data-go="about" style="color:var(--link)">About this app</a> &middot; <a href="#" data-act="feedback" style="color:var(--link)">Feedback / Questions</a> &middot; <a href="#/terms" data-go="terms" style="color:var(--link)">Disclaimer and terms of use</a><br>&copy; 2026 Hanniel G. Ortiz. All rights reserved.</p>
+  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Low vision uses white and yellow on black at high contrast. Continuous adds the next chapter as you scroll. Settings are saved on this device.<br>General edition, November 7, 2026 (revised November 9, 2026), adapted from the second edition (October 31, 2026). App build 2026-11-09.1549.<br><a href="#/about" data-go="about" style="color:var(--link)">About this app</a> &middot; <a href="#" data-act="feedback" style="color:var(--link)">Feedback / Questions</a> &middot; <a href="#/terms" data-go="terms" style="color:var(--link)">Disclaimer and terms of use</a><br>&copy; 2026 Hanniel G. Ortiz. All rights reserved.</p>
 </section>
 
 <div id="selbar" class="panel" hidden>
@@ -598,10 +601,11 @@ section.chap > .copy { margin-top: 1.6em; }
 </section>
 <div id="fbScrim" class="scrim" style="z-index:70" hidden></div>
 <section id="fbModal" class="panel" role="dialog" aria-modal="true" aria-labelledby="fbH" hidden>
-  <h2 id="fbH">Feedback / Questions</h2>
+  <h2 id="fbH" tabindex="-1">Feedback / Questions</h2>
   <p class="fbtxt">Send the author a question, a correction or an idea. Do not include any patient information.</p>
   <a class="btn" id="fbMail" href="#">Open my email app</a>
   <a class="btn alt" id="fbGmail" href="#" target="_blank" rel="noopener">Write it in Gmail</a>
+  <p id="fbHint" class="fbhint" role="status" hidden>Nothing opened? This device may not have an email app set up. Tap <b>Write it in Gmail</b>, or copy the address and paste it into the email app you use.</p>
   <button class="btn alt" id="fbCopy">Copy the email address</button>
   <button class="btn alt" id="fbClose">Cancel</button>
 </section>
@@ -628,7 +632,7 @@ the order, the pharmacy, and your preceptor or charge nurse.
 </div></template>
 <template id="about"><h2 id="about-top"><span class="h2ttl">About this app</span></h2>
 <p><strong>Bedside Ref</strong> is an offline reading app for <em>Orientation to CCRN: An ICU Nurse&rsquo;s Bedside Reference</em>, General edition: a reference and a course for adult ICU nurses, from orientation through the first years and CCRN preparation. It has 52 sections in eight parts, with drug monographs, lab values, skills, practice cases and self-checks.</p>
-<p class="tiny">General edition, November 7, 2026 (revised November 9, 2026), adapted from the second edition (October 31, 2026). App build 2026-11-09.1539.</p>
+<p class="tiny">General edition, November 7, 2026 (revised November 9, 2026), adapted from the second edition (October 31, 2026). App build 2026-11-09.1549.</p>
 <h3>What you can do</h3>
 <ul>
 <li><strong>Search</strong> the whole book, section titles and your own annotations.</li>
@@ -18102,8 +18106,23 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
     // A sheet with real links: a direct tap on a link opens mail reliably, including in home-screen apps and
     // on computers with no mail app set up. The address goes into each link only at the moment it is tapped.
     const m = $('#fbModal'), sc = $('#fbScrim');
-    const close = () => { m.hidden = true; sc.hidden = true; document.body.style.overflow = ''; };
-    const arm = (a, href) => { a.onclick = () => { a.href = href; setTimeout(() => { a.href = '#'; close(); }, 400); }; };
+    const hint = $('#fbHint'); hint.hidden = true;
+    const close = () => { m.hidden = true; sc.hidden = true; document.body.style.overflow = ''; $('#fbMail').href = '#'; $('#fbGmail').href = '#'; };
+    // The real address goes into the link as the finger or mouse goes down, before the browser acts on the tap
+    // (some browsers decide where a link goes before click handlers run).
+    const watch = () => {             // did an email app or Gmail actually open? If not, say what else to try.
+      let left = false; const gone = () => { left = true; };
+      window.addEventListener('blur', gone); document.addEventListener('visibilitychange', gone);
+      setTimeout(() => {
+        window.removeEventListener('blur', gone); document.removeEventListener('visibilitychange', gone);
+        if (left) close(); else hint.hidden = false;
+      }, 1800);
+    };
+    const arm = (a, href) => {
+      const set = () => { a.href = href; };
+      a.onpointerdown = set; a.ontouchstart = set; a.onkeydown = set; a.onmousedown = set;
+      a.onclick = () => { set(); watch(); };
+    };
     arm($('#fbMail'), url); arm($('#fbGmail'), gmail);
     $('#fbCopy').onclick = () => {
       const done = () => { close(); toast('Email address copied. Paste it into any email app.'); };
@@ -18112,7 +18131,7 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
     };
     $('#fbClose').onclick = close; sc.onclick = close;
     m.hidden = false; sc.hidden = false; document.body.style.overflow = 'hidden';
-    setTimeout(() => $('#fbMail').focus(), 50);
+    setTimeout(() => $('#fbH').focus(), 50);
   }
   function makeSection(i) {
     const sec = document.createElement('section'); sec.className = 'chap'; sec.dataset.ci = i;
