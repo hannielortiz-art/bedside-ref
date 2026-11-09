@@ -1,5 +1,5 @@
 // Bedside Ref offline support. Changing VERSION is what tells installed copies to fetch the new book.
-const VERSION = '2026-11-09.1505';
+const VERSION = '2026-11-09.1523';
 const CACHE = 'bedside-ref-' + VERSION;
 const FILES = [
  "./",
@@ -13,6 +13,10 @@ const FILES = [
  "atkinson-hyperlegible-latin-400-normal.woff2",
  "atkinson-hyperlegible-latin-700-italic.woff2",
  "atkinson-hyperlegible-latin-700-normal.woff2",
+ "bitter-latin-400-italic.woff2",
+ "bitter-latin-400-normal.woff2",
+ "bitter-latin-700-italic.woff2",
+ "bitter-latin-700-normal.woff2",
  "caveat-latin-600-normal.woff2",
  "caveat-latin-700-normal.woff2",
  "caveat-latin-ext-600-normal.woff2",
@@ -23,6 +27,14 @@ const FILES = [
  "fredoka-latin-ext-500-normal.woff2",
  "fredoka-latin-ext-600-normal.woff2",
  "fredoka-latin-ext-700-normal.woff2",
+ "gelasio-latin-400-italic.woff2",
+ "gelasio-latin-400-normal.woff2",
+ "gelasio-latin-700-italic.woff2",
+ "gelasio-latin-700-normal.woff2",
+ "libre-baskerville-latin-400-italic.woff2",
+ "libre-baskerville-latin-400-normal.woff2",
+ "libre-baskerville-latin-700-italic.woff2",
+ "libre-baskerville-latin-700-normal.woff2",
  "literata-latin-400-italic.woff2",
  "literata-latin-400-normal.woff2",
  "literata-latin-700-italic.woff2",
@@ -43,6 +55,10 @@ const FILES = [
  "opendyslexic-latin-400-normal.woff2",
  "opendyslexic-latin-700-italic.woff2",
  "opendyslexic-latin-700-normal.woff2",
+ "tex-gyre-pagella-latin-400-italic.woff2",
+ "tex-gyre-pagella-latin-400-normal.woff2",
+ "tex-gyre-pagella-latin-700-italic.woff2",
+ "tex-gyre-pagella-latin-700-normal.woff2",
  "aorta.jpg",
  "ards.jpg",
  "armarteries.jpg",
