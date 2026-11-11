@@ -1,7 +1,7 @@
 {
  "name": "Bedside Ref: Orientation to CCRN",
  "short_name": "Bedside Ref",
- "description": "Orientation to CCRN: An ICU Nurse's Bedside Reference (General edition). Offline reader with search, highlights and notes.",
+ "description": "Orientation to CCRN: An ICU Nurse's Bedside Reference. Offline reader with search, highlights and notes.",
  "start_url": "./",
  "scope": "./",
  "display": "standalone",

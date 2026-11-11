@@ -1,5 +1,5 @@
 // Bedside Ref offline support. Changing VERSION is what tells installed copies to fetch the new book.
-const VERSION = '2026-11-09.1549';
+const VERSION = '2026-11-11.0143';
 const CACHE = 'bedside-ref-' + VERSION;
 const FILES = [
  "./",
@@ -62,6 +62,8 @@ const FILES = [
  "aorta.jpg",
  "ards.jpg",
  "armarteries.jpg",
+ "bstpl1.jpg",
+ "bstpl2.jpg",
  "chesttube.jpg",
  "cvc.jpg",
  "effusion.jpg",
@@ -79,7 +81,8 @@ const FILES = [
  "team.jpg",
  "trach.jpg",
  "ventilator.jpg",
- "ventricles.jpg"
+ "ventricles.jpg",
+ "ICU-Brain-Sheet-Template.pdf"
 ];
 
 self.addEventListener('install', (e) => {
