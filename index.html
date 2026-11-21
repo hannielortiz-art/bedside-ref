@@ -332,6 +332,7 @@ button { font: inherit; color: inherit; }
 
 #content .tw { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: calc(var(--ps) * 1.2) 0; border-radius: 9px; }
 #content table { width: 100%; min-width: 420px; border-collapse: separate; border-spacing: 0; border: 1.5px solid var(--tborder); border-radius: 9px; font-size: .9em; line-height: 1.42; background: var(--paper); }
+#content table.fit { min-width: 0; }   /* two-column tables that fit a phone without side-scrolling */
 #content th { background: #234a63; color: #fff; text-align: left; font-family: Fredoka, sans-serif; font-weight: 500; padding: 7px 8px; vertical-align: bottom; }
 #content th:first-child { border-top-left-radius: 7px; } #content th:last-child { border-top-right-radius: 7px; }
 #content td { border-bottom: 1px solid var(--tline); padding: 6px 8px; vertical-align: top; }
@@ -579,7 +580,7 @@ section.chap > .copy { margin-top: 1.6em; }
 
 </style>
 </head>
-<body data-build="2026-11-21.1030">
+<body data-build="2026-11-21.1051">
 <header id="bar">
   <button class="ib" id="menuBtn" aria-label="Contents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
   <div id="bartitle" role="button" tabindex="0">Bedside Ref</div>
@@ -644,7 +645,7 @@ section.chap > .copy { margin-top: 1.6em; }
   <div class="setrow"><span>Chapters</span><span class="seg" data-key="flow"><button data-v="paged">One at a time</button><button data-v="scroll">Continuous</button></span></div>
   <div class="setrow"><span>Theme</span><span class="seg" data-key="theme"><button data-v="auto">Auto</button><button data-v="light">Light</button><button data-v="sepia">Sepia</button><button data-v="dark">Dark</button><button data-v="lowvision">Low vision</button></span></div>
   <div class="btnrow"><button class="btn alt" id="setReset">Reset to defaults</button></div>
-  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Low vision uses white and yellow on black at high contrast. Continuous adds the next chapter as you scroll. Settings are saved on this device.<br>Edition of November 7, 2026 (revised November 9, 2026), adapted from the second edition (October 31, 2026). App build 2026-11-21.1030.<br><a href="#/about" data-go="about" style="color:var(--link)">About this app</a> &middot; <a href="#" data-act="feedback" style="color:var(--link)">Contact the author</a> &middot; <a href="#/terms" data-go="terms" style="color:var(--link)">Disclaimer and terms of use</a><br>&copy; 2026 Hanniel G. Ortiz. All rights reserved.</p>
+  <p class="fine">Auto follows your device&rsquo;s light or dark setting. Low vision uses white and yellow on black at high contrast. Continuous adds the next chapter as you scroll. Settings are saved on this device.<br>Edition of November 7, 2026 (revised November 21, 2026), adapted from the second edition (October 31, 2026). App build 2026-11-21.1051.<br><a href="#/about" data-go="about" style="color:var(--link)">About this app</a> &middot; <a href="#" data-act="feedback" style="color:var(--link)">Contact the author</a> &middot; <a href="#/terms" data-go="terms" style="color:var(--link)">Disclaimer and terms of use</a><br>&copy; 2026 Hanniel G. Ortiz. All rights reserved.</p>
 </section>
 
 <div id="selbar" class="panel" hidden>
@@ -735,7 +736,7 @@ sets, drip concentrations, pump library, and titration parameters always win. Pr
 between hospitals are flagged as <strong>Institutional Variation Alerts</strong>. Verify every number against
 the order, the pharmacy, and your preceptor or charge nurse.
 </div>
-<p class="cvhist">General edition, November 7, 2026 (revised November 9, 2026), adapted from the second edition (October 31, 2026).</p>
+<p class="cvhist">General edition, November 7, 2026 (revised November 21, 2026), adapted from the second edition (October 31, 2026).</p>
 <p class="cvhist">Photographs and anatomical illustrations are AI-generated and checked for accuracy; labels were corrected where needed. Diagrams and waveforms are original drawings.</p>
 </div></template>
 <template id="faq"><h2 id="faq-top"><span class="h2ttl">Questions and answers</span></h2>
@@ -759,7 +760,7 @@ the order, the pharmacy, and your preceptor or charge nurse.
 </template>
 <template id="about"><h2 id="about-top"><span class="h2ttl">About this app</span></h2>
 <p><strong>Bedside Ref</strong> is an offline reading app for <em>Orientation to CCRN: An ICU Nurse&rsquo;s Bedside Reference</em>: a reference and a course for adult ICU nurses, from orientation through the first years and CCRN preparation. It has 52 sections in eight parts, with drug monographs, lab values, skills, practice cases and self-checks.</p>
-<p class="tiny">Edition of November 7, 2026 (revised November 9, 2026), adapted from the second edition (October 31, 2026). App build 2026-11-21.1030.</p>
+<p class="tiny">Edition of November 7, 2026 (revised November 21, 2026), adapted from the second edition (October 31, 2026). App build 2026-11-21.1051.</p>
 <h3>What you can do</h3>
 <ul>
 <li><strong>Search</strong> the whole book, section titles and your own annotations.</li>
@@ -2592,9 +2593,9 @@ another way) and request a speech-language pathology evaluation. Your hospital's
 <div class="iva"><strong>Institutional Variation Alert.</strong> The practice above varies between hospitals. Follow your unit's policy and confirm it with your preceptor or educator.</div>
 
 <h3 id="x13-9"><span class="h3num">13.9</span><span class="h3ttl">CIWA-Ar (alcohol withdrawal)</span></h3>
-<p>Ten domains, total 0&ndash;67, with symptom-triggered benzodiazepine dosing. Detail and the important
-limitations &mdash; particularly that it is <strong>invalid in intubated, sedated, or non-communicative
-patients</strong> &mdash; are in Section <a class="xr" href="#x30-1">30.1</a>. <strong>Screen every admission for alcohol use</strong> so
+<p>Ten items, total 0&ndash;67, with symptom-triggered benzodiazepine dosing. The full scoring table,
+the treatments you may see, and the important limitations &mdash; particularly that it is <strong>invalid
+in intubated, sedated, or non-communicative patients</strong> &mdash; are in Section <a class="xr" href="#x30-1">30.1</a>. <strong>Screen every admission for alcohol use</strong> so
 you know who needs prophylaxis before day two.</p>
 
 <h3 id="x13-10"><span class="h3num">13.10</span><span class="h3ttl">Other routine assessments</span></h3>
@@ -11589,51 +11590,169 @@ days)</td><td><strong>The emergency.</strong> Global confusion and clouded consc
 tachycardia and hypertension, profuse diaphoresis. Untreated mortality is substantial; even treated it
 carries real risk from arrhythmia, aspiration, injury, and hyperthermia.</td></tr>
 </table></div>
-<h4 class="pill c3">CIWA-Ar</h4>
-<p>The <strong>Clinical Institute Withdrawal Assessment for Alcohol, revised</strong> scores ten domains
-&mdash; nausea/vomiting, tremor, paroxysmal sweats, anxiety, agitation, tactile disturbances, auditory
-disturbances, visual disturbances, headache, and orientation/clouding of sensorium (0&ndash;7 each except
-orientation, 0&ndash;4). Total <strong>0&ndash;67</strong>.</p>
+<h4 class="pill c3">Who is at risk</h4>
+<p>Screen every admission for alcohol use, and ask without judgment: the answer decides who gets watched
+and who gets prophylaxis. Common tools are the <strong>AUDIT-C</strong> (alcohol use) and the
+<strong>PAWSS</strong> (Prediction of Alcohol Withdrawal Severity Scale), which predicts severe or
+complicated withdrawal in medically ill patients. The PAWSS applies to anyone who drank in the last
+30 days or arrived with a positive blood alcohol level. It gives 1 point each for: prior withdrawal; prior
+withdrawal seizures; prior DTs; prior alcohol treatment; prior blackouts; alcohol combined with
+&ldquo;downers&rdquo; such as benzodiazepines or barbiturates; alcohol combined with other substances;
+blood alcohol above 200 mg/dL on arrival; and signs of autonomic hyperactivity (such as heart rate above
+120, tremor, sweating, agitation, or nausea). <strong>A score of 4 or more means high risk.</strong></p>
+<h4 class="pill c4">CIWA-Ar scoring</h4>
+<p>The <strong>Clinical Institute Withdrawal Assessment for Alcohol, revised</strong> has ten items.
+Nine are scored 0&ndash;7 and orientation 0&ndash;4, for a total of <strong>0&ndash;67</strong>. Use the
+anchors below; values between them (2, 3, 5, 6) are your judgment. It measures how severe withdrawal is
+and how it is responding to treatment; it does not diagnose withdrawal. Vital signs are not scored, but
+record them with every score.</p>
+<div class="tw"><table class="fit">
+<tr><th style="width:40%">Item: ask or observe</th><th>Score anchors</th></tr>
+<tr><td><strong>1. Nausea and vomiting</strong><br><span class="tiny">&ldquo;Do you feel sick to your stomach? Have you
+vomited?&rdquo; Observe.</span></td><td><strong>0</strong> none; <strong>1</strong> mild nausea, no vomiting;
+<strong>4</strong> intermittent nausea with dry heaves; <strong>7</strong> constant nausea, frequent dry
+heaves and vomiting</td></tr>
+<tr><td><strong>2. Tremor</strong><br><span class="tiny">Arms extended, fingers spread.</span></td><td><strong>0</strong> no
+tremor; <strong>1</strong> not visible, but can be felt fingertip to fingertip; <strong>4</strong> moderate,
+with arms extended; <strong>7</strong> severe, even with arms not extended</td></tr>
+<tr><td><strong>3. Paroxysmal sweats</strong><br><span class="tiny">Observe.</span></td><td><strong>0</strong> no sweat visible;
+<strong>1</strong> barely perceptible, palms moist; <strong>4</strong> beads of sweat obvious on the
+forehead; <strong>7</strong> drenching sweats</td></tr>
+<tr><td><strong>4. Anxiety</strong><br><span class="tiny">&ldquo;Do you feel nervous?&rdquo; Observe.</span></td><td><strong>0</strong>
+no anxiety, at ease; <strong>1</strong> mildly anxious; <strong>4</strong> moderately anxious or guarded,
+so anxiety is inferred; <strong>7</strong> equal to an acute panic state, as in severe delirium or acute
+psychosis</td></tr>
+<tr><td><strong>5. Agitation</strong><br><span class="tiny">Observe.</span></td><td><strong>0</strong> normal activity;
+<strong>1</strong> somewhat more than normal; <strong>4</strong> moderately fidgety and restless;
+<strong>7</strong> paces back and forth, or constantly thrashes about</td></tr>
+<tr><td><strong>6. Tactile disturbances</strong><br><span class="tiny">&ldquo;Any itching, pins and needles, burning,
+numbness, or bugs crawling on or under your skin?&rdquo;</span></td><td><strong>0</strong> none;
+<strong>1</strong> very mild; <strong>2</strong> mild; <strong>3</strong> moderate; <strong>4</strong>
+moderately severe hallucinations; <strong>5</strong> severe; <strong>6</strong> extremely severe;
+<strong>7</strong> continuous hallucinations</td></tr>
+<tr><td><strong>7. Auditory disturbances</strong><br><span class="tiny">&ldquo;Are sounds harsher or louder than usual, or
+frightening? Hearing things you know aren't there?&rdquo;</span></td><td>Same scale as item 6: <strong>0</strong> not
+present; <strong>1&ndash;3</strong> very mild to moderate harshness or ability to frighten;
+<strong>4&ndash;6</strong> moderately severe to extremely severe hallucinations; <strong>7</strong>
+continuous hallucinations</td></tr>
+<tr><td><strong>8. Visual disturbances</strong><br><span class="tiny">&ldquo;Does the light seem too bright, or a different
+color? Does it hurt your eyes? Seeing things you know aren't there?&rdquo;</span></td><td>Same scale:
+<strong>0</strong> not present; <strong>1&ndash;3</strong> very mild to moderate light sensitivity;
+<strong>4&ndash;6</strong> moderately severe to extremely severe hallucinations; <strong>7</strong>
+continuous hallucinations</td></tr>
+<tr><td><strong>9. Headache, fullness in head</strong><br><span class="tiny">&ldquo;Does your head feel different? Like a
+band around it?&rdquo; Don't score dizziness or lightheadedness.</span></td><td><strong>0</strong> not present;
+<strong>1</strong> very mild; <strong>2</strong> mild; <strong>3</strong> moderate; <strong>4</strong>
+moderately severe; <strong>5</strong> severe; <strong>6</strong> very severe; <strong>7</strong>
+extremely severe</td></tr>
+<tr><td><strong>10. Orientation, clouding of sensorium</strong> (0&ndash;4)<br><span class="tiny">&ldquo;What day is
+this? Where are you? Who am I?&rdquo; Serial additions (add by 3s).</span></td><td><strong>0</strong> oriented,
+can do serial additions; <strong>1</strong> can't do serial additions or is uncertain about the date;
+<strong>2</strong> date off by no more than 2 calendar days; <strong>3</strong> date off by more than
+2 days; <strong>4</strong> disoriented to place or person</td></tr>
+</table></div>
+<div class="tw"><table class="fit" data-kt="1">
+<tr><th style="width:30%">Total</th><th>Severity (ASAM 2020) and what usually happens</th></tr>
+<tr><td><strong>Under 10</strong></td><td><strong>Mild.</strong> Supportive care and continued scoring; many protocols
+give no medication, or a small dose at 8 or more</td></tr>
+<tr><td><strong>10&ndash;18</strong></td><td><strong>Moderate.</strong> Symptom-triggered medication per protocol, then
+rescore</td></tr>
+<tr><td><strong>19 or more</strong></td><td><strong>Severe.</strong> Medication now, closer monitoring, and notify the
+provider; higher risk of seizures and DTs</td></tr>
+</table></div>
+<p class="tiny">Older protocols built on the original 1989 bands (under 8&ndash;10 minimal, 8&ndash;15 mild
+to moderate, 16&ndash;20 moderate to severe, over 20 severe) are still in use. Your order set sets the
+triggers.</p>
+<h4 class="pill c0">How scoring usually runs</h4>
 <ul>
-<li><strong>&lt;8&ndash;10:</strong> minimal &mdash; usually no medication</li>
-<li><strong>8&ndash;15:</strong> mild to moderate</li>
-<li><strong>16&ndash;20:</strong> moderate to severe &mdash; treat</li>
-<li><strong>&gt;20:</strong> severe &mdash; high risk for DTs; escalate</li>
+<li><strong>Baseline score</strong> on admission or as soon as withdrawal is a concern, with vital signs.</li>
+<li><strong>Frequency:</strong> ASAM suggests every 1&ndash;4 hours for the first 24 hours, then every
+4&ndash;8 hours once stable. Many protocols rescore <strong>about 1 hour after each dose</strong> and
+hourly while scores stay high.</li>
+<li><strong>Before every PRN dose</strong>, check sedation (RASS), respiratory rate, and SpO<sub>2</sub>.
+<strong>Hold the dose and call the provider</strong> if the patient is oversedated (for example RASS
+&minus;2 or lower), breathing slowly, or desaturating. Follow your protocol on whether to wake a sleeping
+patient to score.</li>
+<li><strong>Chart the score, the dose, and the response</strong> each time, so the trend is visible to the
+next nurse and the team.</li>
+<li><strong>Call the provider</strong> for: a seizure; a score that is 19 or more, or rising despite
+doses; new confusion with hallucinations (possible DTs); fever, heart rate above about 120, or
+uncontrolled hypertension; needing repeated high doses (possible resistant withdrawal); or oversedation.</li>
 </ul>
 <div class="warn"><strong>The crucial limitation of CIWA:</strong> it requires a patient who can
-<strong>communicate and be assessed</strong>. It is <strong>not valid</strong> in intubated, sedated,
-delirious, or non-communicative patients, and it is confounded by anything else causing tremor,
-tachycardia, or agitation &mdash; sepsis, pain, hypoglycemia, thyroid disease, stimulant intoxication,
-benzodiazepine or opioid withdrawal. Scoring an intubated ICU patient with CIWA produces meaningless
-numbers that drive real benzodiazepine doses. Most ICUs use a symptom-triggered protocol with a
-different tool (such as RASS-based or the Minnesota Detoxification Scale) in those patients. Know which
-tool your unit uses in ventilated patients, and <strong>never treat alcohol withdrawal as the diagnosis
-until you have excluded infection, hypoglycemia, hypoxia, head injury, and other causes.</strong>
-Attributing agitation to withdrawal and missing a subdural hematoma or sepsis is a documented and
-recurring error.</div>
-<h4 class="pill c4">Management</h4>
+<strong>communicate and be assessed</strong>. Six of the ten items depend on what the patient tells you.
+It is <strong>not valid</strong> in intubated, sedated, delirious, or non-communicative patients, and it
+is confounded by anything else causing tremor, tachycardia, or agitation &mdash; sepsis, pain,
+hypoglycemia, thyroid disease, stimulant intoxication, benzodiazepine or opioid withdrawal. Scoring an
+intubated ICU patient with CIWA produces meaningless numbers that drive real benzodiazepine doses. In
+those patients many ICUs titrate to a sedation target such as RASS 0 to &minus;1, or use a tool built for
+the ICU such as the Minnesota Detoxification Scale (MINDS). Know which tool your unit uses, and
+<strong>never treat alcohol withdrawal as the diagnosis until you have excluded infection, hypoglycemia,
+hypoxia, head injury, and other causes.</strong> Attributing agitation to withdrawal and missing a
+subdural hematoma or sepsis is a documented and recurring error.</div>
+<h4 class="pill c1">Treatments and interventions you may see</h4>
+<p>Orders differ between hospitals and patients. These are the options you are most likely to meet; doses
+shown are examples, and the dose you give comes from the order.</p>
+<div class="tw"><table class="fit">
+<tr><th style="width:30%">Treatment</th><th>How it's used, and what to watch for</th></tr>
+<tr><td><strong>Benzodiazepines</strong> (first-line)</td><td><strong>Symptom-triggered</strong>: a dose
+when the score reaches the order's trigger, which usually means less total drug and a shorter course
+than a fixed schedule. Other approaches are a fixed schedule with a taper, or <strong>front-loading</strong>
+(repeated doses of a long-acting drug early, in severe or high-risk withdrawal). Examples:
+<a href="#m-midazolam" class="drug">lorazepam</a> 1&ndash;4 mg IV or PO; diazepam 5&ndash;20 mg IV or PO;
+chlordiazepoxide 25&ndash;100 mg PO. Lorazepam is favored in liver impairment and older adults (no
+active metabolites); diazepam and chlordiazepoxide self-taper.<br><strong>Watch:</strong> Oversedation and respiratory
+depression, especially with opioids; delirium. Severe DTs may need very large cumulative doses, so don't
+under-treat because the numbers look alarming. Lorazepam infusions carry propylene glycol toxicity.</td></tr>
+<tr><td><strong>Phenobarbital</strong></td><td>Alone or with benzodiazepines, increasingly in the ICU and
+for severe or resistant withdrawal. Often a single IV loading dose by ideal body weight (about 10 mg/kg
+in one emergency department trial), sometimes followed by smaller doses or a taper.<br><strong>Watch:</strong> Sedation and
+respiratory depression, which add to benzodiazepines; hypotension. Its long half-life means effects
+last days.</td></tr>
+<tr><td><strong><a href="#m-dexmedetomidine" class="drug">Dexmedetomidine</a></strong></td><td>Adjunct for
+autonomic signs and agitation not controlled by benzodiazepines.<br><strong>Watch:</strong> Bradycardia and hypotension.
+<strong>Does not prevent seizures or DTs</strong>; never used alone.</td></tr>
+<tr><td><strong><a href="#m-propofol" class="drug">Propofol</a></strong></td><td>For resistant withdrawal
+in a patient who is already intubated.<br><strong>Watch:</strong> Hypotension, triglycerides, propofol infusion syndrome.</td></tr>
+<tr><td><strong><a href="#m-ketamine" class="drug">Ketamine</a></strong></td><td>Adjunct in some ICUs to
+reduce benzodiazepine needs in resistant withdrawal; evidence is limited.<br><strong>Watch:</strong> Hypertension,
+tachycardia, emergence reactions.</td></tr>
+<tr><td><strong>Antipsychotics</strong> (haloperidol)</td><td>Adjunct for hallucinations or agitation that
+benzodiazepines haven't controlled.<br><strong>Watch:</strong> <strong>Never alone</strong>: they don't treat withdrawal and
+can lower the seizure threshold. Check QTc.</td></tr>
+<tr><td><strong>Clonidine, beta-blockers</strong></td><td>Adjuncts for persistent hypertension or
+tachycardia.<br><strong>Watch:</strong> Don't prevent seizures or delirium, and they can mask the tremor and heart rate you
+are tracking. Beta-blockers may lower the seizure threshold.</td></tr>
+<tr><td><strong>Gabapentin, carbamazepine</strong></td><td>Mild to moderate withdrawal when benzodiazepines
+can't be used; more common outside the ICU.<br><strong>Watch:</strong> Not enough for severe withdrawal.</td></tr>
+<tr><td><strong>Thiamine</strong></td><td>Every patient. Prophylaxis is commonly 100 mg IV or IM daily for
+3&ndash;5 days; suspected Wernicke encephalopathy gets higher doses, such as 200 mg IV three times
+daily.<br><strong>Watch:</strong> Give it <strong>before or with glucose</strong>, but never delay glucose for a hypoglycemic
+patient.</td></tr>
+<tr><td><strong>Electrolytes, vitamins, fluids</strong></td><td>Replace magnesium, potassium, and phosphate;
+folate and a multivitamin; IV fluids for losses from sweating, vomiting, and fever.<br><strong>Watch:</strong> Low magnesium
+lowers the seizure threshold. Watch for <strong>refeeding syndrome</strong> when feeding starts (phosphate,
+potassium, magnesium).</td></tr>
+<tr><td><strong>Seizure care</strong></td><td>A fast-acting IV benzodiazepine (lorazepam or diazepam).<br><strong>Watch:</strong> Phenytoin and similar anticonvulsants don't treat withdrawal seizures. A seizure means escalation.</td></tr>
+<tr><td><strong>Airway support</strong></td><td>Intubation for airway protection when sedation needs are very
+high or the patient can't protect the airway.<br><strong>Watch:</strong> Once intubated, CIWA can't be used; switch to the
+unit's ICU tool.</td></tr>
+</table></div>
+<div class="iva"><strong>Institutional Variation Alert.</strong> The practice above varies between hospitals. Follow your unit's policy and confirm it with your preceptor or educator.</div>
+<h4 class="pill c2">Nursing care</h4>
 <ul>
-<li><strong>Benzodiazepines are first-line</strong> &mdash; symptom-triggered dosing (guided by the score)
-produces less total drug and shorter treatment than fixed schedules in appropriate patients.
-<strong><a href="#m-midazolam" class="drug">Lorazepam</a></strong> is favored in hepatic impairment and the elderly (no active metabolites);
-<strong>diazepam</strong> and <strong>chlordiazepoxide</strong> have long half-lives that self-taper.
-Severe DTs may require very large cumulative doses &mdash; do not under-treat because the numbers look
-alarming.</li>
-<li><strong>Phenobarbital</strong> is increasingly used, alone or with benzodiazepines, particularly in
-benzodiazepine-refractory withdrawal. <strong><a href="#m-dexmedetomidine" class="drug">Dexmedetomidine</a></strong> and <strong><a href="#m-propofol" class="drug">propofol</a></strong>
-are adjuncts &mdash; note that <strong>dexmedetomidine treats the adrenergic symptoms but does NOT
-prevent seizures</strong> and must not be used as monotherapy.</li>
-<li><strong>Thiamine BEFORE glucose</strong> &mdash; giving glucose to a thiamine-deficient patient can
-precipitate <strong>Wernicke encephalopathy</strong> (confusion, ophthalmoplegia, ataxia), which
-progresses to irreversible Korsakoff syndrome. Also give folate and magnesium; check and replace
-magnesium, potassium, and phosphate, and watch for <strong>refeeding syndrome</strong>.</li>
-<li><strong>Supportive nursing:</strong> quiet environment, frequent reorientation, seizure precautions,
-fall precautions, aspiration precautions, restraints only when necessary and reassessed frequently,
-hydration, and close monitoring of temperature and hemodynamics. Screen every admission for alcohol use
-with a validated tool &mdash; and ask non-judgmentally, because the answer determines whether you
-prophylax.</li>
+<li><strong>Environment:</strong> quiet, well-lit room with daytime light and nighttime dark; frequent,
+calm reorientation; glasses and hearing aids on; family at the bedside when it helps.</li>
+<li><strong>Safety:</strong> seizure precautions per policy (suction and oxygen ready); fall precautions;
+aspiration precautions (head of bed up, NPO or a swallow screen if sedated); restraints only when necessary
+and reassessed frequently.</li>
+<li><strong>Monitoring:</strong> temperature, heart rate and rhythm, blood pressure, glucose, and
+electrolytes; continuous SpO<sub>2</sub> while receiving sedating doses.</li>
+<li><strong>Wernicke encephalopathy</strong> (confusion, eye movement problems, unsteady gait) can progress
+to irreversible <strong>Korsakoff syndrome</strong>. Report new findings right away.</li>
+<li><strong>Before discharge or transfer</strong>, offer resources and a referral for alcohol use
+treatment per your hospital's process.</li>
 </ul>
-
 <h3 id="x30-2"><span class="h3num">30.2</span><span class="h3ttl">Overdoses and toxidromes</span></h3>
 <p><strong>General principles:</strong> supportive care and airway management save more lives than any
 antidote. Assess ABCs, check a <strong>glucose</strong>, obtain an <strong>ECG</strong> (looking at QRS
@@ -11674,7 +11793,7 @@ is <em>fast onset with hyperreflexia and clonus</em>; NMS is <em>slow onset with
 hyporeflexia</em>. Both cause hyperthermia and can be fatal; both are treated with aggressive cooling,
 benzodiazepines, and supportive care &mdash; with cyproheptadine for serotonin syndrome and
 <a href="#m-dantrolene" class="drug">dantrolene</a>/bromocriptine sometimes used in NMS.</p>
-<h4 class="pill c0">Specific overdoses: early vs. late symptoms and treatment</h4>
+<h4 class="pill c3">Specific overdoses: early vs. late symptoms and treatment</h4>
 <p class="tiny">Each entry separates <strong>early</strong> from <strong>late</strong> presentation
 because the gap between them is where patients are wrongly reassured and discharged, or where a
 deteriorating patient is misattributed to something else. <strong>Call Poison Control early</strong>
@@ -12080,7 +12199,7 @@ mixed respiratory and metabolic acidosis, arrhythmias, and <strong>hyperkalemia<
 CK, DIC, renal failure, and arrest.</p>
 <p><strong>MH can present hours after anesthesia</strong>, so a post-operative ICU patient with
 unexplained tachycardia, rising ETCO<sub>2</sub>, rigidity, and acidosis is in scope for you.</p></div>
-<h4 class="pill c1">Emergency management</h4>
+<h4 class="pill c4">Emergency management</h4>
 <ol>
 <li><strong>Call for help and call the MH Hotline.</strong> The Malignant Hyperthermia Association of the
 United States (MHAUS) hotline is <strong>1-800-644-9737</strong> and is staffed 24/7 by MH experts. Post
@@ -12127,6 +12246,11 @@ prominently in the chart and on a medical alert.</li>
 
 <h3 class="secrefhead">Sources for Section 30</h3>
 <ul class="secreflist">
+<li>The ASAM clinical practice guideline on alcohol withdrawal management. <em>J Addict Med</em>. 2020;14(3S suppl 1):1-72.</li>
+<li>Sullivan JT, Sykora K, Schneiderman J, Naranjo CA, Sellers EM. Assessment of alcohol withdrawal: the revised Clinical Institute Withdrawal Assessment for Alcohol scale (CIWA-Ar). <em>Br J Addict</em>. 1989;84(11):1353-1357.</li>
+<li>Maldonado JR, Sher Y, Das S, et al. Prospective validation study of the Prediction of Alcohol Withdrawal Severity Scale (PAWSS) in medically ill inpatients: a new scale for the prediction of complicated alcohol withdrawal syndrome. <em>Alcohol Alcohol</em>. 2015;50(5):509-518.</li>
+<li>Rosenson J, Clements C, Simon B, et al. Phenobarbital for acute alcohol withdrawal: a prospective randomized double-blind placebo-controlled study. <em>J Emerg Med</em>. 2013;44(3):592-598.</li>
+<li>Galvin R, Br&aring;then G, Ivashynka A, et al. EFNS guidelines for diagnosis, therapy and prevention of Wernicke encephalopathy. <em>Eur J Neurol</em>. 2010;17(12):1408-1418.</li>
 <li>Malignant Hyperthermia Association of the United States. <em>Managing a Malignant Hyperthermia Crisis</em>. MHAUS. Accessed July 2026. https://www.mhaus.org</li>
 <li>Institute for Safe Medication Practices. <em>ISMP List of High-Alert Medications in Acute Care Settings</em>. ISMP.</li>
 <li>Clinical and Laboratory Standards Institute. <em>Collection of Diagnostic Venous Blood Specimens</em>. CLSI standard GP41. CLSI.</li>
@@ -12197,7 +12321,7 @@ planning; studies of whether they raise first-attempt success in adults are mixe
 (dressing clean, dry, intact, and dated; necessity reviewed), the external catheter length, and each
 lumen's patency. <strong>Scrub the hub for 15 seconds before every access</strong>; where disinfecting caps are stocked, a cap left on for its contact time replaces the scrub (<a class="xr" href="#x31-3">31.3</a>). Ports are accessed only with a non-coring (Huber) needle.</p>
 
-<h4 id="x31-port" class="pill c2">Implanted ports: access, de-access, flush, and lock</h4>
+<h4 id="x31-port" class="pill c0">Implanted ports: access, de-access, flush, and lock</h4>
 <ol class="steps">
 <li><strong>Choose the needle:</strong> a non-coring (Huber) safety needle, usually 19&ndash;22 gauge (19&ndash;20
 for blood or viscous infusions). Pick the length by feeling how deep the port sits: the shortest needle
@@ -12219,7 +12343,7 @@ policy (<a href="#m-heparin" class="drug">heparin</a> or saline lock and volume 
 out, activating the safety device. Apply gauze if it bleeds.</li>
 </ol>
 <h3 id="x31-3"><span class="h3num">31.3</span><span class="h3ttl">Dressing and tubing change intervals</span></h3>
-<h4 class="pill c3">Hub disinfection: active scrub or passive cap</h4>
+<h4 class="pill c1">Hub disinfection: active scrub or passive cap</h4>
 <div class="tw"><table data-kt="1">
 <tr><th style="width:16%"></th><th style="width:42%">Active scrub</th><th style="width:42%">Passive disinfecting cap</th></tr>
 <tr><td>How</td><td>Scrub the needleless connector (top and threads) with friction before <strong>every</strong> access, then let it dry completely.</td><td>A cap containing 70% isopropyl alcohol stays screwed onto the connector between uses and disinfects it continuously.</td></tr>
@@ -12266,7 +12390,7 @@ before use; record output volume and character; keep the HOB &ge;30&deg;. Advanc
 (an order such as &ldquo;&uarr;20 q4h&rdquo; means increase by 20 mL/hr every 4 hours to goal). Nutrition details: <a class="xr" href="#x28-9">28.9</a>.</td></tr>
 </table></div>
 
-<h4 id="x31-ngins" class="pill c4">Placing an NG or OG tube</h4>
+<h4 id="x31-ngins" class="pill c2">Placing an NG or OG tube</h4>
 <ol class="steps">
 <li>Two patient identifiers, explain, hand hygiene and PPE, semi-Fowler's position. In an intubated patient
 the <strong>oral route (OG) is preferred</strong>. Don't place or reposition a tube after gastric, nose,
@@ -12285,7 +12409,7 @@ then get help or ask about fluoroscopic placement.</li>
 mark the tube at the exit site. Don't rely on auscultation. A fasting aspirate pH of 1&ndash;5.5 supports
 gastric placement as an adjunct.</li>
 </ol>
-<h4 id="x31-sbft" class="pill c0">Small-bore feeding tube (SBFT) insertion</h4>
+<h4 id="x31-sbft" class="pill c3">Small-bore feeding tube (SBFT) insertion</h4>
 <ul>
 <li>Measure nose to earlobe to xiphoid for gastric placement, and <strong>add about 9 inches for
 post-pyloric (intestinal) placement</strong>.</li>
@@ -12301,7 +12425,7 @@ once removed.</li>
 tube). Weighted SBFTs may stay in place 30 days. Aspirates from a post-pyloric tube are usually under
 10 mL; 50 mL or more suggests it has moved back into the stomach, so notify the provider.</li>
 </ul>
-<h4 id="x31-salem" class="pill c1">Salem sump care, anti-reflux valve, and Lopez valve</h4>
+<h4 id="x31-salem" class="pill c4">Salem sump care, anti-reflux valve, and Lopez valve</h4>
 <ul>
 <li>Attach the main lumen to the suction canister, with the canister below the patient. A soft
 &ldquo;whistle&rdquo; from the blue vent means the sump is working.</li>
@@ -12318,13 +12442,13 @@ the suction canister for each patient and as needed.</li>
 <li>Document every shift: nares condition, drainage color, amount, and consistency, the tube mark at the
 nare, and irrigation volume.</li>
 </ul>
-<h4 id="x31-bridle" class="pill c2">Nasal bridle</h4>
+<h4 id="x31-bridle" class="pill c0">Nasal bridle</h4>
 <p>A bridle loops a soft tape behind the vomer bone and clips it to the tube. In a meta-analysis it cut
 tube dislodgement sharply compared with tape alone (odds ratio about 0.16), at the cost of more nasal skin
 problems. Check the nares and septum every shift, keep the clip off the skin, and never pull on the bridle
 to reposition the tube. Who places bridles on your unit.</p>
 <div class="iva"><strong>Institutional Variation Alert.</strong> The practice above varies between hospitals. Follow your unit's policy and confirm it with your preceptor or educator.</div>
-<h4 id="x31-gpeg" class="pill c3">Gastrostomy, PEG, and jejunostomy tubes</h4>
+<h4 id="x31-gpeg" class="pill c1">Gastrostomy, PEG, and jejunostomy tubes</h4>
 <ul>
 <li>For the first week after placement, clean the site per the order; after that, soap and water. A drain
 sponge may go around the tube, but <strong>no gauze under the external bumper (flange)</strong>.</li>
@@ -12334,7 +12458,7 @@ tension can mean migration. Stop feeds and get placement checked if you're unsur
 <li><strong>If a gastrostomy tube comes out:</strong> cover the site with a dry sterile dressing and
 notify the physician immediately; the tract can start closing within hours.</li>
 </ul>
-<h4 id="x31-tf" class="pill c4">Tube feeding: a typical protocol</h4>
+<h4 id="x31-tf" class="pill c2">Tube feeding: a typical protocol</h4>
 <ul>
 <li>Requires an order; feeds are entered as a <strong>diet order</strong> so the diet office sends the
 product. Order a nutrition consult if no recommendation exists. HOB 30&ndash;45&deg; at all times; if the
@@ -12354,7 +12478,7 @@ never crush extended-release or enteric-coated drugs; give each separately with 
 Modular proteins are given like medications, not mixed into the bag. Use ENFit connectors only, and clean
 female ENFit hubs every shift.</li>
 </ul>
-<h4 id="x31-kangaroo" class="pill c0">Enteral feeding pump: setup and alerts</h4>
+<h4 id="x31-kangaroo" class="pill c3">Enteral feeding pump: setup and alerts</h4>
 <p>Pumps differ; this example follows the Kangaroo OMNI, a common model. Load the set's cassette fully into the pump, prime it before connecting to the patient, then program
 the mode (continuous or intermittent), rate, volume, and flush settings per the order. Clear the
 pump's volume totals at the times your unit totals intake and output. Full steps are in the instructions for use (on
@@ -12388,7 +12512,7 @@ volume per your hospital's retention protocol <span class="ivatag">Institutional
 <li>Continuous bladder irrigation: <a class="xr" href="#x27-14">27.14</a>.</li>
 </ul>
 
-<h4 id="x31-foley" class="pill c1">Inserting and maintaining an indwelling catheter</h4>
+<h4 id="x31-foley" class="pill c4">Inserting and maintaining an indwelling catheter</h4>
 <ol class="steps">
 <li>Confirm an accepted indication and the order. Use the <strong>smallest catheter that will drain
 well</strong> (commonly 14&ndash;16 Fr) and a closed, pre-connected system.</li>
@@ -12408,7 +12532,7 @@ retention when appropriate; suprapubic catheters get daily site care and are cha
 <li>Document the indication, size, balloon volume, urine return, and the daily necessity review. Who may
 insert and which kit your unit uses <span class="ivatag">Institutional variation</span>.</li>
 </ol>
-<h4 id="x31-bscan" class="pill c2">Using the bladder scanner</h4>
+<h4 id="x31-bscan" class="pill c0">Using the bladder scanner</h4>
 <ul>
 <li><strong>Choose the mode:</strong> <em>male</em> for men <em>and</em> for women who have had a
 hysterectomy; <em>female</em> for women with a uterus (the device subtracts the uterus).</li>
@@ -12443,7 +12567,7 @@ empty when half full or per order, measure each drain separately, and note color
 to bright red or bilious, cloudy, or foul output gets reported). Secure the tubing so it can't be
 pulled.</p>
 
-<h4 id="x31-drains" class="pill c3">Other drains and drain removal</h4>
+<h4 id="x31-drains" class="pill c1">Other drains and drain removal</h4>
 <div class="tw"><table data-kt="1">
 <tr><th style="width:24%">Drain</th><th>Key points</th></tr>
 <tr><td><strong>Penrose</strong></td><td>A soft open tube that drains passively into the dressing, with no
@@ -12478,7 +12602,7 @@ or check the tubing.</li>
 negative pressure can be brisk.</li>
 </ul>
 
-<h4 id="x31-npwtdoc" class="pill c4">Canister changes and wound documentation</h4>
+<h4 id="x31-npwtdoc" class="pill c2">Canister changes and wound documentation</h4>
 <ul>
 <li><strong>Canister:</strong> change it when full (the pump alarms) and at least weekly per the
 manufacturer. Pause therapy, clamp the tubing, remove the canister, insert the new one until it clicks,
@@ -12586,7 +12710,7 @@ deep sedation or anesthesia (such as <a href="#m-propofol" class="drug">propofol
 present for the procedure. A patient who is intubated and already sedated on a propofol infusion is a different
 situation; follow the order and policy. <span class="ivatag">Institutional variation</span></p>
 
-<h4 class="pill c0">Before: assessing the patient</h4>
+<h4 class="pill c3">Before: assessing the patient</h4>
 <ol class="steps">
 <li><strong>Consent and time-out.</strong> The provider obtains informed consent for the procedure and the
 sedation (<a class="xr" href="#xPRO-2">43.2</a>). Confirm it is signed, and do the time-out before the first dose.</li>
@@ -12609,7 +12733,7 @@ which slows stomach emptying. Hold tube feeds as ordered.</li>
 sedation score, pain score, weight for dosing, and an IV that flushes.</li>
 </ol>
 
-<h4 class="pill c1">Pharmacologic agents</h4>
+<h4 class="pill c4">Pharmacologic agents</h4>
 <div class="tw"><table data-kt="1" data-kt="1">
 <thead><tr><th style="width:14%">Agent</th><th style="width:15%">Use</th><th style="width:29%">Typical adult IV dosing (give what is ordered)</th><th style="width:16%">Onset and duration</th><th style="width:26%">Side effects and cautions</th></tr></thead>
 <tr><td><strong>Midazolam</strong></td><td>Sedation, anxiety relief, amnesia. <strong>No pain relief.</strong></td><td>Healthy, under 60: no more than 2.5 mg over at least 2 min; wait at least 2 more min before the next dose; a total over 5 mg is rarely needed. 60 or older, debilitated, or chronically ill: no more than 1.5 mg over at least 2 min, then no more than 1 mg over 2 min; a total over 3.5 mg is rarely needed. With an opioid or other depressant: about 30% less, and at least 50% less in older or debilitated patients (label).</td><td>Sedation in 3&ndash;5 min (label). Lasts longer in older adults, obesity, and liver or kidney failure.</td><td>Respiratory depression and apnea, much worse with an opioid; hypotension; paradoxical agitation. Reversal: <a href="#m-flumazenil" class="drug">flumazenil</a>.</td></tr>
@@ -12622,7 +12746,7 @@ reach its peak before giving more (ASA 2018). Stacking doses before the last one
 way a patient ends up oversedated. An opioid and a benzodiazepine together depress breathing far more than
 either alone.</div>
 
-<h4 class="pill c2">Reversal agents</h4>
+<h4 class="pill c0">Reversal agents</h4>
 <div class="tw"><table data-kt="1" data-kt="1">
 <thead><tr><th style="width:15%">Agent</th><th style="width:45%">Dose</th><th style="width:40%">Watch for</th></tr></thead>
 <tr><td><strong>Naloxone</strong> (opioids)</td><td>Small increments titrated to breathing, commonly 0.04&ndash;0.4 mg IV every 2&ndash;3 min (<a class="xr" href="#x32-4">49.4</a>).</td><td>Onset 1&ndash;2 min. Shorter acting than most opioids, so sedation can return. Acute withdrawal, severe pain, hypertension, and flash pulmonary edema with large doses.</td></tr>
@@ -12634,7 +12758,7 @@ thrust), raise the oxygen, bag with the bag-valve mask if breathing is inadequat
 reverse as ordered. After reversal, keep monitoring long enough that sedation does not come back when the
 antagonist wears off (ASA 2018).</div>
 
-<h4 class="pill c3">Safety equipment and clinical management</h4>
+<h4 class="pill c1">Safety equipment and clinical management</h4>
 <p>Set up at the bedside before the first dose. A common memory aid is <strong>SOAP-ME</strong>:</p>
 <div class="tw"><table data-kt="1" data-kt="1">
 <thead><tr><th style="width:18%">Item</th><th>Check</th></tr></thead>
@@ -12658,7 +12782,7 @@ your hand. Their answers are your running sedation assessment.</li>
 complete, and protect pressure points and lines.</li>
 </ul>
 
-<h4 class="pill c4">Education</h4>
+<h4 class="pill c2">Education</h4>
 <ul>
 <li><strong>Before:</strong> explain what the patient will feel (relaxed and sleepy, still able to answer you),
 that they may remember little afterward, that they will get oxygen and be watched closely, and that they should
@@ -12671,7 +12795,7 @@ legal documents for at least 24 hours; diet, medications, and activity; warning 
 (ASA 2002). Give them in writing.</li>
 </ul>
 
-<h4 class="pill c0">Potential complications</h4>
+<h4 class="pill c3">Potential complications</h4>
 <div class="box"><strong>Recognizing complications.</strong> Most start small: ETCO<sub>2</sub> creeping up, the
 respiratory rate slowing, snoring, SpO<sub>2</sub> drifting down, a change in heart rate. Catch the trend, not
 the crash. A patient who becomes restless or combative under sedation is hypoxemic or hypercarbic until
@@ -12691,7 +12815,7 @@ proven otherwise; check breathing before giving more sedative.</div>
 <tr><td>Allergic reaction</td><td>Hives, wheezing, hypotension.</td><td>Stop the drug; treat as anaphylaxis (<a class="xr" href="#x20-5">20.5</a>).</td></tr>
 </table></div>
 
-<h4 class="pill c1">Documentation and monitoring</h4>
+<h4 class="pill c4">Documentation and monitoring</h4>
 <ul>
 <li><strong>Before:</strong> consent and time-out; ASA class and airway assessment (by the provider);
 fasting status; baseline vital signs, SpO<sub>2</sub>, ETCO<sub>2</sub>, sedation score, and pain; the
@@ -12710,7 +12834,7 @@ radiology), get a report on the drugs given, totals, the time of the last dose, 
 current sedation score. Document when recovery criteria were met, the end of sedation monitoring, and for an
 outpatient, the responsible adult and the discharge instructions given.</li>
 </ul>
-<h4 class="pill c2">Professional and legal guidelines</h4>
+<h4 class="pill c0">Professional and legal guidelines</h4>
 <ul>
 <li><strong>Scope.</strong> Many state Boards of Nursing publish a position statement or decision tree on RNs
 giving procedural sedation. Your Board's position and your hospital's policy both bind you (<a class="xr" href="#xPRO-1">43.1</a>).</li>
@@ -12731,7 +12855,7 @@ Chart in real time, with times and objective findings (12).</li>
 <div class="iva"><strong>Institutional Variation Alert.</strong> Who may give which drugs, monitoring
 intervals, the sedation scale, and recovery criteria are set by your hospital's sedation policy. Follow your
 unit's policy and confirm it with your preceptor or educator.</div>
-<h4 class="pill c3">Check yourself: 31.14</h4>
+<h4 class="pill c1">Check yourself: 31.14</h4>
 <ol>
 <li>A 72-year-old needs a TEE and takes no opioids or sedatives. What is the largest first dose of midazolam the label allows, and how long do you wait before the next?</li>
 <li>During a bronchoscopy, the patient pulls away only when the airway is suctioned and does not open her eyes to her name. What level of sedation is she at, and what do you do?</li>
@@ -12853,13 +12977,13 @@ precepted orientation; extra checklists may be assigned and completed within six
 <tr><td>Documentation</td><td>All required care documented within a reasonable time: late entries labeled as late.</td><td>12</td></tr>
 <tr><td>Quality and safety</td><td>Hand hygiene and aseptic technique every time; report hazards and near misses; tie your actions to the quality metrics (CLABSI, CAUTI, falls, pressure injury, sepsis).</td><td>14</td></tr>
 </table></div>
-<h4 class="pill c4">Delegation in practice</h4>
+<h4 class="pill c2">Delegation in practice</h4>
 
 <p>Before you hand a task to a nursing assistant or other team member, check that the task is within their
 role and competency, that the patient is stable enough for it, and that you have told them exactly what to
 do, what to report, and by when. Assessment, care planning, evaluation, teaching, and judgment cannot be
 delegated. When the task is done, check the result.</p>
-<h4 class="pill c0">Alerts, codes, and resource teams (Stage 0)</h4>
+<h4 class="pill c3">Alerts, codes, and resource teams (Stage 0)</h4>
 
 <p>Learn, for your hospital: how to call a code (Code Blue), a rapid response, a stroke alert, a sepsis alert, and
 a behavioral emergency response (BERT); who comes; what you bring and do while you wait; and where the
@@ -12869,7 +12993,7 @@ palliative care, pharmacy, case management, chaplaincy, interpreter services), a
 quality and safety data are posted.</p>
 <div class="iva"><strong>Institutional Variation Alert.</strong> The practice above varies between hospitals. Follow your unit's policy and confirm it with your preceptor or educator.</div>
 <div class="box"><strong>End-of-shift reset.</strong> Acknowledge one thing that was hard, then let it go. Name three things that went well. Be proud of the care you gave. Check on your coworkers before you leave, and ask whether you are OK. Reach out to leadership if you need support. Then shift your attention home: rest and recharge.</div>
-<h4 class="pill c1">Check yourself: Section 32</h4>
+<h4 class="pill c4">Check yourself: Section 32</h4>
 <ol>
 <li>Which orientation checklist items can be signed off at any point in orientation?</li>
 <li>Name the five rights of delegation.</li>
@@ -12977,13 +13101,13 @@ period) can cause VF.</p>
 <tr><td>Monomorphic VT with a pulse</td><td>100 J</td></tr>
 <tr><td>Polymorphic VT</td><td>Not synchronized: defibrillate</td></tr>
 </table></div>
-<p class="tiny">Increase energy for later attempts per the provider's order or protocol. The device may need resynchronizing before each shock; if synchronization is delayed in a crashing patient, switch to unsynchronized shocks.</p><h4 class="pill c2">Preparation</h4>
+<p class="tiny">Increase energy for later attempts per the provider's order or protocol. The device may need resynchronizing before each shock; if synchronization is delayed in a crashing patient, switch to unsynchronized shocks.</p><h4 class="pill c0">Preparation</h4>
 <ol class="steps">
 <li>Verify the order and consent (if elective). For AF or flutter of 48 hours or more (or unknown duration), confirm the anticoagulation plan or a TEE to exclude left atrial thrombus (2023 ACC/AHA AF guideline); an unstable patient is cardioverted without delay.</li>
 <li>Patent IV; sedation and analgesia per order (the provider or anesthesia manages the airway). Oxygen, suction, intubation equipment, and the code cart at the bedside.</li>
 <li>Continuous ECG, SpO<sub>2</sub>, and blood pressure. Expose the chest; remove patches and ointment. Obtain a 12-lead if the patient's condition allows, or print a strip.</li>
 </ol>
-<h4 class="pill c3">Steps</h4>
+<h4 class="pill c1">Steps</h4>
 <ol class="steps">
 <li>Apply pads anterior-posterior if possible, or anterolateral. For anterior-posterior, place the posterior pad first so the anterior pad does not wrinkle as the patient rolls.</li>
 <li>Turn the defibrillator on, choose a lead with a tall R wave, and press <strong>SYNC</strong>. Confirm a sync marker sits on each QRS, not on the T waves.</li>
@@ -13039,7 +13163,7 @@ an external pulse generator (pacing box).</p>
 <tr><td>Oversensing</td><td>Missing spikes; pauses (the box mistakes artifact or T waves for beats)</td><td>Make it less sensitive (raise the mV number) per order; remove electrical interference; call.</td></tr>
 </table></div>
 <div class="warn"><strong>Microshock safety.</strong> Temporary wires lead straight to the myocardium. Wear dry gloves when you handle them, cover exposed epicardial wire tips with insulating caps or a finger cot when not connected, keep the box secured and a spare battery at the bedside, and keep the wires away from other electrical equipment. After a provider removes epicardial wires, watch for tamponade (Section <a class="xr" href="#x23-9">23.9</a>) per your protocol. For transvenous wires, watch the insertion site, new ventricular ectopy (wire migration), and the chest x-ray position.</div>
-<h4 class="pill c4">Check yourself: Section 33</h4>
+<h4 class="pill c2">Check yourself: Section 33</h4>
 <ol>
 <li>Where does V4 go, and where do V5 and V6 go in relation to it?</li>
 <li>Why must you press SYNC again before a second cardioversion attempt?</li>
@@ -13120,14 +13244,14 @@ benchmark is a contamination rate of 1% or less.</p>
 </ol>
 
 <h3 id="x42-3"><span class="h3num">34.3</span><span class="h3ttl">Blood draws from central and arterial lines</span></h3>
-<h4 class="pill c0">Central venous catheter</h4>
+<h4 class="pill c3">Central venous catheter</h4>
 <ol class="steps">
 <li>Use the lumen your policy designates (often the largest, or the one without a running infusion). Pause infusions on the other lumens for the time your policy states; never pause a vasoactive drip without a plan.</li>
 <li>Scrub the needleless connector (for the time your policy sets, unless a disinfecting cap has been on for its full contact time; <a class="xr" href="#x31-3">31.3</a>), flush with saline, then withdraw and discard the volume policy requires, or use a push-pull technique.</li>
 <li>Draw the samples with a syringe or a transfer device; fill in the order of draw.</li>
 <li>Flush with 10 mL or more of saline in a pulsatile (push-pause) pattern; change the connector if blood remains in it, per policy; restart the infusions you paused.</li>
 </ol>
-<h4 class="pill c1">Arterial line: four methods</h4>
+<h4 class="pill c4">Arterial line: four methods</h4>
 <div class="tw"><table data-kt="1">
 <tr><th style="width:20%">Method</th><th style="width:42%">How it works</th><th style="width:38%">Key safety points</th></tr>
 <tr><td>Closed system, syringe</td><td>An in-line reservoir (VAMP) draws the clearing volume; a syringe on a needleless cannula takes the sample from the sampling site; the clearing volume is returned.</td><td>Fill the reservoir completely; close its shut-off valve before sampling; never remove the syringe without its needleless cannula; aspirate no faster than about 1 mL per second.</td></tr>
@@ -13234,7 +13358,7 @@ stored.</p>
 </table></div>
 <div class="warn"><strong>Any suspected reaction.</strong> Stop the transfusion; keep the IV open with 0.9% saline through new tubing; check vitals and the patient; recheck the label and the patient's identity; call the provider and the blood bank; send the bag, tubing, and the samples the blood bank asks for; document.</div>
 <div class="box"><strong>Emergency release.</strong> When the patient cannot wait for crossmatching, the provider orders emergency-release blood: uncrossmatched group O red cells (O-negative for females of childbearing potential; O-positive is often used for others) and group AB or low-titer group A plasma, per the blood bank's protocol. Draw the type and screen first if you can. The provider signs the emergency-release form. <span class="ivatag">Institutional variation</span></div>
-<h4 class="pill c2">Check yourself: Section 34</h4>
+<h4 class="pill c0">Check yourself: Section 34</h4>
 <ol>
 <li>Why is the light blue tube drawn before the lavender tube?</li>
 <li>Which blood culture bottle do you fill first with a butterfly set, and why?</li>
@@ -13278,7 +13402,7 @@ stored.</p>
 <li><strong>Endotracheal or tracheostomy:</strong> Section <a class="xr" href="#x25-11">25.11</a> (AARC 2022): suction only when indicated, pre-oxygenate, limit passes to about 15 seconds, and use a closed in-line system on ventilated patients.</li>
 <li><strong>Gastric:</strong> per order. A Salem sump usually goes to low continuous suction with its blue vent above the stomach and never clamped; a single-lumen Levin tube goes to low intermittent suction only (<a class="xr" href="#x31-5">31.5</a>).</li>
 </ol>
-<h4 class="pill c3">Nasopharyngeal and nasotracheal suctioning</h4>
+<h4 class="pill c1">Nasopharyngeal and nasotracheal suctioning</h4>
 
 <p>Used for a patient who cannot clear secretions and has no artificial airway. Nasotracheal suctioning
 enters the lower airway, so it is a sterile procedure.</p>
@@ -13308,7 +13432,7 @@ enters the lower airway, so it is a sterile procedure.</p>
 <tr><td>BiPAP (IPAP / EPAP, S/T)</td><td>Higher pressure on inspiration (IPAP) and lower on expiration (EPAP); IPAP minus EPAP is the pressure support that moves CO<sub>2</sub>; a backup rate in S/T mode</td><td>Hypercapnic COPD exacerbation, cardiogenic pulmonary edema</td></tr>
 <tr><td>AVAPS (volume-assured)</td><td>Adjusts IPAP within a set range to deliver a target tidal volume</td><td>Hypoventilation syndromes, neuromuscular disease, COPD</td></tr>
 </table></div>
-<h4 class="pill c4">Care</h4>
+<h4 class="pill c2">Care</h4>
 <ul>
 <li><strong>Before:</strong> the patient must be able to protect the airway and cooperate. Contraindications include vomiting or upper GI bleeding, inability to clear secretions, facial trauma or surgery, hemodynamic instability, and a decreased level of consciousness that is not from hypercapnia.</li>
 <li><strong>Fit:</strong> the right mask size, snug enough to seal but with a finger's space under the straps. Protect the bridge of the nose with a foam dressing; rotate interfaces if use is prolonged.</li>
@@ -13339,7 +13463,7 @@ of 5 or more, with prone sessions of at least 16 hours a day (<a class="xr" href
 <tr><td>Lines and drains secured and long enough; ECG leads moved to the back</td><td>Enteral feeding can usually continue with reverse Trendelenburg; check tolerance</td></tr>
 <tr><td>Pause the turn and a plan for CPR prone (compressions between the shoulder blades) if needed</td><td>ABG within about 1 hour; document the time prone and supine</td></tr>
 </table></div>
-<h4 class="pill c0">Check yourself: Section 35</h4>
+<h4 class="pill c3">Check yourself: Section 35</h4>
 <ol>
 <li>A patient on a non-rebreather has a deflated reservoir bag. What does that tell you?</li>
 <li>On BiPAP 14/6, what is the pressure support?</li>
@@ -13474,7 +13598,7 @@ or cautions: the order says otherwise, or a procedure-specific restriction from 
 <li><strong>Donor management</strong> with the OPO: hemodynamics (catecholamine surge then hypotension; bradycardia does not respond to <a href="#m-atropine" class="drug">atropine</a>, so <a href="#m-epinephrine" class="drug">epinephrine</a> or <a href="#m-isoproterenol" class="drug">isoproterenol</a>), diabetes insipidus (<a href="#m-vasopressin" class="drug">vasopressin</a> or desmopressin), hypothermia, hyperglycemia (<a href="#m-insulin" class="drug">insulin</a> infusion), coagulopathy, lung protection, and the OPO's orders (often thyroid hormone, steroids, antibiotics).</li>
 <li><strong>Donation after circulatory death (DCD):</strong> for patients who do not meet brain death criteria when the family has decided, separately, to withdraw support; death must occur within the OPO's time limit (often 60&ndash;90 minutes) for organs to be recovered.</li>
 </ol>
-<h4 class="pill c1">Check yourself: Section 36</h4>
+<h4 class="pill c4">Check yourself: Section 36</h4>
 <ol>
 <li>Why must the EVD be closed to drainage when you read the ICP?</li>
 <li>The EVD transducer is accidentally raised above the tragus. What happens to the ICP reading and the drainage?</li>
@@ -13540,7 +13664,7 @@ the fecal management system, CBI, and esophagogastric tamponade are taught in <a
 <li>Hang the bag below the patient; keep the tubing free of kinks; note the position line each shift.</li>
 <li>Do not leave it longer than the manufacturer allows (for Flexi-Seal, 29 days). Watch for rectal bleeding, leaking around the tube, and pressure injury.</li>
 </ol>
-<h4 class="pill c2">Check yourself: Section 37</h4>
+<h4 class="pill c0">Check yourself: Section 37</h4>
 <ol>
 <li>A PEG placed 5 days ago comes out. What do you do?</li>
 <li>Why do you not check gastric residuals on a jejunostomy tube?</li>
@@ -13602,7 +13726,7 @@ opioid doses. With PCEA the patient can give set boluses.</p>
 <tr><th style="width:50%">Contraindications</th><th style="width:50%">Watch for</th></tr>
 <tr><td>Patient refusal or inability to use the demand button (for PCEA); infection at the site; coagulopathy or low platelets; certain spinal abnormalities; allergy to the drug; untreated hypovolemia or sepsis.</td><td>Hypotension (sympathetic block), urinary retention, motor block, respiratory depression (opioids; delayed with hydrophilic opioids such as morphine and hydromorphone), itching, nausea, infection, and the emergencies below.</td></tr>
 </table></div>
-<h4 class="pill c3">Assessment</h4>
+<h4 class="pill c1">Assessment</h4>
 <ul>
 <li><strong>Vital signs, sedation, respiratory rate, SpO<sub>2</sub>, and ETCO<sub>2</sub></strong> on the frequency the order and policy set.</li>
 <li><strong>Sensory level (dermatomes):</strong> test with ice or an alcohol swab moving up from below the block on both sides, and record the highest level where cold feels different. Landmarks: T4 nipple line, T6 xiphoid, T10 umbilicus, L1 inguinal crease. A block rising above T4 can affect the cardiac accelerator fibers (bradycardia, hypotension) and breathing.</li>
@@ -13610,7 +13734,7 @@ opioid doses. With PCEA the patient can give set boluses.</p>
 <li><strong>The site:</strong> dressing intact, no leakage or redness, catheter mark at the skin unchanged.</li>
 </ul>
 <div class="warn"><strong>Emergencies: epidural hematoma or abscess, and LAST.</strong> <strong>Epidural hematoma or abscess:</strong> new or worsening back pain, new leg weakness or numbness, or bowel or bladder dysfunction. Stop the infusion and call anesthesia at once: outcome depends on decompression within hours (emergent MRI). <strong>Local anesthetic systemic toxicity (LAST):</strong> perioral numbness, metallic taste, tinnitus, agitation, seizures, arrhythmia, or arrest. Stop the infusion, call for help, support the airway, and follow the LAST protocol (20% lipid emulsion per ASRA).</div>
-<h4 class="pill c4">Practice reminders</h4>
+<h4 class="pill c2">Practice reminders</h4>
 <ul>
 <li>Resuscitation equipment, oxygen, and an opioid antagonist available whenever epidural analgesia runs.</li>
 <li>No supplemental opioids or other sedatives unless ordered by the service managing the epidural: they raise the risk of respiratory depression and over-sedation.</li>
@@ -13627,7 +13751,7 @@ opioid doses. With PCEA the patient can give set boluses.</p>
 <li>Emergency or block charting is used during a code or rapid changes per policy: document the start and end of the block and the values in it.</li>
 <li>If you reach the maximum without the goal, or need to go outside the parameters, call the provider: never titrate outside the order (18).</li>
 </ul>
-<h4 class="pill c0">Check yourself: Section 38</h4>
+<h4 class="pill c3">Check yourself: Section 38</h4>
 <ol>
 <li>A PCA patient is a POSS 3 with a respiratory rate of 10. What do you do?</li>
 <li>Why are basal PCA rates avoided in opioid-naive patients?</li>
@@ -13731,7 +13855,7 @@ progression of a partial-thickness burn to a deeper one in the first days, as th
 <tr><td>Cultured epithelial autograft (CEA)</td><td>The patient's own cells grown in a lab over about 2&ndash;3 weeks</td><td>For massive burns with few donor sites; very fragile; needs strict protection from shear.</td></tr>
 <tr><td>Autologous skin cell suspension (RECELL)</td><td>Cells harvested from a small donor sample and sprayed onto the wound</td><td>Expands coverage from a small donor site; often used with widely meshed grafts.</td></tr>
 </table></div>
-<h4 class="pill c1">How a graft "takes"</h4>
+<h4 class="pill c4">How a graft "takes"</h4>
 <div class="tw"><table data-kt="1">
 <tr><th style="width:32%">Stage</th><th style="width:20%">Timing</th><th style="width:48%">What happens</th></tr>
 <tr><td>Fibrin adherence and plasmatic imbibition</td><td>First 24&ndash;48 hours</td><td>A fibrin layer bonds the graft to the bed; the graft is fed by absorbing plasma.</td></tr>
@@ -13770,7 +13894,7 @@ progression of a partial-thickness burn to a deeper one in the first days, as th
 <tr><th style="width:45%">Non-infected graft or wound</th><th style="width:55%">Infected graft or wound</th></tr>
 <tr><td>Pink, adherent, flat graft; serous drainage; healing edges; pain improving.</td><td>Graft loss or lifting; purulent drainage; foul odor; new or spreading redness and swelling; a change in the wound color (dark, black, or green areas); conversion of a partial-thickness area to full thickness; fever or hypothermia, rising heart and respiratory rates, new glucose intolerance or feeding intolerance.</td></tr>
 </table></div>
-<p>Report signs of infection promptly; expect cultures (or a tissue biopsy), wound changes, and antibiotics per the burn team.</p><h4 class="pill c2">Check yourself: Section 39</h4>
+<p>Report signs of infection promptly; expect cultures (or a tissue biopsy), wound changes, and antibiotics per the burn team.</p><h4 class="pill c0">Check yourself: Section 39</h4>
 <ol>
 <li>A burn is pale, dry, mottled, and the patient feels pressure but little pain. What depth is it, and will it likely need grafting?</li>
 <li>Calculate the 24-hour starting fluid for an 80 kg adult with 30% TBSA partial- and full-thickness burns using the ABA 2023 starting rate. What is the titration target?</li>
@@ -13865,7 +13989,7 @@ progression of a partial-thickness burn to a deeper one in the first days, as th
 <tr><td>WBAT (as tolerated)</td><td>The patient bears as much weight as comfortable.</td></tr>
 <tr><td>FWB (full)</td><td>No restriction.</td></tr>
 </table></div>
-<p>Teach the order with the device the therapist chose (walker, crutches), and reinforce it every time the patient gets up.</p><h4 class="pill c3">Check yourself: Section 40</h4>
+<p>Teach the order with the device the therapist chose (walker, crutches), and reinforce it every time the patient gets up.</p><h4 class="pill c1">Check yourself: Section 40</h4>
 <ol>
 <li>What is the earliest reliable sign of compartment syndrome?</li>
 <li>Why do you not elevate a limb with suspected compartment syndrome above the heart?</li>
@@ -13944,7 +14068,7 @@ behavior escalates, verbal de-escalation (from the Project BETA consensus) is th
 <li>Debrief with the team and the patient afterward.</li>
 </ul>
 <div class="warn"><strong>Call for help early.</strong> If verbal de-escalation is not working or anyone is at risk, call the Behavioral Emergency Response Team (BERT) or security per facility protocol, and the provider. Know your hospital's activation number before you need it. <span class="ivatag">Institutional variation</span></div>
-<h4 class="pill c4">Check yourself: Section 41</h4>
+<h4 class="pill c2">Check yourself: Section 41</h4>
 <ol>
 <li>A patient can sit and lift each leg but cannot stand without help. Which device does a BMAT-based plan point to?</li>
 <li>What does the Joint Commission suicide-risk goal (NPG.08.01.01) require when a patient screens positive?</li>
@@ -14080,7 +14204,7 @@ and risk management help when no surrogate can be found or surrogates disagree.<
 medications is comfort. Giving enough opioid or benzodiazepine to relieve dyspnea or distress is
 appropriate even if it might shorten life (the principle of double effect); giving doses to cause death
 is not.</p>
-<h4 class="pill c0">Before</h4>
+<h4 class="pill c3">Before</h4>
 <ul>
 <li>Confirm the order, the code status, and that the decision-maker and family understand what will happen and roughly how long it may take (minutes to days; no one can predict exactly).</li>
 <li>Offer spiritual care, rituals, and time. Ask whether the family wants to be present. Notify the organ procurement organization per policy if this has not been done (<a class="xr" href="#x44-7">36.7</a>).</li>
@@ -14088,7 +14212,7 @@ is not.</p>
 <li>Stop monitoring and treatments that do not add comfort: labs, imaging, blood sugar checks, tube feeds, most drips, dialysis. Silence bedside alarms; follow policy for central monitoring.</li>
 <li>Have comfort medications ready (opioid and benzodiazepine bolus and infusion orders), plus glycopyrrolate for secretions per order.</li>
 </ul>
-<h4 class="pill c1">Terminal extubation (with RT and the provider)</h4>
+<h4 class="pill c4">Terminal extubation (with RT and the provider)</h4>
 <ol class="steps">
 <li>Give a premedication dose so the patient is comfortable before the tube comes out (per order).</li>
 <li>Suction the mouth and the tube; position the head of bed up.</li>
@@ -14096,7 +14220,7 @@ is not.</p>
 <li>Extubate; offer oxygen by nasal cannula or face mask for comfort if it helps (not to treat a number).</li>
 <li>Treat dyspnea, agitation, and secretions promptly, and reassess often. Noisy breathing ("death rattle") distresses families more than patients; explain it, reposition, and use glycopyrrolate per order. Deep suctioning usually adds distress.</li>
 </ol>
-<h4 class="pill c2">Signs that death is near (explain them to the family)</h4>
+<h4 class="pill c0">Signs that death is near (explain them to the family)</h4>
 <p>Mottled, cool extremities; long pauses in breathing; gasping (agonal) breaths that look distressing but usually reflect brainstem activity; jaw movement with breathing; falling blood pressure and urine output.</p>
 <h3 id="xEOL-5"><span class="h3num">42.5</span><span class="h3ttl">When the patient dies</span></h3>
 <ul>
@@ -14130,7 +14254,7 @@ source and your readiness to act; <strong>Act</strong> to make a change, and kee
 <li>Anyone can request an ethics consultation, including a new nurse. It is a request for help, not a complaint.</li>
 <li>The ANA <em>Code of Ethics for Nurses</em> (revised 2025) states your primary commitment is to the patient, and that you may decline to take part in actions you object to on moral grounds, as long as you do not abandon the patient and you hand off care safely.</li>
 </ul>
-<h4 class="pill c3">Check yourself: Section 42</h4>
+<h4 class="pill c1">Check yourself: Section 42</h4>
 <ol>
 <li>A DNR patient develops rapid atrial fibrillation with hypotension. Can you give <a href="#m-amiodarone" class="drug">amiodarone</a> and call a rapid response?</li>
 <li>A patient with no advance directive or guardian cannot decide. Her husband filed for divorce last month; her adult son is at the bedside. Who is the surrogate, and how do you find out?</li>
@@ -14235,7 +14359,7 @@ Employee Assistance Program, and support colleagues the same way (Section <a cla
 <tr><td>Board complaints</td><td>If you are contacted by the Board or a lawyer about a patient, tell your manager and risk management before you respond; consider your own liability coverage.</td></tr>
 <tr><td>Confidential help programs</td><td>Most states have a confidential alternative-to-discipline or peer assistance program for nurses with substance use, mental health, or physical health problems that could affect practice. Your Board of Nursing can direct you to it. Asking for help early protects your patients, your license, and you.</td></tr>
 </table></div>
-<h4 class="pill c4">Check yourself: Section 43</h4>
+<h4 class="pill c2">Check yourself: Section 43</h4>
 <ol>
 <li>A provider asks you to witness consent, and the patient says, "I don't really know what they're doing." What do you do?</li>
 <li>You hang the wrong antibiotic. The patient is stable. Name the steps in order.</li>
@@ -14371,7 +14495,7 @@ Professional Caring and Ethical Practice section. Its core premise is simple:
 the patient.</strong> Questions in Section II are usually written as a scenario in which you must
 identify which nurse competency the situation calls for.</p>
 
-<h4 class="pill c0">The eight patient characteristics</h4>
+<h4 class="pill c3">The eight patient characteristics</h4>
 <p>Each is described on a continuum, generally scored from level 1 (least favorable) to level 5 (most
 favorable).</p>
 <div class="tw"><table data-kt="1">
@@ -14395,7 +14519,7 @@ engage in decisions.</td></tr>
 <em>Low:</em> an undiagnosed presentation.</td></tr>
 </table></div>
 
-<h4 class="pill c1">The eight nurse competencies</h4>
+<h4 class="pill c4">The eight nurse competencies</h4>
 <p>Seven of these are named directly in the test plan as the content of Section II; the eighth
 &mdash; clinical judgment &mdash; is Section I.</p>
 <div class="tw"><table data-kt="1">
@@ -14530,7 +14654,7 @@ cyclophosphamide, plasma exchange.</li>
 
 <h3 id="x37-3"><span class="h3num">46.3</span><span class="h3ttl">Space-occupying lesions and spinal cord injury</span></h3>
 <div class="photo wide"><img loading="lazy" decoding="async" src="neurogenic.jpg" alt="" width="1024" height="572"><p class="figcap">Neurogenic shock (a hemodynamic problem) vs. spinal shock (a reflex problem). A high cord injury can cause both at once. AI-generated illustration.</p></div>
-<h4 class="pill c2">Brain tumors and other space-occupying lesions</h4>
+<h4 class="pill c0">Brain tumors and other space-occupying lesions</h4>
 <p>Primary tumors (glioma, meningioma), metastases (lung, breast, melanoma, renal, colon), abscess, and
 cysts. They present with the effects of <strong>mass effect and surrounding vasogenic edema</strong>
 &mdash; progressive headache classically worse in the morning or with Valsalva, new focal deficit,
@@ -14547,7 +14671,7 @@ hydrocephalus &rarr; rapid deterioration. Watch for declining consciousness.</li
 <li>Post-craniotomy care is in Section <a class="xr" href="#s26">26</a>.</li>
 </ul>
 
-<h4 class="pill c3">Acute spinal cord injury</h4>
+<h4 class="pill c1">Acute spinal cord injury</h4>
 <div class="tw"><table>
 <thead><tr><th style="width:26%">Concept</th><th>Detail</th></tr></thead><tbody class="kg"><tr><td><strong>Complete vs. incomplete</strong></td><td>Complete = no motor or sensory function below
 the level, including the sacral segments. Incomplete syndromes: <strong>central cord</strong> (upper
@@ -14626,7 +14750,7 @@ for refractory derangement. Frequent electrolytes, continuous cardiac monitoring
 </table></div>
 
 <h3 id="x37-6"><span class="h3num">46.6</span><span class="h3ttl">Multisystem gaps: SIRS, MODS, thermoregulation, submersion</span></h3>
-<h4 class="pill c4">SIRS and its relationship to sepsis</h4>
+<h4 class="pill c2">SIRS and its relationship to sepsis</h4>
 <p><strong>Systemic inflammatory response syndrome</strong> is defined by <strong>two or more</strong> of:
 temperature &gt;38&deg;C or &lt;36&deg;C; heart rate &gt;90; respiratory rate &gt;20 or PaCO<sub>2</sub>
 &lt;32 mmHg; WBC &gt;12,000 or &lt;4,000 or &gt;10% bands.</p>
@@ -14637,7 +14761,7 @@ with organ dysfunction identified by a SOFA increase &ge;2 (Section <a class="xr
 used as a screening prompt and remain in the test plan, so know both: SIRS as a syndrome in its own
 right, and the fact that it is no longer the definition of sepsis.</div>
 
-<h4 class="pill c0">Multiple organ dysfunction syndrome (MODS)</h4>
+<h4 class="pill c3">Multiple organ dysfunction syndrome (MODS)</h4>
 <p>Progressive, potentially reversible dysfunction of two or more organ systems following an acute
 insult, where homeostasis cannot be maintained without intervention. <strong>Primary MODS</strong> results
 directly from the insult; <strong>secondary MODS</strong> develops later from the host inflammatory
@@ -14646,7 +14770,7 @@ failing organ. There is no specific treatment: source control, organ support, av
 injury (lung-protective ventilation, conservative fluids, minimizing sedation and nephrotoxins), and
 nutrition. Sequential organ scoring (SOFA) tracks it.</p>
 
-<h4 class="pill c1">Thermoregulation</h4>
+<h4 class="pill c4">Thermoregulation</h4>
 <div class="tw"><table data-kt="1">
 <tr><th style="width:22%">State</th><th>Detail</th></tr>
 <tr><td><strong>Hypothermia</strong></td><td>Mild 32&ndash;35&deg;C, moderate 28&ndash;32&deg;C, severe
@@ -14668,7 +14792,7 @@ hyperthermia is heat generation exceeding dissipation with a normal set point (a
 Malignant hyperthermia (Section <a class="xr" href="#s30">30</a>), NMS, serotonin syndrome, and thyroid storm are hyperthermia.</td></tr>
 </table></div>
 
-<h4 class="pill c2">Submersion injury (near-drowning)</h4>
+<h4 class="pill c0">Submersion injury (near-drowning)</h4>
 <p>Terminology is now <strong>drowning</strong> (a process, with outcomes of survival or death); "wet,"
 "dry," and "near-drowning" are obsolete terms.</p>
 <ul>
@@ -14725,7 +14849,7 @@ secondary, or tertiary intention. Involve the WOC nurse early; nutrition (protei
 part of wound care.</td></tr></tbody></table></div>
 
 <h3 id="x37-8"><span class="h3num">46.8</span><span class="h3ttl">Behavioral: post-intensive care syndrome and self-harm</span></h3>
-<h4 class="pill c3">Post-intensive care syndrome (PICS)</h4>
+<h4 class="pill c1">Post-intensive care syndrome (PICS)</h4>
 <p>New or worsening impairment in <strong>physical, cognitive, or mental health</strong> arising after
 critical illness and persisting after discharge. <strong>PICS-F</strong> describes the same phenomenon in
 <strong>family members</strong> &mdash; anxiety, depression, complicated grief, and PTSD.</p>
@@ -14748,7 +14872,7 @@ reorientation, and post-ICU follow-up clinics. <strong>Tell patients and familie
 discharge</strong> &mdash; survivors frequently believe the cognitive and emotional changes mean
 something is wrong with them personally.</p>
 
-<h4 class="pill c4">Self-harm and suicidality</h4>
+<h4 class="pill c2">Self-harm and suicidality</h4>
 <ul>
 <li>Distinguish <strong>non-suicidal self-injury</strong> (self-harm without intent to die, often for
 affect regulation) from a <strong>suicide attempt</strong>. Both require assessment; do not assume the
@@ -14984,7 +15108,7 @@ escalation.</td></tr>
 <p>Before the specific cascades, three things connect nearly everything. If you understand these, most
 cross-system effects become derivable rather than memorized.</p>
 
-<h4 class="pill c0">Currency 1: oxygen delivery</h4>
+<h4 class="pill c3">Currency 1: oxygen delivery</h4>
 <p><strong>DO<sub>2</sub> = (Hgb &times; 1.34 &times; SaO<sub>2</sub> + dissolved O<sub>2</sub>) &times;
 cardiac output.</strong> Three organ systems each own one term:</p>
 <div class="tw"><table data-kt="1">
@@ -15002,7 +15126,7 @@ electrolytes, sepsis)</td></tr>
 &ldquo;which of the three terms, and what is driving it?&rdquo;</strong> A rising lactate with a normal
 blood pressure sends you to hemoglobin, saturation, and regional flow &mdash; not to the pressor.</p>
 
-<h4 class="pill c1">Currency 2: perfusion pressure</h4>
+<h4 class="pill c4">Currency 2: perfusion pressure</h4>
 <p>Every organ has one, and they are all built the same way: <strong>inflow pressure minus the pressure
 the organ sits inside.</strong></p>
 <div class="tw"><table data-kt="1">
@@ -15024,7 +15148,7 @@ problem. If the pressure the organ sits inside is rising, MAP has to rise faster
 the abdomen, slow the heart rate to lengthen diastole, diurese the congested kidney. Nurses who only
 think in MAP miss half the available moves.</div>
 
-<h4 class="pill c2">Currency 3: the internal environment</h4>
+<h4 class="pill c0">Currency 3: the internal environment</h4>
 <p>pH, potassium, calcium, magnesium, and temperature are not &ldquo;lab values.&rdquo; They are the
 conditions under which every other system operates, and they degrade in patterns:</p>
 <div class="tw"><table data-kt="1">
@@ -15052,7 +15176,7 @@ environment collapsing, and each one accelerates the others.</p>
 happening). Learning them as chains rather than as separate diseases is the single highest-yield thing in
 this section.</p>
 
-<h4 class="pill c3">Sepsis &mdash; the archetype</h4>
+<h4 class="pill c1">Sepsis &mdash; the archetype</h4>
 <p>Sepsis is on the exam under Multisystem, not under Infection, for a reason. It is
 <em>defined</em> by cross-system failure.</p>
 <div class="tw"><table data-kt="1">
@@ -15077,7 +15201,7 @@ probably not a new disease. Sudden confusion is not necessarily a stroke; a fall
 necessarily HIT; a rising creatinine is not necessarily contrast. Ask first whether it is the sepsis
 declaring itself somewhere new.</p>
 
-<h4 class="pill c4">Kidney &harr; everything</h4>
+<h4 class="pill c2">Kidney &harr; everything</h4>
 <div class="tw"><table data-kt="1">
 <tr><th style="width:26%">Renal failure causes</th><th>Which shows up as</th></tr>
 <tr><td>Potassium retention</td><td><strong>Cardiac</strong> &mdash; peaked T waves &rarr; wide QRS &rarr;
@@ -15100,7 +15224,7 @@ oxygen delivery (<a class="xr" href="#x37-4">46.4</a>)</td></tr>
 congestion), the abdomen (intra-abdominal hypertension), the muscle (rhabdomyolysis), the liver
 (hepatorenal), the blood (hemolysis, tumor lysis), and every nephrotoxin you hang.</p>
 
-<h4 class="pill c0">Liver &harr; everything</h4>
+<h4 class="pill c3">Liver &harr; everything</h4>
 <div class="tw"><table data-kt="1">
 <tr><th style="width:26%">Hepatic failure causes</th><th>Which shows up as</th></tr>
 <tr><td>Reduced factor synthesis</td><td>Coagulopathy with rising INR &mdash; and <strong>the INR is a
@@ -15116,7 +15240,7 @@ encephalopathic cirrhotic</td></tr>
 <em>by</em> the liver</td></tr>
 </table></div>
 
-<h4 class="pill c1">Brain &harr; lung</h4>
+<h4 class="pill c4">Brain &harr; lung</h4>
 <div class="warn">This is the pairing where the two managements most directly contradict each other, and
 it is worth knowing cold.
 <div class="tw"><table data-kt="1" style="margin-top:6px;">
@@ -15137,7 +15261,7 @@ cerebral ischemia</strong> (<a class="xr" href="#x26-17">26.17</a>).</td></tr>
 severe brain injury or SAH; loss of airway protection from depressed consciousness; central
 hypoventilation from brainstem injury; and aspiration from impaired swallow.</p></div>
 
-<h4 class="pill c2">Brain &harr; heart</h4>
+<h4 class="pill c0">Brain &harr; heart</h4>
 <ul>
 <li><strong>Neurogenic stunned myocardium / takotsubo</strong> after subarachnoid hemorrhage &mdash; a
 catecholamine surge from the brain produces ECG changes, troponin rise, and reduced ejection fraction in
@@ -15153,7 +15277,7 @@ emergency.</li>
 endocarditis causes septic emboli; a PFO allows paradoxical embolism (<a class="xr" href="#x23-10">23.10</a>).</li>
 </ul>
 
-<h4 class="pill c3">Heart &harr; lung</h4>
+<h4 class="pill c1">Heart &harr; lung</h4>
 <ul>
 <li><strong>Positive pressure ventilation reduces venous return</strong> &mdash; every intubation is a
 hemodynamic event, and peri-intubation hypotension is expected (<a class="xr" href="#x25-8">25.8</a>).</li>
@@ -15169,7 +15293,7 @@ fails every SBT with rising pressures and pulmonary edema may need diuresis, not
 therapy.</li>
 </ul>
 
-<h4 class="pill c4">The iatrogenic cascade &mdash; the one you control</h4>
+<h4 class="pill c2">The iatrogenic cascade &mdash; the one you control</h4>
 <p>The most common multisystem cascade in any ICU is the one that starts with our own interventions.</p>
 <div class="tw"><table data-kt="1">
 <tr><th style="width:24%">Starts with</th><th>Leads to</th></tr>
@@ -15212,7 +15336,7 @@ not yet understand the intervention.</li>
 anticipation.</li>
 </ol>
 
-<h4 class="pill c0">Worked example</h4>
+<h4 class="pill c3">Worked example</h4>
 <div class="box"><strong>Day 3 of septic shock from urosepsis. <a href="#m-norepinephrine" class="drug">Norepinephrine</a> 0.12 mcg/kg/min. Intubated,
 FiO<sub>2</sub> 0.6, PEEP 12. Creatinine 2.8 (baseline 0.9). Platelets 88 (was 210). Lactate 3.4 (was
 5.1). RASS &minus;4 on <a href="#m-midazolam" class="drug">midazolam</a> and <a href="#m-fentanyl" class="drug">fentanyl</a>. Net +9 L since admission. Now: new confusion on wake-up,
@@ -15319,7 +15443,7 @@ considerations.</strong></p>
 
 <h3 id="x32-1"><span class="h3num">49.1</span><span class="h3ttl">Vasopressors and inotropes</span></h3>
 
-<h4 id="m-norepinephrine" class="pill c1">Norepinephrine (Levophed)</h4>
+<h4 id="m-norepinephrine" class="pill c4">Norepinephrine (Levophed)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td>Potent <strong>alpha-1</strong> agonist with
 moderate <strong>beta-1</strong> activity. Alpha-1 stimulation on arterial and venous smooth muscle
@@ -15353,7 +15477,7 @@ blankets. Reassess perfusion (not just MAP) after every titration. Wean delibera
 time. Escalating dose = escalate the conversation: think unaddressed volume, undrained source, acidosis,
 adrenal insufficiency, tamponade, pneumothorax, or a mechanical line problem.</td></tr></tbody></table></div>
 
-<h4 id="m-epinephrine" class="pill c2">Epinephrine</h4>
+<h4 id="m-epinephrine" class="pill c0">Epinephrine</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td>Potent <strong>alpha-1, beta-1, and
 beta-2</strong> agonist. Dose-dependent: beta effects predominate at low dose (&uarr;CO, &uarr;HR, may
@@ -15379,7 +15503,7 @@ everything else.</td></tr><tr class="tipnurse"><td><strong>Nursing consideration
 infusions. Anticipate ischemia in patients with coronary disease. In anaphylaxis, keep the patient
 <strong>supine with legs elevated</strong> &mdash; sitting them up can be fatal. Watch glucose; a raised lactate on epinephrine can be a drug effect, so read it alongside the other perfusion signs.</td></tr></tbody></table></div>
 
-<h4 id="m-phenylephrine" class="pill c3">Phenylephrine (Neo-Synephrine)</h4>
+<h4 id="m-phenylephrine" class="pill c1">Phenylephrine (Neo-Synephrine)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Pure alpha-1 agonist</strong> &mdash;
 no beta activity. Arterial and venous vasoconstriction &rarr; &uarr;SVR, &uarr;MAP, &uarr;venous return.
@@ -15403,7 +15527,7 @@ quick, reversible pressure bump for a procedure or position change.</td></tr><tr
 norepinephrine per many protocols, but still causes vasoconstriction &mdash; assess the site. Expect the
 heart rate to drop; that is the drug working, not a complication, unless it becomes symptomatic.</td></tr></tbody></table></div>
 
-<h4 id="m-vasopressin" class="pill c4">Vasopressin (Vasostrict)</h4>
+<h4 id="m-vasopressin" class="pill c2">Vasopressin (Vasostrict)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>V<sub>1</sub> receptor</strong>
 agonist on vascular smooth muscle &rarr; vasoconstriction <strong>independent of adrenergic
@@ -15430,7 +15554,7 @@ lets you anticipate the order rather than react to it.</td></tr><tr class="tipnu
 &mdash; ischemic complications are more common than with norepinephrine at equivalent support. Monitor
 sodium on prolonged infusions. Trend the sodium: the V2 (water) effect can cause hyponatremia.</td></tr></tbody></table></div>
 
-<h4 id="m-dobutamine" class="pill c0">Dobutamine (Dobutrex)</h4>
+<h4 id="m-dobutamine" class="pill c3">Dobutamine (Dobutrex)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td>Predominantly <strong>beta-1</strong>
 agonist with <strong>beta-2</strong> activity. &uarr;Contractility and &uarr;heart rate; beta-2 causes
@@ -15454,7 +15578,7 @@ blood pressure is a category error.</td></tr><tr class="tipnurse"><td><strong>Nu
 Assess perfusion &mdash; warming extremities and improving urine output are the wins, even if the MAP is
 unchanged. Anticipate declining efficacy after a few days.</td></tr></tbody></table></div>
 
-<h4 id="m-milrinone" class="pill c1">Milrinone (Primacor)</h4>
+<h4 id="m-milrinone" class="pill c4">Milrinone (Primacor)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Phosphodiesterase-3
 inhibitor</strong> &mdash; blocks cAMP breakdown &rarr; &uarr;intracellular cAMP and calcium &rarr;
@@ -15480,7 +15604,7 @@ vasodilation unloads the right ventricle. Knowing that explains why the team cho
 vasodilation. Ensure a dedicated or compatible lumen. Reassess the dose whenever renal function
 changes &mdash; a patient who develops AKI on milrinone is accumulating drug. Ventricular arrhythmias occurred in 12.1% of patients in the label trials: keep the patient on continuous ECG.</td></tr></tbody></table></div>
 
-<h4 id="m-dopamine" class="pill c2">Dopamine</h4>
+<h4 id="m-dopamine" class="pill c0">Dopamine</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td>Dose-dependent receptor activity.
 <strong>Low (1&ndash;3 mcg/kg/min):</strong> dopaminergic &mdash; renal and mesenteric vasodilation.
@@ -15514,7 +15638,7 @@ out of favor.</td></tr>
 and phentolamine as norepinephrine. Watch the rhythm closely with every titration.</td></tr>
 </table></div>
 
-<h4 id="m-angiotensin" class="pill c3">Angiotensin II (Giapreza)</h4>
+<h4 id="m-angiotensin" class="pill c1">Angiotensin II (Giapreza)</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td>Agonist at <strong>AT<sub>1</sub></strong>
 receptors &mdash; activates the renin-angiotensin-aldosterone pathway &rarr; direct vasoconstriction plus
@@ -15546,7 +15670,7 @@ order.</td></tr>
 shift. Confirm and document VTE prophylaxis. Expensive and pharmacy-restricted at most institutions.</td></tr>
 </table></div>
 
-<h4 id="m-isoproterenol" class="pill c4">Isoproterenol (Isuprel)</h4>
+<h4 id="m-isoproterenol" class="pill c2">Isoproterenol (Isuprel)</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Pure beta agonist</strong> (beta-1
 and beta-2). Potent chronotrope and inotrope; beta-2 causes vasodilation &rarr; <strong>&darr;SVR and
@@ -15580,7 +15704,7 @@ doesn't work.</td></tr>
 Serial ECGs for ischemia. Expect the diastolic pressure to fall.</td></tr>
 </table></div>
 
-<h4 id="m-atropine" class="pill c0">Atropine</h4>
+<h4 id="m-atropine" class="pill c3">Atropine</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Muscarinic (M2) antagonist.</strong> Removes vagal braking at the SA and AV nodes, so the rate rises and AV conduction speeds up.</td></tr>
 <tr><td><strong>Ino / chrono / dromo</strong></td><td>Ino <span class="sym">&#9675;</span> &nbsp;&bull;&nbsp; Chrono <span class="sym">&#9650;</span> &nbsp;&bull;&nbsp; Dromo <span class="sym">&#9650;</span></td></tr>
@@ -15600,7 +15724,7 @@ Serial ECGs for ischemia. Expect the diastolic pressure to fall.</td></tr>
 
 <h3 id="x32-2"><span class="h3num">49.2</span><span class="h3ttl">Vasodilators and antihypertensives</span></h3>
 
-<h4 id="m-nicardipine" class="pill c1">Nicardipine (Cardene)</h4>
+<h4 id="m-nicardipine" class="pill c4">Nicardipine (Cardene)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Dihydropyridine calcium channel
 blocker</strong> &mdash; blocks L-type calcium channels in <strong>vascular</strong> smooth muscle
@@ -15627,7 +15751,7 @@ target if it isn't explicit.</td></tr><tr class="tipnurse"><td><strong>Nursing c
 sometimes added. In aortic dissection, <strong>the beta blocker goes first</strong> (see esmolol).
 Assess the peripheral site every shift. On a peripheral line, the label says to change the infusion site every 12 hours to limit phlebitis.</td></tr></tbody></table></div>
 
-<h4 id="m-clevidipine" class="pill c2">Clevidipine (Cleviprex)</h4>
+<h4 id="m-clevidipine" class="pill c0">Clevidipine (Cleviprex)</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td>Ultra-short-acting
 <strong>dihydropyridine CCB</strong> &mdash; selective arterial vasodilation with essentially no venous
@@ -15661,7 +15785,7 @@ Its forgiveness makes it much less stressful to titrate than nicardipine.</td></
 per the manufacturer's time limit once spiked. Watch for reflex tachycardia.</td></tr>
 </table></div>
 
-<h4 id="m-nitroglycerin" class="pill c3">Nitroglycerin</h4>
+<h4 id="m-nitroglycerin" class="pill c1">Nitroglycerin</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td>Nitric oxide donor &rarr; &uarr;cGMP &rarr;
 smooth muscle relaxation. <strong>Predominantly VENODILATION at low doses</strong> &rarr;
@@ -15686,7 +15810,7 @@ prevents an alarming call and builds trust. It relieves symptoms and congestion 
 edema</strong> with hypertension &mdash; often more effective than diuresis in the first hour. Have
 fluids ready for over-dilation. Wean rather than stopping abruptly in ongoing ischemia (rebound).</td></tr></tbody></table></div>
 
-<h4 id="m-nitroprusside" class="pill c4">Nitroprusside (Nipride)</h4>
+<h4 id="m-nitroprusside" class="pill c2">Nitroprusside (Nipride)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td>Nitric oxide donor causing
 <strong>balanced arterial AND venous</strong> dilation &rarr; &darr;preload and &darr;afterload. The
@@ -15715,7 +15839,7 @@ reason &mdash; ask what it is, and ask what the duration plan is.</td></tr><tr c
 <strong>renal impairment (thiocyanate)</strong> and <strong>hepatic impairment (cyanide)</strong>, plus
 malnutrition, B12 deficiency, and hypothermia. Never run without continuous BP monitoring. Ask about sildenafil, tadalafil or vardenafil use before starting.</td></tr></tbody></table></div>
 
-<h4 id="m-labetalol" class="pill c0">Labetalol</h4>
+<h4 id="m-labetalol" class="pill c3">Labetalol</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td>Combined <strong>alpha-1 and non-selective
 beta</strong> blocker (roughly 1:7 alpha:beta ratio IV). Lowers BP by reducing SVR
@@ -15739,7 +15863,7 @@ stroke</strong> and pre-thrombolysis (target &lt;185/110 before, &lt;180/105 for
 used in preeclampsia and dissection.</td></tr><tr class="tipnurse"><td><strong>Nursing considerations</strong></td><td>Keep the patient supine during and after IV
 push. Do not stop chronic beta blockers abruptly (rebound). Document HR with every dose. Check that the patient tolerates sitting up before getting out of bed.</td></tr></tbody></table></div>
 
-<h4 id="m-esmolol" class="pill c1">Esmolol (Brevibloc)</h4>
+<h4 id="m-esmolol" class="pill c4">Esmolol (Brevibloc)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Ultra-short-acting cardioselective
 beta-1 blocker.</strong> &darr;HR, &darr;contractility, &darr;AV conduction, &darr;myocardial oxygen
@@ -15762,12 +15886,12 @@ back. Widely used in dissection, thyroid storm, and rate control in labile patie
 the fluid. Watch for site irritation. Transition to a longer-acting agent is usually planned; anticipate
 the overlap.</td></tr></tbody></table></div>
 
-<h4 id="m-metoprolol" class="pill c2">Metoprolol tartrate (Lopressor), IV</h4>
+<h4 id="m-metoprolol" class="pill c0">Metoprolol tartrate (Lopressor), IV</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>&beta;1-selective antagonist.</strong> Blocks catecholamine effects on the heart: slower rate, slower AV conduction, less contractility and oxygen demand.</td></tr><tr><td><strong>Ino / chrono / dromo</strong></td><td>Ino <span class="sym">&#9660;</span> &nbsp;&bull;&nbsp; Chrono <span class="sym">&#9660;</span> &nbsp;&bull;&nbsp; Dromo <span class="sym">&#9660;</span></td></tr></tbody><tbody><tr><td><strong>Dose</strong></td><td><strong>Non-weight-based.</strong> Label (acute MI): three 5 mg IV boluses about 2 minutes apart (15 mg total), then oral. For AF/flutter rate control, orders are commonly 2.5&ndash;5 mg IV over 2 minutes, repeated per order.</td></tr></tbody><tbody><tr><td><strong>Titration</strong></td><td>Not a drip: repeat boluses by HR and BP response within the ordered limits.</td></tr></tbody><tbody><tr><td><strong>Pharmacokinetics</strong></td><td>Maximum &beta;-blockade about 20 minutes after an IV dose in the label study. Half-life about 3&ndash;7 hours. Liver (CYP2D6) metabolism. Oral and IV doses are not equal: about 2.5 mg oral matches 1 mg IV.</td></tr></tbody><tbody><tr><td><strong>Monitoring</strong></td><td>HR and BP before each dose and about 5 minutes after; ECG (PR interval, block); signs of heart failure; wheeze; glucose in diabetic patients.</td></tr></tbody><tbody><tr><td><strong>Side effects</strong></td><td>Bradycardia and heart block, hypotension, heart failure exacerbation, bronchospasm (less than nonselective drugs), fatigue. Masks the tachycardia of hypoglycemia.</td></tr></tbody><tbody><tr><td><strong>Contraindications</strong></td><td>HR under 45; second- or third-degree block without a working pacemaker; PR 0.24 s or more; SBP under 100; decompensated heart failure; hypersensitivity.</td></tr></tbody><tbody><tr><td><strong>Interactions</strong></td><td>Digoxin and calcium channel blockers (especially IV diltiazem or verapamil): additive bradycardia and block. Strong CYP2D6 inhibitors (fluoxetine, paroxetine, quinidine) raise the level. Clonidine: rebound hypertension if clonidine is stopped. May blunt epinephrine in anaphylaxis.</td></tr></tbody><tbody><tr><td><strong>Critical checks</strong></td><td>Check HR and BP before each push and hold per ordered parameters. Confirm it is IV tartrate (Lopressor), not oral succinate (Toprol XL), and that the oral dose that follows is converted correctly.</td></tr></tbody><tbody><tr class="tipwarn"><td><strong>Watch Out!</strong></td><td>In AF with RVR plus hypotension or sepsis, the fast rate may be keeping the cardiac output up. A &beta;-blocker can crash the pressure. Ask what is driving the rate before you slow it.</td></tr></tbody><tbody><tr class="tipmem"><td><strong>Memory tip</strong></td><td><strong>&beta;1 = 1 heart, &beta;2 = 2 lungs.</strong> &beta;1-selective spares the lungs more, not completely.</td></tr></tbody><tbody class="kg"><tr class="tipsurv"><td><strong>Survival tip</strong></td><td>Push it over 1&ndash;2 minutes with the monitor in view, and recheck the pressure before the next dose.</td></tr><tr class="tipnurse"><td><strong>Nursing considerations</strong></td><td>Check glucose in diabetic patients. Never stop a chronic &beta;-blocker abruptly (rebound tachycardia, hypertension, ischemia).</td></tr></tbody></table></div>
 
 
-<h4 id="m-hydralazine" class="pill c3">Hydralazine</h4>
+<h4 id="m-hydralazine" class="pill c1">Hydralazine</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Direct arterial vasodilator</strong>
 (precise mechanism incompletely defined; involves smooth muscle hyperpolarization). Arteriolar only
@@ -15802,7 +15926,7 @@ pattern.</td></tr>
 
 <h3 id="x32-3"><span class="h3num">49.3</span><span class="h3ttl">Antiarrhythmics</span></h3>
 
-<h4 id="m-amiodarone" class="pill c4">Amiodarone (Cordarone, Nexterone)</h4>
+<h4 id="m-amiodarone" class="pill c2">Amiodarone (Cordarone, Nexterone)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Vaughan Williams Class III</strong>
 predominant (potassium channel blockade &rarr; prolonged repolarization and refractory period), but it
@@ -15832,7 +15956,7 @@ handoff.</td></tr><tr class="tipnurse"><td><strong>Nursing considerations</stron
 diltiazem and beta blockers are contraindicated. Check the QTc daily and keep potassium and magnesium
 repleted. Educate about photosensitivity and long-term monitoring if it's continued. Concentrations above 2 mg/mL need a central line (label).</td></tr></tbody></table></div>
 
-<h4 id="m-diltiazem" class="pill c0">Diltiazem (Cardizem)</h4>
+<h4 id="m-diltiazem" class="pill c3">Diltiazem (Cardizem)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Non-dihydropyridine calcium channel
 blocker (Class IV)</strong> &mdash; blocks L-type calcium channels in <strong>cardiac</strong> tissue
@@ -15861,7 +15985,7 @@ bleeding, or in pain.</td></tr><tr class="tipnurse"><td><strong>Nursing consider
 patient supine. Have fluids ready. In an unstable patient, the answer is
 <strong>synchronized cardioversion</strong>, not a drip.</td></tr></tbody></table></div>
 
-<h4 id="m-verapamil" class="pill c1">Verapamil (Calan), IV</h4>
+<h4 id="m-verapamil" class="pill c4">Verapamil (Calan), IV</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Non-dihydropyridine L-type calcium channel blocker</strong> at the SA and AV nodes and the myocardium. The most negative inotrope of the calcium channel blockers.</td></tr>
 <tr><td><strong>Ino / chrono / dromo</strong></td><td>Ino <span class="sym">&#9660;</span> strong &nbsp;&bull;&nbsp; Chrono <span class="sym">&#9660;</span> &nbsp;&bull;&nbsp; Dromo <span class="sym">&#9660;</span></td></tr>
@@ -15880,7 +16004,7 @@ patient supine. Have fluids ready. In an unstable patient, the answer is
 </table></div>
 
 
-<h4 id="m-adenosine" class="pill c2">Adenosine (Adenocard)</h4>
+<h4 id="m-adenosine" class="pill c0">Adenosine (Adenocard)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td>Endogenous nucleoside; activates A1
 receptors &rarr; transient <strong>AV nodal blockade</strong> and hyperpolarization &rarr; interrupts
@@ -15908,7 +16032,7 @@ record it.</td></tr><tr class="tipnurse"><td><strong>Nursing considerations</str
 Expect a several-second pause on the monitor; this is the drug working. Reassure the patient afterward
 &mdash; they will remember it.</td></tr></tbody></table></div>
 
-<h4 id="m-lidocaine" class="pill c3">Lidocaine</h4>
+<h4 id="m-lidocaine" class="pill c1">Lidocaine</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Class Ib sodium channel
 blocker</strong> &mdash; weak, use-dependent blockade that <strong>shortens</strong> action potential
@@ -15937,7 +16061,7 @@ procainamide.</td></tr><tr class="tipnurse"><td><strong>Nursing considerations</
 tinnitus each assessment. Have benzodiazepines and airway equipment available. Lipid emulsion is the
 treatment for severe local anesthetic systemic toxicity.</td></tr></tbody></table></div>
 
-<h4 id="m-procainamide" class="pill c4">Procainamide</h4>
+<h4 id="m-procainamide" class="pill c2">Procainamide</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Class Ia</strong> &mdash; moderate
 sodium channel blockade (slows conduction, <strong>widens QRS</strong>) plus potassium channel blockade
@@ -15976,7 +16100,7 @@ the working diagnosis is.</td></tr>
 load &mdash; this is not a set-and-check drug. Have fluids and pads ready.</td></tr>
 </table></div>
 
-<h4 id="m-magnesium" class="pill c0">Magnesium sulfate</h4>
+<h4 id="m-magnesium" class="pill c3">Magnesium sulfate</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td>Physiologic calcium antagonist; stabilizes
 myocardial membranes, suppresses early afterdepolarizations (the trigger for torsades), cofactor for the
@@ -16010,7 +16134,7 @@ the magnesium; that is one of the highest-yield habits in the ICU.</td></tr>
 Keep calcium gluconate accessible with high-dose infusions.</td></tr>
 </table></div>
 
-<h4 id="m-digoxin" class="pill c1">Digoxin</h4>
+<h4 id="m-digoxin" class="pill c4">Digoxin</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td>Inhibits the <strong>Na/K-ATPase</strong>
 pump &rarr; &uarr;intracellular sodium &rarr; &uarr;intracellular calcium via the Na/Ca exchanger &rarr;
@@ -16038,7 +16162,7 @@ administration and hold per parameters. Watch for the GI and visual prodrome &md
 the patient telling you they're toxic before the rhythm does. Label: levels under 0.5 ng/mL lose effect, and levels above 2 ng/mL add toxicity without benefit.</td></tr></tbody></table></div>
 <h3 id="x32-4"><span class="h3num">49.4</span><span class="h3ttl">Analgesics and sedatives</span></h3>
 
-<h4 id="m-fentanyl" class="pill c2">Fentanyl</h4>
+<h4 id="m-fentanyl" class="pill c0">Fentanyl</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td>Synthetic <strong>mu-opioid receptor
 agonist</strong> &mdash; inhibits ascending pain pathways and alters pain perception. Highly lipophilic,
@@ -16066,7 +16190,7 @@ and check the obvious. It's the single highest-yield habit in sedation managemen
 changes, and line placement &mdash; assume procedures hurt. Reassess and document the response after
 every intervention.</td></tr></tbody></table></div>
 
-<h4 id="m-hydromorphone" class="pill c3">Hydromorphone (Dilaudid) and Morphine</h4>
+<h4 id="m-hydromorphone" class="pill c1">Hydromorphone (Dilaudid) and Morphine</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td>Mu-opioid agonists.
 <strong>Hydromorphone</strong> is ~5&ndash;7&times; morphine in potency with less histamine release.
@@ -16103,7 +16227,7 @@ opioids. Have naloxone accessible. Assess sedation, not just respiratory rate &m
 precedes respiratory depression.</td></tr>
 </table></div>
 
-<h4 id="m-propofol" class="pill c4">Propofol (Diprivan)</h4>
+<h4 id="m-propofol" class="pill c2">Propofol (Diprivan)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>GABA-A receptor agonist</strong>
 &mdash; enhances inhibitory chloride conductance &rarr; sedation, hypnosis, amnesia, and
@@ -16135,7 +16259,7 @@ predictably. That's usually why it's chosen over dexmedetomidine or a benzodiaze
 of fat, which is substantial. Anticipate hypotension with every increase and have fluids or a pressor
 plan. Aseptic technique at the hub; the vehicle grows bacteria readily.</td></tr></tbody></table></div>
 
-<h4 id="m-dexmedetomidine" class="pill c0">Dexmedetomidine (Precedex)</h4>
+<h4 id="m-dexmedetomidine" class="pill c3">Dexmedetomidine (Precedex)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td>Highly selective <strong>alpha-2 adrenergic
 agonist</strong> acting centrally at the locus coeruleus &rarr; reduced sympathetic outflow &rarr;
@@ -16164,7 +16288,7 @@ and after extubation while other sedatives can't. That's usually why the team ch
 but does not eliminate it. Reassess pain independently. Give the drug time to work before titrating
 again.</td></tr></tbody></table></div>
 
-<h4 id="m-midazolam" class="pill c1">Midazolam (Versed) and Lorazepam (Ativan)</h4>
+<h4 id="m-midazolam" class="pill c4">Midazolam (Versed) and Lorazepam (Ativan)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Benzodiazepines</strong> &mdash;
 bind the benzodiazepine site on the GABA-A receptor, enhancing chloride influx &rarr; sedation,
@@ -16197,7 +16321,7 @@ say it as a question, not a conclusion, and advocate for imaging if anything els
 at <strong>half</strong> the prior dose after a failed SAT, not at the previous rate. Anticipate
 withdrawal after prolonged use and expect a taper.</td></tr></tbody></table></div>
 
-<h4 id="m-ketamine" class="pill c2">Ketamine</h4>
+<h4 id="m-ketamine" class="pill c0">Ketamine</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>NMDA receptor antagonist</strong>
 producing <strong>dissociative</strong> anesthesia &mdash; potent analgesia and amnesia while
@@ -16235,7 +16359,7 @@ given for secretions. A quiet environment during emergence reduces reactions. Re
 beforehand about the dissociative sensation if they're awake.</td></tr>
 </table></div>
 
-<h4 id="m-remifentanil" class="pill c3">Remifentanil</h4>
+<h4 id="m-remifentanil" class="pill c1">Remifentanil</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td>Ultra-short-acting <strong>mu-opioid
 agonist</strong>. Uniquely metabolized by <strong>non-specific plasma and tissue esterases</strong>
@@ -16275,7 +16399,7 @@ adequate before and throughout, and never titrate sedation down on a paralyzed p
 <strong>BIS 40&ndash;60</strong>, because RASS and CPOT are meaningless.
 <strong>TOF measures paralysis, not consciousness.</strong></div>
 
-<h4 id="m-succinylcholine" class="pill c4">Succinylcholine (Anectine)</h4>
+<h4 id="m-succinylcholine" class="pill c2">Succinylcholine (Anectine)</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Depolarizing</strong> neuromuscular
 blocker &mdash; binds nicotinic receptors at the motor endplate and causes sustained depolarization,
@@ -16312,7 +16436,7 @@ considerably.</td></tr>
 &mdash; check dating on any vial kept at room temperature. Have atropine available for bradycardia.</td></tr>
 </table></div>
 
-<h4 id="m-rocuronium" class="pill c0">Rocuronium, Vecuronium, and Cisatracurium</h4>
+<h4 id="m-rocuronium" class="pill c3">Rocuronium, Vecuronium, and Cisatracurium</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Non-depolarizing</strong> competitive
 nicotinic receptor antagonists at the motor endplate. No fasciculations. Reversible.</td></tr><tr><td><strong>Dose</strong></td><td><strong>All weight-based.</strong> <strong>Rocuronium:</strong>
@@ -16351,7 +16475,7 @@ to them normally and explain everything &mdash; they may hear you. Everything yo
 assessment frequency accordingly.</td></tr></tbody></table></div>
 <h3 id="x32-6"><span class="h3num">49.6</span><span class="h3ttl">Anticoagulant infusions</span></h3>
 
-<h4 id="m-heparin" class="pill c1">Heparin (unfractionated)</h4>
+<h4 id="m-heparin" class="pill c4">Heparin (unfractionated)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td>Binds and potentiates
 <strong>antithrombin III</strong> ~1000-fold, which then inactivates <strong>thrombin (IIa)</strong> and
@@ -16382,7 +16506,7 @@ have an antidote. That is often the whole reason for the choice.</td></tr><tr cl
 occult bleeding: neuro checks, stool and urine for blood, H&amp;H trend, back or flank pain
 (retroperitoneal). Minimize IM injections and unnecessary sticks.</td></tr></tbody></table></div>
 
-<h4 id="m-argatroban" class="pill c2">Argatroban</h4>
+<h4 id="m-argatroban" class="pill c0">Argatroban</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Direct thrombin inhibitor</strong>
 &mdash; binds thrombin's active site directly, <strong>without requiring antithrombin</strong>. This is
@@ -16416,7 +16540,7 @@ care &mdash; flushes, coated catheters, and dialysis circuits included &mdash; a
 allergy list.</td></tr>
 </table></div>
 
-<h4 id="m-bivalirudin" class="pill c3">Bivalirudin (Angiomax)</h4>
+<h4 id="m-bivalirudin" class="pill c1">Bivalirudin (Angiomax)</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td>Direct thrombin inhibitor; binds both the
 active site and the substrate-recognition site of thrombin. Reversible binding.</td></tr>
@@ -16447,7 +16571,7 @@ when used for HIT.</td></tr>
 
 <h3 id="x32-7"><span class="h3num">49.7</span><span class="h3ttl">Other common ICU infusions</span></h3>
 
-<h4 id="m-insulin" class="pill c4">Insulin (regular, IV infusion)</h4>
+<h4 id="m-insulin" class="pill c2">Insulin (regular, IV infusion)</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td>Binds the insulin receptor &rarr; glucose
 uptake into muscle and fat, suppression of hepatic gluconeogenesis and glycogenolysis, and suppression of
@@ -16481,11 +16605,11 @@ euglycemic DKA with a near-normal glucose). Asking "what set this off?" is real 
 policy (insulin adsorbs to plastic). Have D50 immediately available. Recheck 15 minutes after treating
 hypoglycemia.</td></tr></tbody></table></div>
 
-<h4 class="pill c0">Nicardipine, esmolol, and labetalol</h4>
+<h4 class="pill c3">Nicardipine, esmolol, and labetalol</h4>
 <p class="tiny">See <a class="xr" href="#x32-2">49.2</a> above. Frequently run concurrently with the drugs in this section &mdash; verify
 line compatibility with pharmacy.</p>
 
-<h4 id="m-nimodipine" class="pill c1">Nimodipine</h4>
+<h4 id="m-nimodipine" class="pill c4">Nimodipine</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td>Dihydropyridine calcium channel blocker with
 high lipophilicity and preferential cerebral vascular penetration. Reduces poor outcomes from
@@ -16517,7 +16641,7 @@ they're on and communicate it at handoff.</td></tr>
 tube feeds around the dose per policy. Coordinate timing with other antihypertensives.</td></tr>
 </table></div>
 
-<h4 id="m-levetiracetam" class="pill c2">Levetiracetam, fosphenytoin, and valproate</h4>
+<h4 id="m-levetiracetam" class="pill c0">Levetiracetam, fosphenytoin, and valproate</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td><strong>Levetiracetam:</strong> binds
 synaptic vesicle protein SV2A, modulating neurotransmitter release. <strong>Fosphenytoin:</strong> a
@@ -16553,7 +16677,7 @@ wake up &mdash; non-convulsive status is common and invisible.</td></tr></tbody>
 
 <h3 id="x32-8"><span class="h3num">49.8</span><span class="h3ttl">Reversal agents and antidotes</span></h3>
 
-<h4 id="m-naloxone" class="pill c3">Naloxone (Narcan)</h4>
+<h4 id="m-naloxone" class="pill c1">Naloxone (Narcan)</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td>Competitive <strong>mu-opioid receptor
 antagonist</strong> &mdash; displaces the opioid from the receptor.</td></tr>
@@ -16590,7 +16714,7 @@ otherwise safe.</td></tr>
 Have airway support available. Anticipate a very uncomfortable patient and plan analgesia.</td></tr>
 </table></div>
 
-<h4 id="m-flumazenil" class="pill c4">Flumazenil (Romazicon)</h4>
+<h4 id="m-flumazenil" class="pill c2">Flumazenil (Romazicon)</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td>Competitive antagonist at the
 benzodiazepine binding site on the GABA-A receptor.</td></tr>
@@ -16618,7 +16742,7 @@ a benzodiazepine-naive patient &mdash; not undifferentiated overdose.</td></tr>
 Document the indication and the screening you performed.</td></tr>
 </table></div>
 
-<h4 id="m-sugammadex" class="pill c0">Sugammadex (Bridion)</h4>
+<h4 id="m-sugammadex" class="pill c3">Sugammadex (Bridion)</h4>
 <div class="tw"><table data-kt="1">
 <tr><td style="width:22%"><strong>Mechanism</strong></td><td>A modified gamma-cyclodextrin that
 <strong>encapsulates</strong> rocuronium (and vecuronium) molecules in plasma, creating a concentration
@@ -16651,7 +16775,7 @@ less when rocuronium can be reversed in three minutes.</td></tr>
 produces an awake, distressed, newly mobile patient with an airway in place.</td></tr>
 </table></div>
 
-<h4 id="m-protamine" class="pill c1">Protamine, vitamin K, PCC, and idarucizumab</h4>
+<h4 id="m-protamine" class="pill c4">Protamine, vitamin K, PCC, and idarucizumab</h4>
 <div class="tw"><table>
 <thead><tr><th style="width:20%">Agent</th><th style="width:24%">Mechanism &amp; dosing</th><th>Watch Out! and nursing</th></tr></thead><tbody><tr><td><strong>Protamine sulfate</strong></td><td>A positively charged protein that binds and neutralizes
 negatively charged heparin. Dosed on the heparin given in the preceding 2&ndash;3 hours
@@ -16679,7 +16803,7 @@ needed; monitor coagulation studies. <strong>Dabigatran is also dialyzable</stro
 alternative or adjunct. Once reversed, the patient's thrombotic indication returns &mdash; expect a plan
 for re-anticoagulation.</td></tr><tr><td><strong>Andexanet alfa</strong> (Andexxa)</td><td>Formerly used to reverse apixaban and rivaroxaban.</td><td><strong>Withdrawn from the US market in December 2025</strong> (FDA: thrombotic risks outweigh benefits). Use 4-factor PCC per protocol for factor Xa inhibitor bleeding, and <strong>get the time of the last DOAC dose</strong>.</td></tr></tbody></table></div>
 
-<h4 id="m-dantrolene" class="pill c2">Dantrolene</h4>
+<h4 id="m-dantrolene" class="pill c0">Dantrolene</h4>
 <div class="tw"><table>
 <tbody class="kg"><tr><td style="width:22%"><strong>Mechanism</strong></td><td>Blocks the <strong>ryanodine receptor</strong>
 on the sarcoplasmic reticulum &rarr; inhibits pathologic calcium release in skeletal muscle &rarr; halts
@@ -16710,7 +16834,7 @@ is squarely your problem. Stop the trigger, hyperventilate with 100% oxygen, cal
 &mdash; account for it. Central line preferred (phlebitic). Refer the patient and family for MH testing
 and document prominently.</td></tr></tbody></table></div>
 
-<h4 id="m-glucagon" class="pill c3">Glucagon, calcium, and high-dose insulin (cardiotoxic overdose)</h4>
+<h4 id="m-glucagon" class="pill c1">Glucagon, calcium, and high-dose insulin (cardiotoxic overdose)</h4>
 <div class="tw"><table>
 <thead><tr><th style="width:20%">Agent</th><th style="width:26%">Mechanism &amp; dosing</th><th>Nursing and Watch Out!</th></tr></thead><tbody><tr><td><strong>Glucagon</strong></td><td>Activates adenylate cyclase <strong>bypassing the beta
 receptor</strong> &rarr; &uarr;cAMP &rarr; inotropy and chronotropy. <strong>Beta blocker
@@ -17117,7 +17241,7 @@ screen/crossmatch, HbA1c</td></tr>
 <p class="tiny">Mnemonic: <strong>"Boys Love Ravishing Girls, Ladies Give Out"</strong> &mdash; Blood
 culture, Light blue, Red, Green, Lavender, Gray. Verify against your own laboratory's chart, which may
 differ slightly.</p>
-<h4 class="pill c4">Why it matters &mdash; the errors this prevents</h4>
+<h4 class="pill c2">Why it matters &mdash; the errors this prevents</h4>
 <ul>
 <li><strong>EDTA (lavender) carryover into a chemistry tube</strong> is the classic disaster: EDTA
 chelates calcium and magnesium and contains potassium, producing a <strong>falsely high potassium with a
@@ -17129,7 +17253,7 @@ citrate-to-blood ratio is fixed, and an underfilled tube <strong>falsely prolong
 This is the most common preanalytical coagulation error and a very common cause of a spurious
 "coagulopathy" at 0300.</li>
 </ul>
-<h4 class="pill c0">General technique rules</h4>
+<h4 class="pill c3">General technique rules</h4>
 <ul>
 <li><strong>Never draw from an arm with an infusion running</strong> if you can avoid it &mdash; use the
 opposite arm. If unavoidable, stop the infusion, wait, and waste adequately per policy; document it.
@@ -17145,7 +17269,7 @@ invalidates troponin and many other assays. A hemolyzed specimen costs an hour a
 <li><strong>Label at the bedside, in the patient's presence, immediately after drawing.</strong> Never
 pre-label and never label at the nurses' station.</li>
 </ul>
-<h4 class="pill c1">Blood cultures</h4>
+<h4 class="pill c4">Blood cultures</h4>
 <ul>
 <li><strong>Draw before antibiotics</strong> whenever it will not meaningfully delay them &mdash; but in
 sepsis, <strong>never delay antibiotics to obtain cultures.</strong></li>
@@ -17432,7 +17556,7 @@ which remain stable across reprints. Drug monographs are in Section 49. Bold loc
 principal treatment of a topic.</p>
 
 <div style="column-count:2; column-gap:20px; font-size:8.3pt;">
-<h4 class="pill c2">A</h4>
+<h4 class="pill c0">A</h4>
 <p>AACN Synergy Model, <strong><a class="xr" href="#x36-2">45.2</a></strong>, <a class="xr" href="#x38-6">47.6</a><br>
 ABCDEF bundle, <strong><a class="xr" href="#x13-1">13.1</a></strong>, <a class="xr" href="#s14">14</a>, <a class="xr" href="#x25-20">25.20</a><br>
 Abdominal compartment syndrome, <a class="xr" href="#x27-12">27.12</a>, <strong><a class="xr" href="#x27-13">27.13</a></strong><br>
@@ -17502,7 +17626,7 @@ Audit trail, EHR, <strong><a class="xr" href="#x12-5">12.5</a></strong><br>
 Auto-PEEP, <a class="xr" href="#x25-14">25.14</a>, <a class="xr" href="#x25-16">25.16</a><br>
 Autonomic dysreflexia, <strong><a class="xr" href="#x37-3">46.3</a></strong></p>
 
-<h4 class="pill c3">B</h4>
+<h4 class="pill c1">B</h4>
 <p>Babinski sign (plantar response), <strong><a class="xr" href="#s9">9</a></strong><br>
 Bakri balloon, <strong><a class="xr" href="#x27-17">27.17</a></strong><br>
 Bariatric patients, <strong><a class="xr" href="#s15">15</a></strong><br>
@@ -17538,7 +17662,7 @@ Brown-S&eacute;quard syndrome, <a class="xr" href="#x37-3">46.3</a><br>
 Burnout, <a class="xr" href="#s4">4</a>, <strong><a class="xr" href="#s5">5</a></strong><br>
 Burns, <strong><a class="xr" href="#x47-1">39.1</a></strong>&ndash;<a class="xr" href="#x47-9">39.9</a></p>
 
-<h4 class="pill c4">C</h4>
+<h4 class="pill c2">C</h4>
 <p>C-SSRS (Columbia Suicide Severity Rating Scale), <strong><a class="xr" href="#x49-3">41.3</a></strong><br>
 Calcium channel blocker overdose, <strong><a class="xr" href="#x30-2">30.2</a></strong><br>
 Calcium ratio (citrate accumulation), <strong><a class="xr" href="#x27-4">27.4</a></strong><br>
@@ -17608,7 +17732,7 @@ Currencies, the three (oxygen delivery, perfusion pressure, internal environment
 Cyanide toxicity, <a class="xr" href="#x21-7">21.7</a>, <a class="xr" href="#x30-2">30.2</a>, <strong><a class="xr" href="#x32-2">49.2</a></strong><br>
 Cyproheptadine, <a class="xr" href="#x30-2">30.2</a>&ndash;<a class="xr" href="#x30-3">30.3</a></p>
 
-<h4 class="pill c0">D</h4>
+<h4 class="pill c3">D</h4>
 <p>Dantrolene, <a class="xr" href="#x30-5">30.5</a>, <strong><a class="xr" href="#x32-8">49.8</a></strong><br>
 De-escalation, <strong><a class="xr" href="#x49-4">41.4</a></strong><br>
 Dead space in IV tubing (carriers, boluses), <strong><a class="xr" href="#s18">18</a></strong><br>
@@ -17651,7 +17775,7 @@ Drug interactions, cardiac drugs, <strong><a class="xr" href="#x32-1">49.1</a></
 Drug monographs, <strong><a class="xr" href="#s31">31</a></strong><br>
 Dyssynchrony, patient-ventilator, <strong><a class="xr" href="#x25-16">25.16</a></strong></p>
 
-<h4 class="pill c1">E</h4>
+<h4 class="pill c4">E</h4>
 <p>E<sub>adyn</sub>, <strong><a class="xr" href="#x16-12">16.12</a></strong><br>
 ECG, 12-lead electrode placement, <strong><a class="xr" href="#x41-2">33.2</a></strong><br>
 Eclampsia / HELLP, <a class="xr" href="#x27-17">27.17</a>, <a class="xr" href="#x37-9">46.9</a><br>
@@ -17683,7 +17807,7 @@ External ventricular drain (EVD), <a class="xr" href="#x26-13">26.13</a>, <stron
 Extravasation, vasopressor, <strong><a class="xr" href="#x21-4">21.4</a></strong>, <a class="xr" href="#x32-1">49.1</a><br>
 Extubation, assisting, <strong><a class="xr" href="#x31-13">31.13</a></strong></p>
 
-<h4 class="pill c2">F&ndash;G</h4>
+<h4 class="pill c0">F&ndash;G</h4>
 <p>Facilitation of learning, <strong><a class="xr" href="#x36-2">45.2</a></strong><br>
 Failure to wean, cardiac cause of, <a class="xr" href="#x25-24">25.24</a>, <strong><a class="xr" href="#x39-3">48.3</a></strong><br>
 Falls, <a class="xr" href="#x12-6">12.6</a>, <a class="xr" href="#x13-7">13.7</a><br>
@@ -17709,7 +17833,7 @@ Glucagon, <a class="xr" href="#x30-2">30.2</a>, <strong><a class="xr" href="#x32
 Graft take (burns), <strong><a class="xr" href="#x47-5">39.5</a></strong><br>
 Guillain-Barr&eacute; syndrome, <strong><a class="xr" href="#x37-9">46.9</a></strong></p>
 
-<h4 class="pill c3">H</h4>
+<h4 class="pill c1">H</h4>
 <p>H's and T's, <a class="xr" href="#x22-2">22.2</a>, <strong><a class="xr" href="#x24-3">24.3</a></strong><br>
 Halo vest, <strong><a class="xr" href="#x48-4">40.4</a></strong><br>
 Handoff, P&ndash;A&ndash;S (I-PASS), <strong><a class="xr" href="#s11">11</a></strong><br>
@@ -17740,7 +17864,7 @@ Hypertonic saline, <a class="xr" href="#x26-17">26.17</a>, <a class="xr" href="#
 Hypoglycemia, <a class="xr" href="#s8">8</a>, <a class="xr" href="#s24">24</a>, <a class="xr" href="#x32-7">49.7</a><br>
 Hypothermia (accidental), <strong><a class="xr" href="#x37-6">46.6</a></strong></p>
 
-<h4 class="pill c4">I&ndash;L</h4>
+<h4 class="pill c2">I&ndash;L</h4>
 <p>IABP timing errors (figure), <strong><a class="xr" href="#x22-20">22.20</a></strong><br>
 IABP, <strong><a class="xr" href="#x22-19">22.19</a></strong>&ndash;<a class="xr" href="#x22-20">22.20</a><br>
 Iatrogenic cascade, <strong><a class="xr" href="#x39-3">48.3</a></strong><br>
@@ -17789,7 +17913,7 @@ Lumbar drain, <strong><a class="xr" href="#x44-2">36.2</a></strong><br>
 Lumbar puncture, <strong><a class="xr" href="#x26-22">26.22</a></strong><br>
 LVAD: low flow, <strong><a class="xr" href="#x22-32">22.32</a></strong></p>
 
-<h4 class="pill c0">M&ndash;N</h4>
+<h4 class="pill c3">M&ndash;N</h4>
 <p>Magnesium replacement, <strong><a class="xr" href="#x27-18">27.18</a></strong><br>
 Magnesium, <a class="xr" href="#x22-2">22.2</a>, <a class="xr" href="#x27-7">27.7</a>, <strong><a class="xr" href="#x32-3">49.3</a></strong><br>
 Malignant hyperthermia, <strong><a class="xr" href="#x30-5">30.5</a></strong>, <a class="xr" href="#x32-8">49.8</a><br>
@@ -17844,7 +17968,7 @@ Norepinephrine, <a class="xr" href="#x21-1">21.1</a>, <strong><a class="xr" href
 Nurse Licensure Compact, <strong><a class="xr" href="#xPRO-6">43.6</a></strong><br>
 Nutrition, enteral/parenteral, <strong><a class="xr" href="#x28-9">28.9</a></strong></p>
 
-<h4 class="pill c1">O&ndash;P</h4>
+<h4 class="pill c4">O&ndash;P</h4>
 <p>Obstetric hemorrhage, staged response, <strong><a class="xr" href="#x27-17">27.17</a></strong><br>
 Older adults, <strong><a class="xr" href="#s15">15</a></strong><br>
 Opioid use disorder, <strong><a class="xr" href="#x30-6">30.6</a></strong><br>
@@ -17872,6 +17996,7 @@ Paroxysmal sympathetic hyperactivity, <strong><a class="xr" href="#x37-9">46.9</
 Passive leg raise, <strong><a class="xr" href="#x16-13">16.13</a></strong>, <a class="xr" href="#x20-4">20.4</a><br>
 Patent foramen ovale, <strong><a class="xr" href="#x23-10">23.10</a></strong><br>
 Patient-controlled analgesia (PCA), <strong><a class="xr" href="#x46-1">38.1</a></strong><br>
+PAWSS (alcohol withdrawal risk), <strong><a class="xr" href="#x30-1">30.1</a></strong><br>
 PDSA cycle, <strong><a class="xr" href="#xYRS-3">44.3</a></strong><br>
 Penicillin allergy, <strong><a class="xr" href="#x20-7">20.7</a></strong><br>
 Perfusion pressure, organ-specific, <strong><a class="xr" href="#x39-2">48.2</a></strong><br>
@@ -17880,6 +18005,7 @@ Peri-intubation resuscitation, <strong><a class="xr" href="#x25-8">25.8</a></str
 Pericarditis, <a class="xr" href="#x22-13">22.13</a>, <strong><a class="xr" href="#x23-8">23.8</a></strong><br>
 Peripheral arterial disease (PAD), <strong><a class="xr" href="#x37-1">46.1</a></strong><br>
 Peritoneal dialysis, <strong><a class="xr" href="#x27-5">27.5</a></strong><br>
+Phenobarbital, alcohol withdrawal, <strong><a class="xr" href="#x30-1">30.1</a></strong><br>
 Phentolamine, <a class="xr" href="#x21-4">21.4</a>, <a class="xr" href="#x32-1">49.1</a><br>
 Phenylephrine, <a class="xr" href="#x21-1">21.1</a>, <a class="xr" href="#x23-7">23.7</a>, <strong><a class="xr" href="#x32-1">49.1</a></strong><br>
 Phlebostatic axis, <strong><a class="xr" href="#x16-3">16.3</a></strong><br>
@@ -17915,7 +18041,7 @@ Pupil assessment, <strong><a class="xr" href="#x26-4">26.4</a></strong><br>
 Pupillometer (NPi), <strong><a class="xr" href="#x44-3">36.3</a></strong><br>
 Push-dose pressors, <strong><a class="xr" href="#x24-6">24.6</a></strong></p>
 
-<h4 class="pill c2">Q&ndash;S</h4>
+<h4 class="pill c0">Q&ndash;S</h4>
 <p>Q waves, <strong><a class="xr" href="#x22-12">22.12</a></strong><br>
 QTc limits, <strong><a class="xr" href="#x22-1">22.1</a></strong><br>
 QTc monitoring, <a class="xr" href="#x21-11">21.11</a>, <a class="xr" href="#x22-1">22.1</a><br>
@@ -17994,7 +18120,7 @@ Synergy Model, AACN, <strong><a class="xr" href="#x36-2">45.2</a></strong><br>
 Synergy Model, complexity in practice, <strong><a class="xr" href="#x39-1">48.1</a></strong><br>
 Systems thinking, <strong><a class="xr" href="#x36-2">45.2</a></strong></p>
 
-<h4 class="pill c3">T&ndash;Z</h4>
+<h4 class="pill c1">T&ndash;Z</h4>
 <p>TACO and TRALI, <strong><a class="xr" href="#x28-3">28.3</a></strong><br>
 Tamponade, cardiac, <strong><a class="xr" href="#x22-28">22.28</a></strong>, <a class="xr" href="#x23-9">23.9</a><br>
 Tenecteplase, <a class="xr" href="#x22-8">22.8</a>, <strong><a class="xr" href="#x26-11">26.11</a></strong><br>
@@ -18002,6 +18128,7 @@ Terminal extubation, <strong><a class="xr" href="#xEOL-4">42.4</a></strong><br>
 Test-plan coverage map, <strong><a class="xr" href="#s38">47</a></strong><br>
 Therapeutic drug levels, <strong><a class="xr" href="#x30-4">30.4</a></strong>, <a class="xr" href="#s34">51</a><br>
 Thermoregulation, <strong><a class="xr" href="#x37-6">46.6</a></strong><br>
+Thiamine, <strong><a class="xr" href="#x30-1">30.1</a></strong><br>
 Thoracentesis, assisting, <strong><a class="xr" href="#x31-13">31.13</a></strong><br>
 Three currencies, <strong><a class="xr" href="#x39-2">48.2</a></strong><br>
 Thrombectomy and TICI, <strong><a class="xr" href="#x26-29">26.29</a></strong><br>
@@ -18044,6 +18171,7 @@ Weaning, vasoactive drips, <strong><a class="xr" href="#x21-3">21.3</a></strong>
 Weaning, ventilator, <strong><a class="xr" href="#x25-24">25.24</a></strong><br>
 Weight-bearing orders, <strong><a class="xr" href="#x48-6">40.6</a></strong><br>
 Wenckebach, <a class="xr" href="#x22-2">22.2</a><br>
+Wernicke encephalopathy, <strong><a class="xr" href="#x30-1">30.1</a></strong><br>
 Winter's formula, <strong><a class="xr" href="#x25-2">25.2</a></strong><br>
 Withdrawal of life-sustaining treatment, <strong><a class="xr" href="#xEOL-4">42.4</a></strong><br>
 Withdrawal, iatrogenic, <strong><a class="xr" href="#x25-23">25.23</a></strong><br>
@@ -18058,20 +18186,27 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
 </div></template>
 <template id="c67"><h2 id="sREV" data-title="Revision History" data-cat="BACK MATTER"><span class="h2ttl">Revision History</span><span class="h2ico"><svg class="ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="50" height="50"><path d="M6 12 C16 8 26 9 32 14 V58 C26 53 16 52 6 56 Z" fill="#8c2f3f"/><path d="M58 12 C48 8 38 9 32 14 V58 C38 53 48 52 58 56 Z" fill="#ef6a5a"/><path d="M12 22 C17 20 22 20 26 22 M12 30 C17 28 22 28 26 30 M38 22 C42 20 47 20 52 22 M38 30 C42 28 47 28 52 30" stroke="#ffffff" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg></span></h2>
 <p>This guide is revised in place. Each change is logged below by date, with the section it touched, whether material was <strong>added</strong>, <strong>revised</strong>, <strong>corrected</strong>, or <strong>removed</strong>, and the page where it appears in this printing. Section numbers are stable across printings; page numbers are for this printing only. Newest changes are listed first.</p>
+<h4 class="revdate">November 21, 2026 &nbsp;&bull;&nbsp; General edition, revised</h4>
+<div class="tw"><table class="revtbl"><tr><th style="width:11%">Section</th><th style="width:10%">Change</th><th>What changed</th><th style="width:7%">Page</th></tr>
+<tr><td><a class="xr" href="#x30-1">30.1</a></td><td><strong>Added</strong></td><td>Alcohol withdrawal expanded: risk screening (AUDIT-C, PAWSS 4 or more = high risk); the full CIWA-Ar scoring table with how to ask or observe each item; ASAM 2020 severity bands (under 10, 10-18, 19 or more); how scoring usually runs and when to hold a dose and call; treatments and interventions you may see (benzodiazepines, phenobarbital, dexmedetomidine, propofol, ketamine, antipsychotics, clonidine and beta-blockers, gabapentin, thiamine, electrolytes, seizure and airway care); nursing care. Sources added: ASAM 2020, Sullivan 1989, Maldonado 2015, Rosenson 2013, EFNS 2010.</td><td class="pg">288</td></tr>
+<tr><td><a class="xr" href="#x30-1">30.1</a></td><td><strong>Corrected</strong></td><td>Thiamine is given before or with glucose, but glucose is never delayed for a hypoglycemic patient (was 'thiamine BEFORE glucose'). Overlapping CIWA-Ar score bands replaced with the ASAM 2020 bands.</td><td class="pg">291</td></tr>
+<tr><td><a class="xr" href="#x13-9">13.9</a></td><td><strong>Revised</strong></td><td>Points to the new CIWA-Ar scoring table and treatment list in <a class="xr" href="#x30-1">30.1</a>.</td><td class="pg">55</td></tr>
+<tr><td>Index</td><td><strong>Added</strong></td><td>PAWSS, Phenobarbital (alcohol withdrawal), Thiamine, and Wernicke encephalopathy.</td><td class="pg"></td></tr>
+</table></div>
 <h4 class="revdate">November 9, 2026 &nbsp;&bull;&nbsp; General edition, revised</h4>
 <div class="tw"><table class="revtbl"><tr><th style="width:11%">Section</th><th style="width:10%">Change</th><th>What changed</th><th style="width:7%">Page</th></tr>
 <tr><td><a class="xr" href="#x27-17">27.17</a></td><td><strong>Added</strong></td><td>Postpartum hemorrhage: the obstetric shock index (0.9 or more predicts transfusion and higher-level care; 1.7 or more is urgent), a dose table for oxytocin, methylergonovine, carboprost, misoprostol, and tranexamic acid (ACOG 2017; WHO 2017), the ICU phase (handoff, re-bleeding signs, lab and fibrinogen targets, care after embolization, pulmonary edema, magnesium, warming, VTE prevention, Rh immune globulin), later complications including Sheehan syndrome, and a self-check.</td><td class="pg">266</td></tr>
 <tr><td><a class="xr" href="#x27-17">27.17</a></td><td><strong>Added</strong></td><td>The staged response to obstetric hemorrhage (CMQCC stages 0 to 3: triggers, nursing and team actions, drugs and blood), the WHO 2025 advice to act at 300 mL with abnormal vital signs, fundal massage technique, the limits of D-dimer after delivery, and the timed record.</td><td class="pg">267</td></tr>
-<tr><td>Index</td><td><strong>Added</strong></td><td>Entries for each uterotonic, uterotonic drugs, Sheehan syndrome, and the obstetric shock index; tranexamic acid now points to <a class="xr" href="#x27-17">27.17</a>.</td><td class="pg">472</td></tr>
-<tr><td><a class="xr" href="#x31-14">31.14</a></td><td><strong>Added</strong></td><td>New subsection, Moderate sedation and analgesia: the ASA levels of sedation and rescue, RN scope, pre-sedation assessment (consent, ASA physical status, airway, fasting), drug table with label dosing for midazolam and common fentanyl dosing, reversal agents, the SOAP-ME equipment check and clinical management, patient education, complications (respiratory, over- and undersedation, paradoxical, cardiovascular) with interventions, documentation, recovery and discharge (modified Aldrete), and professional and legal guidelines.</td><td class="pg">312</td></tr>
-<tr><td><a class="xr" href="#x31-13">31.13</a></td><td><strong>Revised</strong></td><td>The moderate sedation row and the Section <a class="xr" href="#s40">32</a> crosswalk now point to <a class="xr" href="#x31-14">31.14</a>.</td><td class="pg">312</td></tr>
-<tr><td><a class="xr" href="#x32-8">49.8</a></td><td><strong>Corrected</strong></td><td>Flumazenil dosing now matches the label: for procedural sedation, wait 45 seconds before repeating 0.2 mg every 60 seconds (1 mg maximum); for overdose, 0.2 mg over 30 seconds, then 0.3 mg, then 0.5 mg at 1-minute intervals to a cumulative 3 mg.</td><td class="pg">438</td></tr>
-<tr><td>Index</td><td><strong>Added</strong></td><td>Entries for procedural sedation, the continuum of depth of sedation, ASA physical status, fasting, the modified Aldrete score, and SOAP-ME.</td><td class="pg">472</td></tr>
-<tr><td>42</td><td><strong>Revised</strong></td><td>State-neutral: code-status documents, capacity, the surrogate order, and medical examiner or coroner cases now describe the framework most US states share, with a pointer to your own state's law.</td><td class="pg">366</td></tr>
-<tr><td><a class="xr" href="#xEOL-3">42.3</a></td><td><strong>Revised</strong></td><td>Default surrogate order is now the common pattern across states, with the variations noted.</td><td class="pg">367</td></tr>
-<tr><td>43</td><td><strong>Revised</strong></td><td>State-neutral: scope of practice, mandatory reporting (<a class="xr" href="#xPRO-3">43.3</a> retitled What you must report), licensure, renewal, continued competency, and confidential help programs now apply to any state.</td><td class="pg">372</td></tr>
-<tr><td><a class="xr" href="#xYRS-2">44.2</a></td><td><strong>Revised</strong></td><td>License row no longer names a state.</td><td class="pg">375</td></tr>
-<tr><td>Index</td><td><strong>Revised</strong></td><td>State labels removed; added out-of-hospital DNR order, POLST and similar forms, and alternative-to-discipline programs.</td><td class="pg">468</td></tr>
+<tr><td>Index</td><td><strong>Added</strong></td><td>Entries for each uterotonic, uterotonic drugs, Sheehan syndrome, and the obstetric shock index; tranexamic acid now points to <a class="xr" href="#x27-17">27.17</a>.</td><td class="pg">475</td></tr>
+<tr><td><a class="xr" href="#x31-14">31.14</a></td><td><strong>Added</strong></td><td>New subsection, Moderate sedation and analgesia: the ASA levels of sedation and rescue, RN scope, pre-sedation assessment (consent, ASA physical status, airway, fasting), drug table with label dosing for midazolam and common fentanyl dosing, reversal agents, the SOAP-ME equipment check and clinical management, patient education, complications (respiratory, over- and undersedation, paradoxical, cardiovascular) with interventions, documentation, recovery and discharge (modified Aldrete), and professional and legal guidelines.</td><td class="pg">315</td></tr>
+<tr><td><a class="xr" href="#x31-13">31.13</a></td><td><strong>Revised</strong></td><td>The moderate sedation row and the Section <a class="xr" href="#s40">32</a> crosswalk now point to <a class="xr" href="#x31-14">31.14</a>.</td><td class="pg">315</td></tr>
+<tr><td><a class="xr" href="#x32-8">49.8</a></td><td><strong>Corrected</strong></td><td>Flumazenil dosing now matches the label: for procedural sedation, wait 45 seconds before repeating 0.2 mg every 60 seconds (1 mg maximum); for overdose, 0.2 mg over 30 seconds, then 0.3 mg, then 0.5 mg at 1-minute intervals to a cumulative 3 mg.</td><td class="pg">441</td></tr>
+<tr><td>Index</td><td><strong>Added</strong></td><td>Entries for procedural sedation, the continuum of depth of sedation, ASA physical status, fasting, the modified Aldrete score, and SOAP-ME.</td><td class="pg">475</td></tr>
+<tr><td>42</td><td><strong>Revised</strong></td><td>State-neutral: code-status documents, capacity, the surrogate order, and medical examiner or coroner cases now describe the framework most US states share, with a pointer to your own state's law.</td><td class="pg">369</td></tr>
+<tr><td><a class="xr" href="#xEOL-3">42.3</a></td><td><strong>Revised</strong></td><td>Default surrogate order is now the common pattern across states, with the variations noted.</td><td class="pg">370</td></tr>
+<tr><td>43</td><td><strong>Revised</strong></td><td>State-neutral: scope of practice, mandatory reporting (<a class="xr" href="#xPRO-3">43.3</a> retitled What you must report), licensure, renewal, continued competency, and confidential help programs now apply to any state.</td><td class="pg">375</td></tr>
+<tr><td><a class="xr" href="#xYRS-2">44.2</a></td><td><strong>Revised</strong></td><td>License row no longer names a state.</td><td class="pg">378</td></tr>
+<tr><td>Index</td><td><strong>Revised</strong></td><td>State labels removed; added out-of-hospital DNR order, POLST and similar forms, and alternative-to-discipline programs.</td><td class="pg">471</td></tr>
 <tr><td>8</td><td><strong>Revised</strong></td><td>Section <a class="xr" href="#s8">8</a> is now a general guide to building and using a brain sheet: what it is and is not (<a class="xr" href="#x8-1">8.1</a>), how to organize one (<a class="xr" href="#x8-2">8.2</a>), the field-by-field map (<a class="xr" href="#x8-3">8.3</a>), using it from report to handoff (<a class="xr" href="#x8-4">8.4</a>), making it yours (<a class="xr" href="#x8-5">8.5</a>), and a printable two-page template (<a class="xr" href="#x8-6">8.6</a>). Sections <a class="xr" href="#s9">9</a>, <a class="xr" href="#s13">13</a> and <a class="xr" href="#s20">20</a> now point to the template's printed defaults.</td><td class="pg">26</td></tr>
 <tr><td>Throughout</td><td><strong>Added</strong></td><td>Drug names now link to their full monograph in Section <a class="xr" href="#s32">49</a> (first mention in each subsection), and synchronized cardioversion, defibrillation, and transcutaneous and transvenous pacing link to their skills-lab steps in Section <a class="xr" href="#s41">33</a>.</td><td class="pg"></td></tr>
 <tr><td>2, 4–15, 20</td><td><strong>Added</strong></td><td>Numbered citations: cited statements carry a superscript number linked to the section's source list, now numbered in order of first use; sources not cited in the text are listed under Additional sources. Added Sepsis-3 (Singer 2016) to Section <a class="xr" href="#s20">20</a> and the 2021 and 2026 Surviving Sepsis guidelines to Section <a class="xr" href="#s11">11</a>. Sections <a class="xr" href="#s1">1</a> and <a class="xr" href="#s3">3</a> are experience-based advice and keep their reading lists unnumbered.</td><td class="pg">118</td></tr>
@@ -18118,7 +18253,7 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
 <tr><td><a class="xr" href="#x22-20">22.20</a></td><td><strong>Added</strong></td><td>Figure 22-1: IABP timing in 1:2 mode, correct timing plus the four timing errors.</td><td class="pg">156</td></tr>
 <tr><td><a class="xr" href="#x22-21">22.21</a>, <a class="xr" href="#x22-22">22.22</a></td><td><strong>Added</strong></td><td>Bicarbonate-based Impella purge (FDA 2022) for patients who can't have heparin; new alarm row for a stopped pump or very low flow (backflow below about 0.5 L/min; keep at P-2 or higher in the ventricle).</td><td class="pg">157</td></tr>
 <tr><td><a class="xr" href="#x22-27">22.27</a></td><td><strong>Corrected</strong></td><td>Post-arrest MAP floor of at least 65 mmHg (2025 AHA); was 65 to 80.</td><td class="pg">161</td></tr>
-<tr><td><a class="xr" href="#x22-30">22.30</a></td><td><strong>Corrected</strong></td><td>ESC table column renamed 'Older US term (before 2026)', since the 2026 AHA/ACC guideline replaced massive and submassive.</td><td class="pg">476</td></tr>
+<tr><td><a class="xr" href="#x22-30">22.30</a></td><td><strong>Corrected</strong></td><td>ESC table column renamed 'Older US term (before 2026)', since the 2026 AHA/ACC guideline replaced massive and submassive.</td><td class="pg">480</td></tr>
 <tr><td><a class="xr" href="#x22-32">22.32</a></td><td><strong>Added</strong></td><td>LVAD: HeartWare HVAD withdrawn in 2021; low flow can mean hypertension; new low-flow alarm row (patient first, never change the speed).</td><td class="pg">166</td></tr>
 <tr><td><a class="xr" href="#x24-1">24.1</a></td><td><strong>Revised</strong></td><td>IO placement framed by scope: know where the device is and whether nurses place it on your unit.</td><td class="pg">176</td></tr>
 <tr><td><a class="xr" href="#x24-2">24.2</a></td><td><strong>Corrected</strong></td><td>Post-ROSC MAP at least 65 mmHg (2025 AHA), matching <a class="xr" href="#x22-27">22.27</a>; dextrose row now D50 or D10 per protocol; toxicology cross-reference points to Section <a class="xr" href="#s30">30</a>.</td><td class="pg">177</td></tr>
@@ -18133,33 +18268,33 @@ Zeroing a transducer, <strong><a class="xr" href="#x16-3">16.3</a></strong></p>
 <tr><td><a class="xr" href="#x26-19">26.19</a></td><td><strong>Revised</strong></td><td>SAH: induced hypertension is for treating symptomatic delayed cerebral ischemia; prophylactic triple-H is not recommended (2023 AHA/ASA). 2026 AHA/ASA ischemic stroke guideline added to sources.</td><td class="pg">233</td></tr>
 <tr><td><a class="xr" href="#x27-4">27.4</a></td><td><strong>Added</strong></td><td>Figure 27-1 (CRRT circuit with regional citrate anticoagulation), a citrate accumulation box with the total-to-ionized calcium ratio and a worked example, and a dose and filtration fraction math table (KDIGO 20 to 25 mL/kg/hr delivered).</td><td class="pg">253</td></tr>
 <tr><td><a class="xr" href="#x28-3">28.3</a></td><td><strong>Corrected</strong></td><td>Transfusion reaction windows: TRALI within 6 hours, TACO within 12 hours (revised ISBT definition); both had been given as 6 hours.</td><td class="pg">274</td></tr>
-<tr><td>30</td><td><strong>Corrected</strong></td><td>Naloxone cross-reference now points to its monograph (<a class="xr" href="#x33-5">50.5</a>); it pointed to <a class="xr" href="#x31-8">31.8</a>.</td><td class="pg">295</td></tr>
-<tr><td>31</td><td><strong>Corrected</strong></td><td>Section intro range now reads <a class="xr" href="#x31-1">31.1</a> to <a class="xr" href="#x31-12">31.12</a>.</td><td class="pg">301</td></tr>
-<tr><td><a class="xr" href="#x31-3">31.3</a></td><td><strong>Added</strong></td><td>Hub disinfection comparison: active scrub versus passive disinfecting cap (INS 2024, SHEA 2022).</td><td class="pg">303</td></tr>
-<tr><td><a class="xr" href="#x31-3">31.3</a></td><td><strong>Updated</strong></td><td>Blood and lipid tubing intervals now note the stricter INS 2024 standard (blood sets after each unit or every 4 hours; lipids alone every 12 hours).</td><td class="pg">304</td></tr>
-<tr><td><a class="xr" href="#x40-2">32.2</a></td><td><strong>Corrected</strong></td><td>Crosswalk: difficult-airway devices now point to <a class="xr" href="#x25-8">25.8</a> (supraglottic airways); it pointed to <a class="xr" href="#x25-9">25.9</a>.</td><td class="pg">323</td></tr>
-<tr><td><a class="xr" href="#x41-1">33.1</a>, <a class="xr" href="#x42-1">34.1</a>, <a class="xr" href="#x49-3">41.3</a></td><td><strong>Updated</strong></td><td>Joint Commission references updated: the National Performance Goals replaced the National Patient Safety Goals on January 1, 2026 (alarm safety NPG.01.05.01; patient identification NPG.01.01.01; suicide risk NPG.08.01.01).</td><td class="pg">327</td></tr>
-<tr><td><a class="xr" href="#x41-5">33.5</a></td><td><strong>Corrected</strong></td><td>Transcutaneous pacing safety margin now matches <a class="xr" href="#x22-3">22.3</a>: about 2 mA above the capture threshold (ACLS), or about 10% by some policies.</td><td class="pg">330</td></tr>
-<tr><td><a class="xr" href="#x44-1">36.1</a></td><td><strong>Added</strong></td><td>Figure 36-1: ICP waveform shapes (normal compliance, poor compliance with P2 above P1, and a dampened trace) with the bedside response.</td><td class="pg">344</td></tr>
-<tr><td><a class="xr" href="#x49-5">41.5</a></td><td><strong>Added</strong></td><td>Transport oxygen worked example: an E cylinder at 1,800 psi and 10 L/min lasts about 45 minutes.</td><td class="pg">363</td></tr>
-<tr><td><a class="xr" href="#x36-3">45.3</a></td><td><strong>Corrected</strong></td><td>The three largest exam domains add up to 59% (21 + 20 + 18), not 55%; Professional Caring now points to Part VI.</td><td class="pg">380</td></tr>
-<tr><td>45-48</td><td><strong>Corrected</strong></td><td>British spellings changed to US spelling (for example hypoxaemia, hyperkalaemia, licence, theatre) to match the rest of the guide.</td><td class="pg">384</td></tr>
-<tr><td><a class="xr" href="#x37-9">46.9</a></td><td><strong>Updated</strong></td><td>Preeclampsia severe features updated to ACOG 2020; proteinuria is not required when severe features are present.</td><td class="pg">387</td></tr>
-<tr><td><a class="xr" href="#x37-10">46.10</a></td><td><strong>Added</strong></td><td>Cardiac surgery: the first 24 hours (bleeding, tamponade, low output, rhythm, temperature and glucose), with the STS 2017 arrest-after-cardiac-surgery rules.</td><td class="pg">387</td></tr>
-<tr><td>47</td><td><strong>Updated</strong></td><td>Coverage map now points to the Skills Lab, Part VI, and <a class="xr" href="#x37-10">46.10</a> (burns, brain death, compartment syndrome, palliative care, the Synergy competencies, and others); status asthmaticus no longer points to <a class="xr" href="#x37-6">46.6</a>.</td><td class="pg">391</td></tr>
-<tr><td><a class="xr" href="#x32-1">49.1</a>, <a class="xr" href="#x33-3">50.3</a></td><td><strong>Corrected</strong></td><td>Vasopressin half-life is 10 minutes or less (label), not 10-20; notes that the label titrates septic shock from 0.01 units/min while most protocols use a fixed 0.03.</td><td class="pg">408</td></tr>
+<tr><td>30</td><td><strong>Corrected</strong></td><td>Naloxone cross-reference now points to its monograph (<a class="xr" href="#x33-5">50.5</a>); it pointed to <a class="xr" href="#x31-8">31.8</a>.</td><td class="pg">297</td></tr>
+<tr><td>31</td><td><strong>Corrected</strong></td><td>Section intro range now reads <a class="xr" href="#x31-1">31.1</a> to <a class="xr" href="#x31-12">31.12</a>.</td><td class="pg">304</td></tr>
+<tr><td><a class="xr" href="#x31-3">31.3</a></td><td><strong>Added</strong></td><td>Hub disinfection comparison: active scrub versus passive disinfecting cap (INS 2024, SHEA 2022).</td><td class="pg">306</td></tr>
+<tr><td><a class="xr" href="#x31-3">31.3</a></td><td><strong>Updated</strong></td><td>Blood and lipid tubing intervals now note the stricter INS 2024 standard (blood sets after each unit or every 4 hours; lipids alone every 12 hours).</td><td class="pg">307</td></tr>
+<tr><td><a class="xr" href="#x40-2">32.2</a></td><td><strong>Corrected</strong></td><td>Crosswalk: difficult-airway devices now point to <a class="xr" href="#x25-8">25.8</a> (supraglottic airways); it pointed to <a class="xr" href="#x25-9">25.9</a>.</td><td class="pg">326</td></tr>
+<tr><td><a class="xr" href="#x41-1">33.1</a>, <a class="xr" href="#x42-1">34.1</a>, <a class="xr" href="#x49-3">41.3</a></td><td><strong>Updated</strong></td><td>Joint Commission references updated: the National Performance Goals replaced the National Patient Safety Goals on January 1, 2026 (alarm safety NPG.01.05.01; patient identification NPG.01.01.01; suicide risk NPG.08.01.01).</td><td class="pg">330</td></tr>
+<tr><td><a class="xr" href="#x41-5">33.5</a></td><td><strong>Corrected</strong></td><td>Transcutaneous pacing safety margin now matches <a class="xr" href="#x22-3">22.3</a>: about 2 mA above the capture threshold (ACLS), or about 10% by some policies.</td><td class="pg">333</td></tr>
+<tr><td><a class="xr" href="#x44-1">36.1</a></td><td><strong>Added</strong></td><td>Figure 36-1: ICP waveform shapes (normal compliance, poor compliance with P2 above P1, and a dampened trace) with the bedside response.</td><td class="pg">347</td></tr>
+<tr><td><a class="xr" href="#x49-5">41.5</a></td><td><strong>Added</strong></td><td>Transport oxygen worked example: an E cylinder at 1,800 psi and 10 L/min lasts about 45 minutes.</td><td class="pg">366</td></tr>
+<tr><td><a class="xr" href="#x36-3">45.3</a></td><td><strong>Corrected</strong></td><td>The three largest exam domains add up to 59% (21 + 20 + 18), not 55%; Professional Caring now points to Part VI.</td><td class="pg">383</td></tr>
+<tr><td>45-48</td><td><strong>Corrected</strong></td><td>British spellings changed to US spelling (for example hypoxaemia, hyperkalaemia, licence, theatre) to match the rest of the guide.</td><td class="pg">387</td></tr>
+<tr><td><a class="xr" href="#x37-9">46.9</a></td><td><strong>Updated</strong></td><td>Preeclampsia severe features updated to ACOG 2020; proteinuria is not required when severe features are present.</td><td class="pg">390</td></tr>
+<tr><td><a class="xr" href="#x37-10">46.10</a></td><td><strong>Added</strong></td><td>Cardiac surgery: the first 24 hours (bleeding, tamponade, low output, rhythm, temperature and glucose), with the STS 2017 arrest-after-cardiac-surgery rules.</td><td class="pg">390</td></tr>
+<tr><td>47</td><td><strong>Updated</strong></td><td>Coverage map now points to the Skills Lab, Part VI, and <a class="xr" href="#x37-10">46.10</a> (burns, brain death, compartment syndrome, palliative care, the Synergy competencies, and others); status asthmaticus no longer points to <a class="xr" href="#x37-6">46.6</a>.</td><td class="pg">394</td></tr>
+<tr><td><a class="xr" href="#x32-1">49.1</a>, <a class="xr" href="#x33-3">50.3</a></td><td><strong>Corrected</strong></td><td>Vasopressin half-life is 10 minutes or less (label), not 10-20; notes that the label titrates septic shock from 0.01 units/min while most protocols use a fixed 0.03.</td><td class="pg">411</td></tr>
 <tr><td><a class="xr" href="#x21-7">21.7</a>, <a class="xr" href="#x32-2">49.2</a></td><td><strong>Corrected</strong></td><td>Nitroprusside toxicity thresholds now follow the label: cyanide accumulates above about 2 mcg/kg/min; thiocyanate levels past 7 mg/kg/day; mean rate under 3 mcg/kg/min if eGFR is under 30 (1 if anuric).</td><td class="pg">128</td></tr>
-<tr><td><a class="xr" href="#x32-2">49.2</a>, <a class="xr" href="#x33-4">50.4</a></td><td><strong>Corrected</strong></td><td>Nicardipine titration increment is 2.5 mg/hr (label), matching <a class="xr" href="#x21-6">21.6</a>.</td><td class="pg">413</td></tr>
-<tr><td><a class="xr" href="#x32-2">49.2</a></td><td><strong>Updated</strong></td><td>Nitroglycerin: PDE-5 windows by drug (24 hours sildenafil or vardenafil, 48 hours tadalafil).</td><td class="pg">415</td></tr>
-<tr><td><a class="xr" href="#x32-8">49.8</a></td><td><strong>Corrected</strong></td><td>Dexmedetomidine: label maintenance range 0.2-0.7 mcg/kg/hr; protocols up to 1.5.</td><td class="pg">427</td></tr>
-<tr><td><a class="xr" href="#x32-8">49.8</a></td><td><strong>Corrected</strong></td><td>Flumazenil maximum is 1 mg for procedural sedation reversal and 3 mg for suspected overdose; lipid emulsion bolus by weight per ASRA 2020.</td><td class="pg">438</td></tr>
-<tr><td><a class="xr" href="#L51-B">51.B</a></td><td><strong>Updated</strong></td><td>Vancomycin: most hospitals dose to an AUC target (2020 consensus); trough timing kept for when a trough is ordered.</td><td class="pg">478</td></tr>
-<tr><td>52</td><td><strong>Updated</strong></td><td>Quick card: sepsis fluid wording matches <a class="xr" href="#x20-1">20.1</a>; TACO and TRALI timing and fever; AIS source updated to the 2026 guideline.</td><td class="pg">455</td></tr>
-<tr><td>Index</td><td><strong>Added</strong></td><td>Index entries for the audit additions (22), including hub disinfection, ICP waveform shapes, push-dose pressors, citrate accumulation, and cardiac surgery.</td><td class="pg">470</td></tr>
+<tr><td><a class="xr" href="#x32-2">49.2</a>, <a class="xr" href="#x33-4">50.4</a></td><td><strong>Corrected</strong></td><td>Nicardipine titration increment is 2.5 mg/hr (label), matching <a class="xr" href="#x21-6">21.6</a>.</td><td class="pg">416</td></tr>
+<tr><td><a class="xr" href="#x32-2">49.2</a></td><td><strong>Updated</strong></td><td>Nitroglycerin: PDE-5 windows by drug (24 hours sildenafil or vardenafil, 48 hours tadalafil).</td><td class="pg">418</td></tr>
+<tr><td><a class="xr" href="#x32-8">49.8</a></td><td><strong>Corrected</strong></td><td>Dexmedetomidine: label maintenance range 0.2-0.7 mcg/kg/hr; protocols up to 1.5.</td><td class="pg">430</td></tr>
+<tr><td><a class="xr" href="#x32-8">49.8</a></td><td><strong>Corrected</strong></td><td>Flumazenil maximum is 1 mg for procedural sedation reversal and 3 mg for suspected overdose; lipid emulsion bolus by weight per ASRA 2020.</td><td class="pg">441</td></tr>
+<tr><td><a class="xr" href="#L51-B">51.B</a></td><td><strong>Updated</strong></td><td>Vancomycin: most hospitals dose to an AUC target (2020 consensus); trough timing kept for when a trough is ordered.</td><td class="pg">481</td></tr>
+<tr><td>52</td><td><strong>Updated</strong></td><td>Quick card: sepsis fluid wording matches <a class="xr" href="#x20-1">20.1</a>; TACO and TRALI timing and fever; AIS source updated to the 2026 guideline.</td><td class="pg">458</td></tr>
+<tr><td>Index</td><td><strong>Added</strong></td><td>Index entries for the audit additions (22), including hub disinfection, ICP waveform shapes, push-dose pressors, citrate accumulation, and cardiac surgery.</td><td class="pg">473</td></tr>
 <tr><td>18, <a class="xr" href="#x21-6">21.6</a>, <a class="xr" href="#x22-6">22.6</a></td><td><strong>Corrected</strong></td><td>Consistency sweep: nicardipine increment 2.5 mg/hr in the drip table; nitroglycerin PDE-5 windows by drug (24 hours sildenafil or vardenafil, 48 hours tadalafil) everywhere.</td><td class="pg">144</td></tr>
 <tr><td><a class="xr" href="#x25-18">25.18</a></td><td><strong>Corrected</strong></td><td>Prone positioning indication: moderate to severe ARDS with P/F under 150 (the PROSEVA threshold), matching <a class="xr" href="#x43-4">35.4</a>.</td><td class="pg">203</td></tr>
 <tr><td><a class="xr" href="#x27-17">27.17</a></td><td><strong>Corrected</strong></td><td>TXA for postpartum hemorrhage: within 3 hours of birth (WOMAN trial; WHO 2017), not of onset.</td><td class="pg">267</td></tr>
-<tr><td>18, <a class="xr" href="#x25-23">25.23</a>, <a class="xr" href="#x32-4">49.4</a>, <a class="xr" href="#x33-5">50.5</a></td><td><strong>Updated</strong></td><td>2025 PADIS focused update: dexmedetomidine is suggested over propofol for sedation in ventilated adults (conditional); the benzodiazepine Watch Out row no longer calls propofol and dexmedetomidine equal.</td><td class="pg">447</td></tr>
+<tr><td>18, <a class="xr" href="#x25-23">25.23</a>, <a class="xr" href="#x32-4">49.4</a>, <a class="xr" href="#x33-5">50.5</a></td><td><strong>Updated</strong></td><td>2025 PADIS focused update: dexmedetomidine is suggested over propofol for sedation in ventilated adults (conditional); the benzodiazepine Watch Out row no longer calls propofol and dexmedetomidine equal.</td><td class="pg">450</td></tr>
 <tr><td>Sources</td><td><strong>Updated</strong></td><td>The superseded 2019 acute ischemic stroke guideline was replaced with the 2026 guideline in the remaining source lists.</td><td class="pg"></td></tr>
 <tr><td>19</td><td><strong>Corrected</strong></td><td>Arterial line discard volume sentence reworded (a doubled word).</td><td class="pg">77</td></tr>
 </table></div></template>
